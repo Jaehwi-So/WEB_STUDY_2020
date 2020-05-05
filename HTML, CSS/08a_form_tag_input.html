@@ -1,0 +1,66 @@
+<!--<input>은 form에서 사용자의 입력을 받기 위해 사용되는 태그이다.-->
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>폼에서의 input태그</title>
+</head>
+<body>  
+    <!-- id는 폼 요소들을 구분하기 위해서 사용, name은 폼 요소를 구분하면서 radio나 checkbox들의 폼들을 묶기 위해 사용-->
+    <h1>input태그 실습</h1>
+    <form action="test.php" method="post" target="blank">
+        <ul>
+            <!--autofocus : 입력 커서 표시하기, placeholder : 힌트 표시하기 value : 필드에 내용 표시 
+                readonly : 읽기 전용 필드 required : 필수 필드 지정-->
+            <li><label>text 타입 <input type="text" name="이름" value="필드에 표시될 내용" mexlength=10 id="user-name" size="10" autofocus required></label></li> <!--한 줄 텍스트 입력-->
+            <li><label>text-readonly <input type="text" name="이름" value="필드에 표시될 내용" mexlength=10 id="user-name" size="10" readonly></label></li> <!--한 줄 텍스트 입력-->
+            <li><label>hidden 타입 <input type="hidden" name="이름" value="서버로 넘길 값" id="user-hidden" size="10"></label></li> <!--사용자에게 보이지 않는 서버로 넘겨지는 값, name으로 히든 필드의 이름 지정, value로 그에 대한 값-->
+            <li><label>search타입 <input type="search" placeholder="힌트 표시하기" id="user-search" size="10"></label></li> <!--검색 상자-->
+            <li><label>tel 타입 <input type="tel" id="user-tel" size="10"></label></li> <!--전화번호 입력 필드-->
+            <li><label>url 타입 <input type="url" id="user-url" size="10"></label></li> <!--URL 주소 입력 필드-->
+            <li><label>email 타입 <input type="email" id="user-email" size="10"></label></li> <!--메일 주소 입력 필드-->
+            <li><label>password 타입 <input type="password" name="이름" value="패스워드 필드에 표시될 내용" mexlength=10 id="user-password" size="10"></label></li> <!--비밀번호 입력 필드-->
+           
+            <!--날짜나 시간과 관련된 유형 : min : 시간의 최솟값 max : 시간의 최댓값, step : 시간 조절 간격 설정, value : 초기값 설정-->
+            <li><label>time 타입 <input type="time" id="user-time" size="10"></label></li> <!--사용자 지역을 기준으로 시간(시, 분, 초, 분할 초)-->
+            <li><label>datetime 타입 <input type="datetime" id="user-datetime" size="10"></label></li> <!--UTC로 설정된 날짜와 시간-->
+            <li><label>datetime-local타입 <input type="datetime-local" id="user-datetime-loc" size="10"></label></li> <!--사용자의 지역 기준 날짜와 시간-->
+            
+            <li><label>date타입 <input type="date" id="user-date" size="10"></label></li> <!--사용자 지역을 기준으로 날짜(연, 월, 일)-->
+            <li><label>month 타입 <input type="month" id="user-month" size="10"></label></li> <!--사용자 지역을 기준으로 날짜(연, 월)-->
+            <li><label>week 타입 <input type="week" id="user-week" size="10"></label></li> <!--사용자 지역을 기준으로 날짜(연, 주)-->
+            
+            
+
+            <!--min:범위 최소값 max:범위 최대값, step:숫자 간격, value:필드의 초기값-->
+            <li><label>number 타입 <input type="number" min="1" max="5" step="1" value="1" id="user-number" size="10"></label></li> <!--숫자를 조절할 수 있는 화살표-->
+            <li><label>range 타입 <input type="range" min="10" max="50" step="10" value="20" id="user-range" size="10"></label></li> <!--숫자를 조절할 수 있는 슬라이드 막대 -->
+
+            <li><label>color 타입 <input type="color" id="user-color" size="10"></label></li> <!--색상 표-->
+
+            <li>
+                <!--주어진 항목에서 2개 이상 선택 가능한 체크박스. name으로 그룹으로 묶어줌-->
+                <label>checkbox1 <input type="checkbox" name="chk" value="서버로 넘길 값" id="user-checkbox1" size="10"></label>
+                <label>checkbox2 <input type="checkbox" name="chk" value="서버로 넘길 값" id="user-checkbox2" size="10"></label>
+            </li> 
+            <li>
+                <!--주어진 항목에서 1개만 선택가능한 라디오 버튼. name으로 그룹으로 묶어줌-->
+                <label>radio1 <input type="radio" name="rad" value="서버로 넘길 값" id="user-radio1" size="10"></label>
+                <label>radio2 <input type="radio" name="rad" value="서버로 넘길 값" id="user-radio2" size="10"></label>
+            </li> 
+       
+
+            <li><label>file 타입 <input type="file" id="user-file" size="10"></label></li> <!--파일을 첨부할 수 있는 버튼-->
+           
+
+            <li><label>submit 타입 <input type="submit" id="user-submit" size="10"></label></li> <!--서버 전송 버튼-->
+            <li><label>reset 타입 <input type="reset" id="user-reset" size="10"></label></li> <!--리셋 버튼-->
+            <li><label>image 타입 <input type="image" src="image/log.png" height="20" width="40" alt="대체 텍스트" id="user-image" size="10" multiple></label></li> <!--submit 버튼 대신 사용할 이미지 src로 경로지정, width,height로 크기조절, multiple로 두개이상값입력가능-->
+          
+            <li><label>button 타입 <input type="button" value="버튼 내용" id="user-button" size="10"></label></li> <!--버튼-->
+        </ul>
+    </form>
+</body>
+</html>
