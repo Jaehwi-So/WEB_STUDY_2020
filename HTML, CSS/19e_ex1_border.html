@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>테두리 속성(Border)</title>
+	</head>
+	<style>
+		/* width : 두께, color : 색상 */
+		p{font-size : 20px; border-width : 6px; border-color : blue;}	
+		/* style : 테두리 종류 */
+		.box1{border-style : none;}
+		.box2{border-style : hidden;}
+		.box3{border-style : dotted;} /* 짧은 점선 */
+		.box4{border-style : dashed;} /* 긴 점선 */
+		.box5{border-style : solid;} /* 실선 */
+		.box6{border-style : double;} /* 이중선 */
+		.box7{border-style : groove;} /* 명암을 가지는 선 */
+		.box8{border-style : ridge;} /* 명암을 가지는 선 */
+		.box9{border-style : inset;} /* 두께감이 없는 명암을 가지는 선 */
+		.box10{border-style : outset;} /* 두께감이 없는 명암을 가지는 선 */
+		
+		.box3{border : 5px dotted green;}	/* 테두리 속성을 한번에 설정 가능 */
+		.box5{border : 1px solid black;}
+		
+		.div1{
+			border : 10px solid green;
+			width : 200px;		
+			height : 100px;  /* 높이를 지정하지 않으면 알아서 자식요소의 크기만큼 자동으로 지정된다. */
+		}
+		.div2{
+			border-bottom:5px solid red;
+			border-top:5px double red;
+			width : 200px;
+			height : 100px;
+		}
+		.div3{
+			width : 200px;
+			height : 100px;
+			border-width : 4px 8px 12px 16px;
+			border-style : solid;
+			border-color : blue red;	/* 남북 / 동서 */
+		}
+		
+		
+		
+		
+	</style>
+	<body>
+		<p class = "box1">테스트..1</p>
+		<p class = "box2">테스트..2</p>
+		<p class = "box3">테스트..3</p>
+		<p class = "box4">테스트..4</p>
+		<p class = "box5">테스트..5</p>
+		<p class = "box6">테스트..6</p>
+		<p class = "box7">테스트..7</p>
+		<p class = "box8">테스트..8</p>
+		<p class = "box9">테스트..9</p>
+		<p class = "box10">테스트..10</p>
+		
+		<div class = "div1">
+			<p>
+			div의 테두리..1-1<br>
+			div의 테두리..1-2
+			</p>
+		</div>
+		
+		<div class = "div2">
+			<p>div의 테두리..2</p>
+		</div>
+		
+		<div class = "div3">
+			<p>div의 테두리..3</p>
+		</div>
+		
+	</body>
+</html>
