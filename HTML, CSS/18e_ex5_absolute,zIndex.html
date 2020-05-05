@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>position : absolute , z 인덱스</title>
+		<style type="text/css">
+			p{ 
+				border : 1px solid black; 
+				padding : 15px;
+				width : 80px;
+				height : 80px;
+				position : absolute	/* absolute : 절대좌표로 변경- body 기준 (0,0)이 기본값. */
+			}
+			.box1{
+				background : yellow;
+				left : 100px; top : 100px;
+				z-index : 3;	/* 태그의 순서를 바꾼다. 숫자가 클 수록 앞에 표시(z축값 변경) */
+			}
+			.box2{
+				background : gold;
+				left : 120px; top : 120px;
+				z-index : 2;
+			}
+			.box3{
+				background : orange;
+				left : 140px; top : 140px;
+				z-index : 1;
+			}
+		</style>
+	</head>
+	<body>
+		<p class="box1">박스1</p>
+		<p class="box2">박스2</p>
+		<p class="box3">박스3</p>
+	</body>
+</html>
