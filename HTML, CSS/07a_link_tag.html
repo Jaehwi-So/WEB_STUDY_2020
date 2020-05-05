@@ -1,0 +1,84 @@
+<!--    
+    <a href="https://path"></a> : 링크 생성 
+    target : 링크를 열 창
+    <a href="#id"></a>를 이용하여 해당 id로 이동
+
+    #usemap 속성을 이용하여 map으로 쓸 이미지 지정
+    <img src="image/map.png" alt="" usemap="#whichlink">
+
+    <map name="whichlink">: 이미지 맵 생성
+    #<area>로 맵의 링크 지정
+    <area shape="rect" coords="0,0,202,171" href="https://facebook.com/"target="_blank">
+    </map> 
+-->
+<title>링크 태그 연습</title>
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+    a{
+        text-decoration:none;
+        color:black;
+    }</style>
+</head>
+<body>
+    <!--텍스트를 통해 링크를 생성하는 방법-->
+    <h2>텍스트 링크 생성</h2>
+    <a href="https://github.com/">Github</a>
+
+    <!--이미지를 통해 링크를 생성하는 방법-->
+    <h2>이미지 링크 생성</h2>
+    <a href="https://github.com/">
+        <img src="image/git.png">
+    </a>
+
+    <!--새 창에서 링크를 여는 방법-->
+    <h2>새 창에서 링크 열기</h2>
+    <a href="https://github.com/"target="blank">새창에서 Git열기</a>   
+
+
+    <!--한 문서 안에서 점프하기-->
+    <h1>Waiting for love - Avicii</h1>
+    <ul id="menu">
+        <li><a href="#mon">월요일</a></li>    <!-- <a href="#id"> ->해당 id로 이동 -->
+        <li><a href="#th">화요일</a></li>
+        <li><a href="#wed">수요일</a></li>
+        <li><a href="#thu">목요일</a></li>
+        <li><a href="#fri">금요일</a></li>
+        <li><a href="#sat">토요일</a></li>
+        <li><a href="#sun">일요일</a></li>
+    </ul>
+        <h2 id="mon">월요일</h2>
+        <p> Monday left me broken</p><br>
+        <h2 id="th">화요일</h2>
+        <p> Tuesday I was through with hoping</p><br>
+        <h2 id="wed">수요일</h2>
+        <p> Wednesday my empty arms were open</p><br>
+        <h2 id="thu">목요일</h2>
+        <p> Thursday waiting for love, waiting for love</p><br>
+        <h2 id="fri">금요일</h2>
+        <p> Thank the stars it's Friday</p><br>
+        <h2 id="sat">토요일</h2>
+        <p> I'm burning like a fire gone wild on Saturday</p><br>
+        <h2 id="sun">일요일</h2>
+        <p> Guess I won't be coming to church on Sunday</p><br>
+
+    <!--이미지 링크맵 지정하기-->
+    <img src="image/map.png" alt="" usemap="#whichlink">  <!--usemap속성을 이용하여 이미지 맵 지정하기-->
+    <map name="whichlink">    <!--<map> : 이미지 맵 생성-->
+        <area shape="rect" coords="0,0,202,171" href="https://facebook.com/"target="_blank">
+        <area shape="rect" coords="203,0,579,171" href="https://github.com/"target="_blank">
+    </map>
+    <!--
+        <area> : 이미지 맵 영역 표시
+        속성 : alt(대체 텍스트), coords(시작 좌표, 끝 좌표로 지정), href(경로 지정), shape(영역 형태 지정)
+        target : 링크를 열 창 지정, download : 링크 문서 다운로드 media : 최적화 미디어 결정, type : 링크 문서의 미디어 유형지정
+    -->
+
+</body>
+
+</html>
