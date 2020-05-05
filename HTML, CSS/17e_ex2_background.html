@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>배경 CSS</title>
+		<style type = "text/css">
+			p{  
+				border : 1px solid black;
+				padding : 50px; width:500px; height:150px;
+			}
+			.back1{
+				background : gray url(image/background.jpg) no-repeat right bottom;	/*우측 하단에 이미지 정렬*/
+			}
+			.back2{
+				background : gray url(image/background.jpg) no-repeat 20px 100px; /* 이미지 좌표값 지정 */
+			}
+			.back3{
+				background : gray url(image/background.jpg) no-repeat center; /* 이미지 중앙 정렬 */
+			}
+			.back4{
+				background : gray url(image/background.jpg) no-repeat 70% 10%; /* 좌측, 상단으로부터 비율로 좌표지정 */
+			}
+		</style>
+	</head>
+	<body>
+		<p class = "back1">
+			가나다라마바사아자카타파하<br>
+			거너더러머버서어저커터퍼허<br>
+			고노도로모보소오조코토포호
+		</p>
+		<p class = "back2">
+			가나다라마바사아자카타파하<br>
+			거너더러머버서어저커터퍼허<br>
+			고노도로모보소오조코토포호
+		</p>
+		<p class = "back3">
+			가나다라마바사아자카타파하<br>
+			거너더러머버서어저커터퍼허<br>
+			고노도로모보소오조코토포호
+		</p>
+		<p class = "back4">
+			가나다라마바사아자카타파하<br>
+			거너더러머버서어저커터퍼허<br>
+			고노도로모보소오조코토포호
+		</p>
+	</body>
+</html>
