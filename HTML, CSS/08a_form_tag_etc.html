@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>다양한 폼 요소들</title>
+</head>
+<body>
+    <!--버튼을 다양한 타입으로 사용할 수 있다.  button으로 구현할 시 해당 부분에 버튼이 있다는 것을 정확히 전달 가능하며 콘텐츠나 아이콘을 추가시키거나 CSS로 꾸밀 수 있다.-->
+    <button type="submit">submit</button><!--button의 기본 타입은 submit이다.-->
+    <button type="reset">reset</button>
+    <button type="button">button</button>
+
+    <!--<output> 입력하는 값이 계산 결과라는 것을 브라우저에게 정확히 인지시켜준다.-->
+    <form oninput="result.value=parseInt(num1.value)+parseInt(num2.value)">
+        <input type="number" name="num1" value="10">
+        +<input type="number" name="num2" value="20">
+        =<output name="result" for"num1"></output>
+    </form>
+
+    <!--<progress> 진행 상태 보여주기. value:작업 진행 상태를 나타냄. 부동 소수점으로 표현, max:완료에 필요한 작업량-->
+    <ul>
+        <li>
+            <label>10초 남음</label>
+            <progress value="50" max="60"><</progress>
+        </li>
+        <li>
+            <label>진행률 30%</label>
+            <progress value="30" max="100"><</progress>
+        </li>
+    </ul>
+
+    <!--<meter> 값이 차지하는 크기 표시하기. progress는 진행상태, meter은 비율을 나타낼때 주로사용 -->
+    <!--min,max : 범위의 최대,최소값 value : 차지하는 값, low,high : 이 정도면 낮다/높다. 상한/하한 설정. optimum: 이 정도면 적당하다.-->
+    <ul>
+        <li>
+            <label>점유율 0.5</label>
+            <meter value="0.8"></meter>
+        </li>
+        <li>
+            <label>사용량 63%</label>
+            <meter min="0" max="100" value="63"></meter>
+        </li>
+        <li>
+            <label>트래픽 초과</label>
+            <meter min="0" max="100" low="20" high="80" value="86"></meter>
+        </li>
+        <li>
+            <label>적절한 트래픽</label>
+            <meter min="0" max="100" low="20" high="80" optimum="50" value="45"></meter>
+        </li>
+    </ul>
+    
+</body>
+</html>
