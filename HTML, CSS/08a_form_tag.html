@@ -1,0 +1,65 @@
+
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>폼 만들기</title>
+</head>
+<body>
+    <!--
+        <form>을 통하여 폼 생성
+    속성 action : 태그 안의 내용을 처리해줄 서버 상의 프로그램 지정. 해당 프로그램은 백엔드 영역에서 주로 프로그래밍
+         method : 서버 프로그램으로 어떻게 넘겨줄지를 결정한다. 
+         ->post : 주로 사용. 입력길이 제한 x, 내용이 드러나지 않음. 사용자의 입력을 표준 입력으로 넘겨준다.
+         ->get : 주소 표시줄에 사용자가 입력한 내용이 드러남. 길이의 제한
+         name : 폼의 이름을 지정한다
+         autocomplete : 자동완성 기능. 기본적으로 on 상태이다.
+    -->
+
+    <!--기본형1 <label [속성="속성값"]> 레이블 <input..></lable>-->
+    <form action="search.php" method="post" target="blank" name="폼1"> 
+        <label>검색하기 <input type="text" title="검색창"></label>
+        <input type="submit" value="검색">
+    </form>
+
+     <!--기본형2 <label for="id이름"> 레이블</lable>
+        <input id="id이름" [속성="속성값"]>
+    -->
+    <form action="idinput.php" method="post" target="blank" name="폼2" autocomplete="off"> 
+
+        <!--<fieldset> : 폼들을 하나의 영역으로 묶는다.-->
+        <!--<legend> : fieldset으로 묶은 영역의 제목을 붙인다-->
+        <fieldset>
+            <legend>로그인 정보</legend>    
+            <ul>
+                <li>
+                    <label for ="user-id">ID </label>
+                    <input type="text" id=user-id title="id 입력창">
+                    <input type="submit" value="입력">
+                </li>
+                <li>
+                    <label for ="user-pass">Password </label>
+                    <input type="text" id=user-pass title="패스워드 입력창">
+                    <input type="submit" value="입력">
+                </li>
+            </ul>
+         </fieldset>
+         <fieldset>
+            <legend>개인 정보</legend>
+            <ul>
+                <li>
+                    <lable>이름 <input type="text"></lable>
+                    <input type="submit" value="입력">
+                </li>
+                <li>
+                    <label><input type="radio" name="job" value="age_group">아동</label>
+                    <label><input type="radio" name="job" value="age_group">청소년</label>
+                    <label><input type="radio" name="job" value="age_group">성인</label>
+                </li>
+            </ul>
+         </fieldset>
+    </form>
+</body>
+</html>
