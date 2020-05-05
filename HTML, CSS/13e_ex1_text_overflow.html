@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>영역을 벗어난 텍스트의 처리</title>
+		<style type="text/css">
+			p{
+				border : 1px solid black;
+				padding : 5px; width : 150px; height : 70px;
+			}
+			
+			/* overflow를 통하여 영역을 벗어난 텍스트의 처리를 할 수 있다. */
+			.hidden{overflow : hidden;}	/* hidden : 무조건 정해진 영역에서만 텍스트를 표시 */
+			.scroll{overflow : scroll;}	/* scroll : 내용의 길이와 상관 없이 무조건 상하/좌우 스크롤 생성 */
+			.auto{overflow : auto;} /* auto : 내용이 넘칠때만 스크롤이 생긴다. */
+			.visible{overflow : visible;} /* visible : 디폴트값. 모든 내용을 표시한다. */
+		</style>
+	</head>
+	<body>
+		<p class="hidden">
+			동해물과 백두산이 마르고 닳도록<br>
+			하느님이 보우하사 우리나라 만세<br>
+			무궁화 삼천리 화려강산<br>
+			대한사람 대한으로 길이 보전하리
+		</p>
+		
+		<p class="scroll">
+			동해물과 백두산이 마르고 닳도록<br>
+			하느님이 보우하사 우리나라 만세<br>
+			무궁화 삼천리 화려강산<br>
+			대한사람 대한으로 길이 보전하리
+		</p>
+		
+		<p class="auto">
+			동해물과 백두산이 마르고 닳도록<br>
+			하느님이 보우하사 우리나라 만세<br>
+			무궁화 삼천리 화려강산<br>
+			대한사람 대한으로 길이 보전하리
+		</p>
+		
+		<p class="visible">
+			동해물과 백두산이 마르고 닳도록<br>
+			하느님이 보우하사 우리나라 만세<br>
+			무궁화 삼천리 화려강산<br>
+			대한사람 대한으로 길이 보전하리
+		</p>
+	</body>
+</html>
