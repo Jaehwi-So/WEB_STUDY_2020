@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>링크태그의 가상 클래스</title>
+		<style>
+			li{
+				list-style : none;
+				font-size : 30px;
+				margin : 10px 0;
+			}
+			a{ text-decoration : none; color : gray;}
+			/* 속성을 모두 사용해야 한다면 hover, active 순으로 호출해야 한다. */
+			a:hover{color : orange; text-decoration:underline;}
+			a:active{color : red;}	/* 해당 링크를 클릭하면 빨간색으로 변경 */
+	
+		</style>
+	</head>
+	<body>
+		<ul>
+			<li><a href = "#">홈</a></li>
+			<li><a href = "#">회원 가입</a></li>
+			<li><a href = "#">사이트맵</a></li>
+			<li><a href = "#">오시는 길</a></li>
+		</ul>
+	</body>
+</html>
