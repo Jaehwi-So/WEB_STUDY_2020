@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>CSS로 dl 디자인하기</title>
+		<style>
+			*{margin : 0px; padding : 0px;}	/* * : body안의 모든 태그들의 스타일 지정 */
+			dl{ width : 650px; 
+			    border : 5px double gray; 
+			    margin : 0px auto; /* auto : 중앙으로 자동정렬한다. 자동정렬을 사용하려면 width속성이 적용되어 있어야 한다.*/
+			}	
+			dt{ padding : 15px 0px;
+			 	text-align : center;	/* 텍스트 중앙정렬 */
+			 	background : #aaf;
+			 	border-bottom : 5px solid blue;
+			 	letter-spacing : 10px; /* 자간 */
+			}
+			dd{ padding : 10px 0px;
+				text-indent : 15px;	/* 첫 줄 들여쓰기 */			
+			}
+			.line{ border-bottom : 3px dotted black;}
+		</style>
+	</head>
+	<body>
+		<dl>
+			<dt>한국의 속담</dt>
+			<dd class = "line">가는 말이 고와야 오는 말이 곱다</dd>
+			<dd>무한으로 즐겨요 명륜진사 갈비</dd>
+		</dl>
+	</body>
+</html>
