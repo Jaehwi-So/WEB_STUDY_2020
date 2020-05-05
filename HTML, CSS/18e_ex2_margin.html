@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>마진(margin : 바깥쪽 여백, 박스와 박스 사이의 여백)</title>
+		<style>
+			p{border : 5px solid blue; background : gray;}
+			div{border : 5px solid blue; background : gray;}
+			/* 두 박스 모델 사이의 margin값은 두 박스 모델의 마진 중 더 큰 값으로 적용된다. */
+			.box1{margin : 30px;}	/* 상하좌우 마진 적용 */
+			.box2{margin : 50px 70px;}	/* 상하/좌우 마진 적용 */
+			.box3{margin : 20px 50px 30px;} /* 상/좌우/하 마진 적용 */
+			.box4{margin : 20px 30px 50px 70px;} /* 시계방향. 상/우/하/좌 마진 적용 */		
+		</style>
+	</head>
+	<body>
+		<p class="box1">p태그에 마진을 적용해보자</p>
+		<p class="box2">p태그에 마진을 적용해보자</p>
+		<p class="box3">p태그에 마진을 적용해보자</p>
+		<p class="box4">p태그에 마진을 적용해보자</p>
+		
+		<div class="box1">div에 마진을 적용해보자</div>
+		<div class="box2">div에 마진을 적용해보자</div>
+					
+	</body>
+</html>
