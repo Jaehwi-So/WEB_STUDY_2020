@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>클래스를 통한 CSS 적용</title>
+		<style>
+			/* 클래스 접근법 : .클래스명{} */
+			.box{color : cyan;}
+			/* box 클래스 안에 있는 h2 태그에만 스타일을 적용 */
+			.box h2{color : ligntgreen;}
+			
+			span{color : green;}
+			
+			.s_green{color : #476600;}
+			
+			p{ color : magenta;}
+			
+			p.p1{ color : violet;}	/* p태그중 p1 클래스인 태그에게만 적용 */
+			
+		</style>
+	</head>
+	<!-- 클래스는 특정 태그를 구별하기 위한 식별자이며 중복하여 사용이 가능하다. -->
+	<body>
+		<div class = "box">
+			<h2><span>클래스</span> 연습 중</h2>	<!--span : 한 줄 안에서 일부분을 지정하는 인라인 태그이다.  -->
+			<h3><span>클래스</span>연습 중..1</h3>
+			<div class = "box">
+				<h2><span>클래스</span> 연습 중..2</h2>
+				<h3><span>클래스</span> 연습 중..3</h3>
+			</div>
+		</div>
+		
+		<h2><span class="s_green">클래스</span> 연습 중..4</h2>
+		
+		<p class = "p1">안녕하세요</p>
+		<p class = "p2">안녕하세요</p>
+	</body>
+</html>
