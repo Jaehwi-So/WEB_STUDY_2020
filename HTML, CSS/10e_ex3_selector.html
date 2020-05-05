@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>Selector(선택자)</title>
+		<style>
+			/*자식 선택자는 직계자식에게만 속성을 적용한다.(손자에게는 적용 x)*/
+			#header > h1{color : red;}
+			
+			/*section안의 모든 h1들에게 속성 적용 */
+			#section h1{color : blue;}
+		</style>
+		</head>
+	<body>
+		<div id = "header">
+			<h1>Selector Basic</h1>
+			<div id = "nav">	<!--header의 직계자식  -->
+				<h1>Navigation</h1>	<!--header의 손자 -->
+			</div>
+			<div id = "nav1">
+				<h1>Navigation</h1>
+			</div>
+		</div>
+		
+		<div id = "section">
+			<h1 class="title">Selector</h1>
+			<p>Basic</p>
+		</div>
+	</body>
+</html>
