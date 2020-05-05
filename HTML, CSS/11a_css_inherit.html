@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<style>
+    body{   /*포함 관계에서 부모 요소이다.*/
+        font-size:10px;
+        color:blue;
+    }
+    h1{ /*포함 관계에서 자식 요소이다.*/
+        font-size:20px;
+    }
+    h2{ /*포함 관계에서 자식 요소이다.*/
+        color:red;
+    }
+</style>
+<body>
+    <h1>CSS 스타일 상속</h1>
+    <p>다음과 같이 기본적으로 body부분에 선언된 스타일은 모든 자식 요소에게 상속된다</p>
+    <h1>h1태그은 부모 요소 body의 스타일인 파란색으로 나타난다. 단 태그 스타일의 우선순위에 의해서 font-size는 20px가 된다.</h1>
+    <h2>h2부분은 부모 요소 body의 font-size인 10px가 된다. 단 태그 스타일의 우선순위에 의해서 색은 빨간색이 된다.</h2>
+    <p>단 배경색과 이미지는 상속되지 않는다.</p>
+</body>
+</html>
