@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>웹표준 테이블</title>
+	</head>
+	<body>
+		<!-- 시각 장애인을 고려하여 웹 표준 테이블로 thead, tbody, tfoot을 명시한다. 이 순서대로 테이블이 설정된다.  -->
+		<table border = "1">
+			<caption>테블릿 pc와 스마트폰 판매현황</caption>	<!-- 해당 테이블의 실제 제목 -->
+			<thead>		<!-- thead : 테이블의 헤더(머리 부분)임을 명시한다. -->
+				<tr>
+					<th>구분</th>	<!-- th : 두껍게 표시됨  -->
+					<th>테블릿 PC</th>
+					<th>스마트폰</th>
+				</tr>
+			</thead>
+			
+			<tfoot>	<!-- tfoot : 테이블의 결론부임을 명시한다.  -->
+				<tr>
+					<th>총 판매 수</th>
+					<td>50,000대</td>
+					<td>160,000대</td>
+				</tr>
+			 </tfoot>	<!-- tbody와 순서가 바뀌었어도 마지막에 데이터가 추가되는 시맨틱 태그 -->
+			
+			<tbody>	<!-- tbody : 테이블의 몸체(내용 부분)임을 명시한다. -->
+				<tr>
+					<th>상반기 판매 수</th>
+					<td>20,000대</td>
+					<td>50,000대</td>
+				</tr>
+				<tr>
+					<th>하반기 판매 수</th>
+					<td>30,000대</td>
+					<td>110,000대</td>
+				</tr>
+			</tbody>
+			
+
+		</table>
+	</body>
+</html>
