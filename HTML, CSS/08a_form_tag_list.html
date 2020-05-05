@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>폼 관련 태그 실습</title>
+</head>
+<body>
+<!--
+id, class, name의 차이점
+id 하나의 요소만 가능 (페이지 유일) CSS에서 식별자로 사용 가능 
+class 여러 요소 적용 가능 CSS에서 식별자로 사용 가능 
+name 여러 요소 적용 가능 CSS에서 사용 불가 <form> submit 전송시 사용 가능 
+-->
+
+<!--드롭다운 목록 만들기 <select> -->
+    <label class="reg" for="food">선호 음식 선택</label>
+    <select size="2" id="food"><!--size : 화면에 표시될 드롭다운의 항목 개수 multiple : 여러 항목 선택 가능-->
+        <option value="nofav"" selected>해당 사항 없음</option><!--value : 옵션 선택시 서버로 넘겨질 값, selected : 기본으로 선택되어 있는 옵션-->
+        <optgroup label="한식"><!--optgroup : 옵션끼리 묶기-->
+            <option value="rice">쌀밥</option><!--option 태그로 원하는 항목을 추가시킨다.-->
+            <option value="bibimbap">비빔밥</option>
+            <option value="bulgoggi">불고기</option>
+            <option value="kimchi">김치</option>
+        </optgroup>
+        <optgroup label="양식">
+            <option value="pizze">피자</option><!--value : 옵션 선택시 서버로 넘겨질 값-->
+            <option value="pasta" selected>파스타</option><!--selected : 기본으로 선택되어 있는 옵션-->
+            <option value="burger">버거</option>
+            <option value="soup">수프</option>
+        </optgroup>
+    </select><br>
+
+    <!--<datalist> 데이터 목록중에 값을 선택하도록 할 수 있다.-->
+    <label>과 선택<input type="text" id="class" list="choices"></label>
+    <datalist id="choices">
+        <option value="human" label="휴먼지능정보공학과"></option>
+        <option value="computer" label="컴퓨터과학과"></option>
+        <option value="electron" label="전자공학과"></option>
+    </datalist>
+    <!--<textarea> 여러 줄을 입력할 수 있는 텍스트 영역 cols:문자단위 가로 너비, rows:화면에 표시할 줄 수-->
+    <textarea name="txarea", cols="15",rows="2">텍스트 입력</textarea>
+</body><br>
+
+    
+
+</html>
