@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        h1{
+            font-size:20px;
+            font-family:"돋움체";
+            font-weight:bolder;
+        }
+        /*--=============== # 배경 이미지 고정하기 # ==================
+        #background-attachment: scroll(화면과 함께 배경 이미지 스크롤됨. 기본값)|fixed(배경 이미지 고정)
+        */
+        body{
+            background:rgba(62, 25, 83, 0.5) url('image/bubble.png') right center no-repeat fixed;
+             /* # background 속성 축약하기 # 
+            background-color:rgba(62, 25, 83, 0.5)
+            background-image:url('image/bubble.png');
+            background-position:right center;
+            background-repeat:no-repeat;
+            background-attachment:fixed;
+            */
+        }
+        div{
+            width: 300px;
+            padding: 50px;
+            border: 5px dotted #222;
+        }
+        .image_light{
+            background-image:url('image/light.png')
+        }
+    </style>
+</head>
+<body>
+    <!--=============== # 배경 이미지 배치 위치 / 배치 방식 지정하기 # ==================
+    -위치 지정하기
+    #background-position:<수평 위치><수직 위치>;
+    수평 위치:left|center|right|<백분율>|<길이값>
+    수직 위치:top|center|bottom|<백분율>|<길이값>
+    >키워드 표시법(left,center,right,top,center,bottom) 수평 위치와 수직 위치를 키워드로 맞추어 그 자리에 이미지 삽입
+    >백분율 표시법 : 왼쪽 모서리로부터 가로, 세로 % 위치에 이미지의 왼쪽 상단 모서리를 맞추어 삽입
+    >길이 표시법:배경 이미지의 왼쪽 상단 부분을 해당 값에 맞춘다.
+
+    -배치 방식(기준) 지정하기
+    배경 이미지를 배치 할 때 기준. 즉 어디서부터 시작할지를 정해준다.
+    background-origin:border-box|padding-box|content-box
+
+    -->
+    <div class="image_light" style="background-repeat:no-repeat; background-position:right center; background-origin:border-box">
+        <h1>배치 위치 조절</h1>
+        background-position:right center<br> background-origin:border-box
+    </div>
+
+    <div class="image_light" style="background-repeat:no-repeat; background-position:50% 80%; background-origin:padding-box">
+        <h1>배치 위치 조절</h1>
+        background-position:50% 80%<br> background-origin:padding-box
+    </div>
+
+    <div class="image_light" style="background-repeat:no-repeat; background-position:200px 30px; background-origin:content-box">
+        <h1>배치 위치 조절</h1>
+        background-position:200px 30px<br> background-origin:content-box
+    </div>
+
+
+</body>
+</html>
