@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        .arial{
+            font-size:100px;  /* 글자 크기 */
+		    font-family:"Arial Rounded MT"; /* 글꼴 */
+        }
+    </style>
+</head>
+<body>
+        <!--============ #글자 색 지정하기# ================
+        # color:<색상>
+        -->
+    <h1>글자 색 지정하기</h1>
+    <p>
+        <span style="color:blue;">색상 이름 사용</span> <!--색상 이름 사용-->
+        <span style="color:rgb(255, 136, 0);">rgb 값 사용</span> <!--rgb 사용-->
+        <span style="color:#ff0000">16진수 사용</span> <!--16진수 사용-->
+    </p>
+
+        <!--============ #텍스트에 선 표시하기# ================
+        # text-decoration: none(밑줄x)|underline(밑줄)|overline(영역 위로 선)|line-through(영역을 가로지르는 선)
+        -->
+    <h1>텍스트에 선 표시하기</h1>
+    <p>
+        <a href="https://facebook.com";>링크에는 기본적으로 밑줄이 표시된다.</a>
+        <a href="https://facebook.com" style="text-decoration:none";>밑줄 X</a>
+        <a href="https://facebook.com" style="text-decoration:overline";>윗줄</a>
+        <a href="https://facebook.com" style="text-decoration:line-through";>취소선</a>
+    </p>
+
+        <!--============ #텍스트 대.소문자 변환하기# ================
+        # text-transform : none(변환x)|capitalize(첫번째 글자 대문자변환)|uppercase(모든 글자 대문자)
+        |lowercase(모든 글자 소문자)|full-width(전각 문자로 변환)
+        -->
+    <h1>텍스트 대소문자 변환</h1>
+    <p>
+        <span style="text-transform:capitalize";>hello world</span>
+        <span style="text-transform:uppercase";>hello world</span>
+        <span style="text-transform:full-width";>hello world</span>
+    </p>
+        <!--============ #텍스트 대.소문자 변환하기# ================
+        # text-transform : none(변환x)|capitalize(첫번째 글자 대문자변환)|uppercase(모든 글자 대문자)
+        |lowercase(모든 글자 소문자)|full-width(전각 문자로 변환)
+        -->
+    <h1>텍스트 대소문자 변환</h1>
+    <p>
+        <span style="text-transform:capitalize";>hello world</span>
+        <span style="text-transform:uppercase";>hello world</span>
+        <span style="text-transform:full-width";>hello world</span>
+    </p>
+        <!--============ #텍스트 그림자 효과 추가하기# ================
+        # text-shadow : none|<가로거리><세로거리><번짐정도><색상>
+        -->
+    <h1>텍스트 그림자 효과 추가하기</h1>
+    <p>
+        <span class="arial" style="color:orange; text-shadow:1px 1px";>Shadow</span>
+        <span class="arial" style="text-shadow:5px 5px 3px red";>SHADOW</span><br>
+        <!--그림자 효과 여러개 중첩하기-->
+        <span class="arial" style="background:#222; color: #000; text-shadow: 0 0 4px #ccc, 0 -5px 4px #ff3, 2px -10px 6px #fd3, -2px -15px 11px #f80, 2px -19px 18px #f20;">SHADOW</span>
+    </p>
+
+    
+       <!--============ # 텍스트 공백 처리/ 텍스트 간격 조절하기 # ================
+        # white-space : normal(여러개의 공백 하나로 처리하기)|nowrap(공백을 하나로 처리, 영역 너비를 넘는 내용을 줄바꿈X
+        |pre(여러개의 공백 그대로 처리, 영역 너비 넘는 내용 줄바꿈X)|pre-line(여러개의 공백 하나로 처리, 줄바꿈O)
+        |pre-wrap(여러개의 공백 그대로 처리, 줄바꿈O)
+
+        # letter-spacing : normal|<크기> ->문자 사이의 간격 조절
+        # world-spacing : normal|<크기> ->단어 사이의 간격 조절
+        -->
+    <h1>텍스트 공백 처리하기</h1>
+    <p>
+        <span style="white-space : normal; letter-spacing:0.2em">텍스트 공백  /  간격 처리하기</span><br>
+        <span style="white-space : pre; letter-spacing:0.5em">텍스트 공백  /  간격 처리하기</span>
+    </p>
+   
+</body>
+</html>
