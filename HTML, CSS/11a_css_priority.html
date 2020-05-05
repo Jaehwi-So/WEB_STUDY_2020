@@ -1,0 +1,47 @@
+<!--스타일의 우선순위
+    1. 사용자 스타일 시트(색약자 등과 특별한 조건이 필요한 사용자에게 맞춘 시스템상 스타일시트)
+    2. 제작자가 만든 스타일 중 !important가 붙은 중요 스타일
+    3. 제작자가 만든 일반 스타일
+    4. 기본 브라우저 스타일
+
+    #하나의 요소에 여러가지 스타일이 적용될 경우 우선순위
+    1. 인라인 스타일
+    2. id 스타일
+    3. class 스타일
+    4. 태그 스타일
+-->
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<style>
+    body{
+        color:gray;
+    }
+    h1{
+        color:red !important; /*중요 스타일 지정 !important*/
+    }
+    h2{
+        color:red;  /*태그 스타일 지정*/
+    }
+    .redcolor{
+        color:red; /*클래스 스타일 지정*/
+    }
+    #yellowid{
+        color:yellow;
+    }
+</style>
+<body>
+    <h1 style=color:green;>!important가 붙은 스타일이므로 초록색이 아닌 빨간색</h1>
+    <h2 style=color:green;>인라인 스타일이 태그 스타일보다 우선순위가 높으므로 초록색</h2>
+    <h2 class="redcolor">클래스 스타일이 태그 스타일보다 우선순위가 높으므로 빨간색</h2>
+    <h2 class="redcolor" style=color:green;>인라인 스타일이 클래스 스타일보다 우선순위가 높으므로 초록색</h2>
+    <h2 class="redcolor" id="yellowid">ID 스타일이 클래스 스타일보다 우선순위가 높으므로 노란색</h2>
+    <h2 id="yellowid" style=color:green;>인라인 스타일이 ID 스타일보다 우선순위가 높으므로 초록색</h2>
+    
+</body>
+</html>
