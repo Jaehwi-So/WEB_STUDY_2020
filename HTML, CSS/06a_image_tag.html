@@ -1,0 +1,39 @@
+<!--
+<img src="path"> : 이미지를 삽입하는 태그
+속성
+alt : 대체 텍스트
+width, height : 크기 조절
+<figure><figurecaption> 태그를 이용하여 사진 그룹의 설명을 붙일 수 있다.
+-->
+<!DOCTYPE html>
+<title>이미지 태그 연습</title>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <h2>이미지 삽입</h2>
+    <p>
+        이미지를 삽입한다<br>
+        <img src="image/muffin.png" alt="머핀"> <!--이미지는 경로를 명시해 주어야 한다.-->
+        <img src="https://cdn.pixabay.com/photo/2020/02/04/22/29/owl-4819550_1280.jpg" alt="올빼미">
+        <!--웹 상의 이미지를 사용 시 주소 명시.-->
+    </p>
+    <p>
+        이미지의 크기를 조절해주는 width, height
+        <img src="image/umbrella.jpg"width="200"height="200">
+    </p>
+    <!--alt 속성은 사진의 설명. 대체 텍스트 역할을 한다.(시각 장애인 배려 등)-->
+    <!--width, height 속성은 이미지의 크기를 조절해준다.-->
+
+    <figure>
+        <img src="image/prod.jpg" alt="커피잔">
+        <figurecaption>이 그림은 커피잔이다</figurecaption>
+    </figure>
+        <!--figure : 설명 글을 붙일 그룹을 지정한다.-->
+        <!--figurecaption : 설명글을 붙인다.-->
+</body>
+</html>
