@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+
+    <style>
+        .box{
+            border:1px dotted blue;
+            width:300px;
+            padding:15px;
+        }
+    </style>
+</head>
+<body>
+    <!--========= # 글자 쓰기 방향 지정하기 # =============
+    #direction : ltr(왼쪽에서 오른쪽) | rtl(오른쪽에서 왼쪽)
+    -->
+
+    <!--========= # 텍스트 정렬하기 # =============
+    #text-align:start(텍스트 줄의 시작 위치에 맞추어 문단 정렬)|end(텍스트 줄의 끝 위치에 맞추어 문단 정렬)
+    |left(왼쪽에 맞추어 정렬)|right(오른쪽에 맞추어 정렬)|center(가운데에 맞추어 정렬)
+    |justify(양쪽에 맞추어 정렬)|match-parent(부모 요소에 따라 문단 정렬)
+    -->
+    <!--========= # 텍스트 정렬 공백 조절하기 # =============
+    텍스트 정렬 시 글자와 단어 사이 간격이 어색하게 벌어질 수 있다. 이 때 공백을 조절한다.
+    #text-justify:auto(자동으로 지정)|none(정렬하지 않음)|inter-word(단어 사이 공백 조절)
+    |distribute(인접한 글자 사이의 공백을 맞추어 조절)
+    -->
+    <h1>텍스트 정렬하기</h1>
+    <p style="text-align:left">왼쪽 정렬하기</p>
+    <p style="text-align:right">오른쪽 정렬하기</p>
+    <p style="text-align:center; text-justify:distribute">가운데 정렬하기</p>
+
+    <!--========= # 텍스트 들여 쓰기 # =============
+    문단의 첫 글짜를 얼마나 들여 쓸지를 지정해준다.
+    #text-indent:<크기>|<백분율>
+    -->
+    <h1>텍스트 들여 쓰기</h1>
+    <p style="text-indent:15px">15px만큼 들여쓰기</p>
+    <p style="text-indent:10%">10%만큼 들여쓰기</p>
+
+    <!--========= # 줄 간격 지정하기 # =============
+    #line-height:normal|<숫자>|<크기>|<백분율>|inherit
+    보통 줄 간격은 글자 크기의 1.5~2배로 주로 사용한다.
+    -->
+    <p style="font-size:15px; line-height:200%">줄 간격 200%<br>줄 간격 200%</p>
+
+    <!--========= # 넘치는 텍스트 표시하기 # ===========
+    white-space를 통해서 줄 바꿈을 하지 않을 때에는 텍스트가 기준선을 벗어나 넘칠 수 있다.
+    이 때 넘치는 텍스트를 처리하는 방법을 지정해준다. 
+    단 이 때 overflow값이 hidden이거나 scroll,auto이면서 white-space:nowrap속성을 함께 사용했을 경우만 적용
+    #text-overflow:clip(넘치는 텍스트를 자른다)|elipsis(...로 잘린 텍스트가 있다고 표시한다)
+    -->
+    <p class="box" style="white-space:nowrap; overflow:hidden; text-overflow:clip; font-size:15px; ">
+        넘치는 텍스트를 표시하는 방법 넘치는 텍스트를 표시하는 방법 넘치는 텍스트를 표시하는 방법
+    </p>
+
+    <p class="box" style="white-space:nowrap; overflow:hidden; text-overflow:ellipsis; font-size:15px;">
+        넘치는 텍스트를 표시하는 방법 넘치는 텍스트를 표시하는 방법 넘치는 텍스트를 표시하는 방법
+    </p>
+</body>
+</html>
