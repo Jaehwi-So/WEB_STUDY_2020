@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        /*============= # 배경 색 적용하기 # ================
+            #background-color:<색상>
+        */
+        h1{
+            font-size:20px;
+            font-family:"돋움체";
+            font-weight:bolder;
+        }
+        body{
+            background-color:rgba(62, 25, 83, 0.5);
+        }
+        div{
+            width: 300px;
+            padding: 50px;
+            border: 5px dotted #222;
+        }
+        /*============= # 배경 색 적용범위 조절하기 # ================
+            #background-clip:border-box(테두리까지 적용)|padding-box(테두리를 뺀 패딩 범위)
+            |content-box(박스 모델에서 내용 부분에 적용)
+        */
+        .clip_border{
+            background:rgb(207, 3, 248);
+            background-clip:border-box;
+        }
+        .clip_padding{
+            background:rgb(207, 3, 248);
+            background-clip:padding-box;
+        }
+        .clip_content{
+            background:rgb(207, 3, 248);
+            background-clip:content-box;
+        }
+        /*=============== # 배경 이미지 넣기 # ==================
+            #background-image:url();
+            상대경로, 절대경로(https://) 사용 가능
+        */
+        .image_background{
+            background-image:url('image/background_image.png')
+        }
+        .image_rpbg{
+            background-image:url('image/background_repeat_img.png')
+        }
+
+    </style>
+</head>
+<body>
+    <div class="clip_border">
+        <h1>배경 색 적용범위 test</h1>
+        border-box
+    </div>
+    <div class="clip_padding">
+        <h1>배경 색 적용범위 test</h1>
+        padding-box
+    </div>
+    <div class="clip_content">
+        <h1>배경 색 적용범위 test</h1>
+        content-box
+    </div>
+    <div class="image_background">
+        <h1>배경 이미지 적용</h1>
+        background-image
+    </div>
+    
+    <!--=============== # 배경 이미지 반복 방식 / 크기 지정하기 # ==================
+    -반복 방식 지정하기
+    #background-repeat:repeat(화면이 가득찰 때까지. 기본값)|repeat-x(x축이 가득찰때까지)
+    |repeat-y(y축이 가득찰때까지)|no-repeat(이미지 한번만 표시)
+
+    -크기 지정하기
+    #background-size:auto(원래 배경 이미지 크기만큼)|contain(요소 안에 배경 이미지가 다 들어오도록)
+    |cover(배경 이미지로 요소를 모두 덮도록)|<크기값>|<백분율>
+    -->
+    <div class="image_rpbg">
+        <h1>배경 이미지 적용</h1>
+        background-image
+    </div>
+
+    <div class="image_rpbg" style="background-repeat:repeat-x">
+        <h1>반복 방식 test</h1>
+        repeat-x
+    </div>
+
+    <div class="image_rpbg" style="background-size:contain">
+        <h1>크기 지정 test</h1>
+        contain
+    </div>
+
+    <div class="image_rpbg" style="background-size:cover">
+        <h1>크기 지정 test</h1>
+        cover
+    </div>
+
+    <div class="image_rpbg" style="background-size:contain; background-repeat:no-repeat">
+        <h1>반복 방식 / 크기 지정 test</h1>
+        contain/no-repeat
+    </div>
+
+</body>
+</html>
