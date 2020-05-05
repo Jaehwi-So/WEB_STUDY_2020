@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+    .box{
+        width : 100px;
+        height : 100px;
+        display : inline-block;
+        margin : 15px;
+        border-width : 5px;
+        border-color : green;
+        border-style : solid;
+        border-width : 5px;
+        padding : 10px;
+    }
+
+    /*====================박스 모서리 둥글게 만들기===================*/
+    /* # border-radius : <크기> | <백분율> : 원의 반지름으로 원 형태 모서리 지정
+       # border-(top-left/top-right/bottom-right/bottom-left)-radius : <크기> | <백분율> 각각의 모서리
+       # border-radius : <가로크기>/<세로크기> : 타원의 가로 반지름과 세로 반지름으로 타원 형태 모서리 지정 /로구분
+       # border-(top-left/top-right/bottom-right/bottom-left)-radius : <가로크기><세로크기> 각각의 모서리
+    */
+    .ex_radius{
+        border-radius : 30px;
+    }
+    .ex_round{
+        border-radius : 50%;
+    }
+    .ex2_round{
+        border-radius : 40px/20px;
+    }
+    .ex3_round{
+        border-top-left-radius : 40px 20px;
+        border-bottom-right-radius : 40px 20px;
+    }
+    /*====================박스 그림자 효과 만들기===================*/
+    /* # box-shadow : none | <그림자 값> [, <그림자 값>]*;
+    <그림자 값> : <수평거리><수직거리><흐림정도><번짐정도><색상>inset(안쪽 그림자로 그린다)
+    거리는 양수일 경우 요소의 아래쪽, 음수일 경우 요소의 위쪽에 그림자 생성.
+    흐림정도가 클 수록 부드러운 그림자 표시
+    */
+
+    .ex1_shadow{
+        box-shadow : 2px -2px 5px 2px black;
+    }
+    .ex2_shadow{
+        box-shadow : 5px -5px 10px 10px black;
+    }
+</style>
+<body>
+    <div class = "box ex_radius">border-radius : 30px;</div>
+    <div class = "box ex_round">border-radius : 50%;</div>
+    <div class = "box ex2_round">border-radius : 40px/20px;</div>
+    <div class = "box ex3_round"> 좌측상단,우측하단 :40px 20px;</div>
+    <div class = "box ex1_shadow">그림자 1</div>
+    <div class = "box ex2_shadow">그림자 2</div>
+</body>
+</html>
