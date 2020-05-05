@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        .squarebullet{ /*순서없는 목록의 불릿 넣기*/
+            list-style-type:square;
+        }
+        .loweralphabullet{ /*순서있는 목록의 불릿 넣기*/
+            list-style-type:lower-alpha;
+        }
+        .imagebullet{   /*이미지 불릿 넣기*/
+            list-style-image:url('images/bullet.png');
+        }
+        .innerposition{ /*목록 들여쓰기*/
+            list-style-position:inside;
+        }
+        .listoption{    /*목록 속성 한번에 사용하기*/
+            list-style:lower-alpha inside;
+        }
+
+    </style>
+</head>
+<body>
+    <!--========== # 목록에서 항목 앞에 붙이는 불릿 넣기 # =============
+       #list-style-type:none|<순서 없는 목록의 불릿>|<순서 있는 목록의 번호>
+
+        <순서 없는 목록의 불릿> : disc(채운원(기본값))/circle(빈원)/square(채운사각형)/none(불릿없애기)
+
+        <순서 있는 목록의 불릿(숫자)> : decimal(십진수(기본값))/decimal-leading-zero(앞에 0이 붙는 10진수)
+        /lower-roman(소문자 로마자)/upper-roman(대문자 로마자)/lower-alpha(소문자 알파벳)
+        /upper-alpha(대문자 알파벳/armenian(아르메니아 숫자)/georgian(조지 왕조시대의 숫자)
+
+       #list-style-image:<이미지>|none
+       <이미지> : url ->불릿을 원하는 이미지로 바꿀 수 있다
+    -->
+
+    <!--순서 없는 목록-->
+    <ul style="list-style-type:circle">
+        <li>목록 1</li>
+        <li>목록 2</li>
+    </ul>
+    <ul class="squarebullet">
+        <li>목록 1</li>
+        <li>목록 2</li>
+    </ul>
+
+    <!--순서 있는 목록-->
+    <ol style="list-style-type:lower-roman" start=3>
+        <li>목록 1</li>
+        <li>목록 2</li>
+    </ol>
+    <ul class="loweralphabullet">
+        <li>목록 1</li>
+        <li>목록 2</li>
+    </ul>
+
+    <!--이미지 불릿 사용-->
+    <ul style="list-style-image:url('image/bullet.png')">
+         <li>목록 1</li>
+         <li>목록 2</li>
+    </ul>
+    <ul class="imagebullet">
+        <li>목록 1</li>
+        <li>목록 2</li>
+    </ul>
+
+    <!--========== # 목록에 들여쓰는 효과내기 # =============
+       #list-style-position : inside(안쪽으로 들여쓰기)|outside(바깥쪽으로 내어쓰기(기본값))
+    -->
+
+    <ul style="list-style-position:inside">
+        <li>목록 1</li>
+        <li>목록 2</li>
+    </ul>
+
+    <ul style="list-style-position:outside">
+        <li>목록 1</li>
+        <li>목록 2</li>
+    </ul>
+
+    <ul class="innerposition">
+        <li>목록 1</li>
+        <li>목록 2</li>
+    </ul>
+
+
+    <!--========== # 목록 속성 한번에 사용하기 # =============-->
+    <ul style="list-style:inside square">
+        <li>목록 1</li>
+        <li>목록 2</li>
+    </ul>
+
+    <ul class="listoption">
+        <li>목록 1</li>
+        <li>목록 2</li>
+    </ul>
+
+    
+</body>
+</html>
