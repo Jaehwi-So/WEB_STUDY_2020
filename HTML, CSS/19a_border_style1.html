@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>테두리 스타일 지정하기</title>
+    <style>
+        /* ==================== 테두리 스타일 지정하기 =======================
+        # border-style : none | hidden | dashed | dotted | double | groove | inset
+            | outset | ridge | solid
+        */
+        div{
+            margin : 10px;
+        }
+        .box{
+            width : 200px;
+            height : 100px;
+            display : inline-block;
+            margin : 15px;
+            border-width : 5px;
+            border-color : yellow
+        }
+        .border_none{   /*테두리가 나타나지 않음*/
+            border-style : none;
+        }
+        .border_dashed{ /*짧은 직선으로 된 점선*/
+            border-style : dashed;
+        }
+        .border_dotted{ /*점선으로 표시*/
+            border-style : dotted;
+        }
+        .border_double{ /*이중선으로 표시*/
+            border-style : double;
+        }
+        .border_solid{  /*실선으로 표시*/
+            border-style : solid;
+        }
+        .border_groove{ /*입체적인 테두리를 표시*/
+            border-style : groove;
+        }
+        .border_inset{  /*입체적인 테두리를 표시 border-collapse에 따라 groove와 같게 표시되거나 다르게 표현됨*/
+            border-style : inset;
+        }
+        .border_ridge{  /*테두리가 창에서 튀어나온 것처럼 표시 border-collapse에 따라 groove와 같게 표시되거나 다르게 표현됨*/
+            border-style : ridge;
+        }
+        .border_outset{ /*테두리가 창에서 튀어나온 것처럼 표시 border-collapse에 따라 ridege와 같게 표시되거나 다르게 표현됨*/
+            border-style : outset;
+        }
+
+        /* ==================== 테두리 두께 지정하기 =======================
+        # border-width : <크기> | thin | medium | thick
+        # border-(top/right/bottom/left)-width : 테두리의 위쪽,오른쪽,아래쪽,왼쪽의 테두리 두께 지정
+        */
+         /* ==================== 테두리 색상 지정하기 =======================
+        # border-color : <색상>
+        # border-(top/right/bottom/left)-color : 테두리의 위쪽,오른쪽,아래쪽,왼쪽의 테두리 색상 지정
+        */
+        .border_ex1{
+            border-width : 2px; /*네 방향의 테두리 굵기*/
+            border-color : red;
+        }
+        .border_ex2{
+            border-width : thick thin;  /*위아래는 thick, 좌우는 thin*/
+            border-color : green greenyellow
+        }
+        .border_ex3{
+            border-width : 5px 5px thick thin; /*테두리의 시계방향 순으로 두께 조절*/
+            border-color : red yellow green blue
+        }
+
+        /*====================== 테두리 스타일 한꺼번에 지정하기 ======================*/
+        .border_whole{
+            border : 9px solid orangered;
+        }
+
+
+    </style>
+</head>
+<body>
+    <div class = "box border_none">border-style : none</div>
+    <div class = "box border_dashed">border-style : dashed</div>
+    <div class = "box border_dotted">border-style : dotted</div>
+    <div class = "box border_double">border-style : double</div>
+    <div class = "box border_solid">border-style : solid</div>
+    <div class = "box border_groove">border-style : groove</div>
+    <div class = "box border_inset" style = "border-collapse:seperate">border-style : inset</div>
+    <div class = "box border_ridge">border-style : ridge</div>
+    <div class = "box border_outset" style = "border-collapse:seperate">border-style : outset</div>
+
+    <div class = "box border_ex1 border_solid">border-width : 2px</div>
+    <div class = "box border_ex2 border_solid">border-width : thick thin</div>
+    <div class = "box border_ex3 border_solid">border-width : 5px 5px thick thin</div>
+    <div class = "box border_whole">border : 9px solid orangered;</div>
+
+</body>
+</html>
