@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>슈도클래스(pseudo)</title>
+		<style type="text/css">
+			li{list-style : none; display : inline;}
+			li:nth-child(odd){
+				color : red;	/*리스트의 홀수 위치에 해당하는 가상클래스*/
+			}
+			li:nth-child(even){
+				color : green;	/*리스트의 짝수 위치에 해당하는 가상클래스*/
+			}
+			li:nth-child(4n){
+				background : silver;	/*리스트의 4의 배수 위치에 해당하는 가상클래스*/
+			}
+			li:nth-child(6){
+				color : blue;	/*리스트의 6번째 항목에 해당하는 가상클래스*/
+			}
+		</style>
+	</head>
+	<body>
+		<ul>
+			<li>1</li>
+			<li>2</li>
+			<li>3</li>
+			<li>4</li>
+			<li>5</li>
+			<li>6</li>
+			<li>7</li>
+			<li>8</li>
+			<li>9</li>
+			<li>10</li>
+		</ul>
+	</body>
+</html>
