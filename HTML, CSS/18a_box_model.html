@@ -1,0 +1,75 @@
+<!doctype html>
+<html lang="ko">
+<head>
+	<meta charset="utf-8">
+    <title>박스모델</title>
+    <!--================= CSS 박스 모델 ===================
+        줄 앞 뒤에 빈 줄이 생기면서 하나의 박스 형태를 가지는 박스 형태의 요소를 박스 모델이라고 한다.
+        (마진 (테두리 (패딩 (콘텐츠) 패딩) 테두리) 마진) 의 요소로 구성되어 있다.
+        margin :박스 모델 사이의 여백
+        border : 박스 모델의 테두리
+        padding : 박스와 콘텐츠 영역 사이의 여백
+
+        실제 콘텐츠 크기 : 
+        모던 브라우저 : 전체 너비 = width값 + 좌우 패딩 두께와 테두리 두께를 합친 너비
+        인터넷 익스플로러 6 : width값 = 콘텐츠 너비 + 좌우 패딩, 테두리
+    -->
+    
+	<style>
+		.ex1_box{
+			width:400px; /* 너비 조절 # width : <크기>|백분율|auto */
+			height:100px; /* 높이 조절 # height : <크기>|백분율|auto */
+			background : yellow; /* 배경색 */
+            padding : 100px; 
+            border : 10px; border-style : dashed; border-color:orange;
+		}
+        .ex2_box{
+			width:50%; /* 브라우저 창 너비의 50% */
+			height:auto;
+			background:red; /* 배경색 */
+		}
+
+        /*================ 화면 배치 방법 결정하기 ================== */
+        /* # display:none|contents|block|inline|inline-block|table|table-cell 등
+        block : 블록 레벨로 지정 inline : 인라인 레벨로 지정
+        */
+        /*===============대표적인 블록 레벨 태그와 인라인 레벨 태그=====================*/
+        /* # 블록레벨 태그 : <p> <h1>~<h6> <ul> <ol> <div> <blockquote> <form> <hr> <table>
+            <fieldset> <address>
+           # 인라인 레벨 태그 : <img> <object> <br> <sub> <span> <input> <textarea> <label> <button>
+        */
+        .ex3_makebox img{   /*인라인 레벨 태그인 img를 블록 레벨로 바꿈*/
+            display : block;    
+            margin : 10px;
+        }
+        .ex4_makeinline li{
+            display : inline;    /*블록 레벨 태그인 li를 인라인 레벨로 바꿈*/
+            margin : 10px;
+        }
+        /*
+        <div>와 <span>의 차이점.
+        div는 블록 레벨 태그이고, span은 인라인 레벨 태그이다.
+        */
+		div {
+			margin:10px; /* div 간의 여백 */
+		}
+	</style>
+</head>
+<body>
+    <div class="ex1_box">box</div>
+    <div class="ex2_box">box</div>
+    <div class="ex3_makebox">
+        <img src="image/muffin.png">
+        <img src="image/umbrella.jpg">
+    </div>
+    <div class="ex4_makeinline">
+        <ul>
+            <li>리스트 1</li>
+            <li>리스트 2</li>
+            <li>리스트 3</li>
+        </ul>   
+    </div>
+
+
+</body>
+</html>
