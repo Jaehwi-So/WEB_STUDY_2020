@@ -1,0 +1,44 @@
+<!--
+    CSS를 사용할 시 표준 규약이 완성되지 않은 부분을 사용하려면 브라우저별로 다른 방식으로 지원되기 때문에 속성 이름 앞에
+    접두사를 붙여 브라우저별로 구분해야 한다. 
+    -webkit- 웹키트 방식 브라우저용(사파리, 크롬)
+    -moz- 게코 방식 브라우저용(파이어폭스, 모질라)
+    -o- 오페라 브라우저
+    -ms- 마이크로소프트 인터넷 익스플로러
+-->
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <!--매번 브라우저 접두사를 붙이지 않고 편리하게 CSS3 속성을 이용가능하게 해주는 자바스크립트 파일을 불러옴-->
+    <script src="prefixfree.min.js"></script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        .box{
+			position:absolute;
+			left:50px;
+			top:70px;
+			width:100px;
+			height:60px;
+			background:#fff;
+			border:2px solid green;
+			text-align:center;
+			line-height:60px;
+        }
+            /*다음 기능은 브라우저별 명시가 필요하다*/
+        .box:hover{
+            /*만약 prefix-free.min.js 자바스크립트 파일을 이용하지 않으면 일일히 붙여서 브라우저를 지원해 주어야 한다.
+            -webkit-transform:rotate(150deg);
+            -moz-transform:rotate(150deg);
+            -o-transform:rotate(150deg);
+            -ms-transform:rotate(150deg);*/
+            transform:rotate(150deg);
+        }
+    </style>
+</head>
+<body>
+    <div class="box">Hello</div>
+</body>
+</html>
