@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>ID를 통한 스타일시트 접근</title>
+	</head>
+	<style>
+		/* id 접근방법 : #id명{}  */
+		#prc1{color : skyblue;}
+		#prc2{color : blue;}
+		h1 span.s1{color : red};	/*h1에 있는 span 중 s1 클래스를 가진 부분만 스타일 적용  */
+		
+		table{border-collapse:collpase; }	/* 테이블 라인 합치기 */
+		table td.jj{color:brown;}
+			
+	</style>
+	<body>
+		<!-- id : 특정 태그를 식별하기 위한 식별자. 클래스와 달리 중복하여 사용할 수 없다. 
+		일반적으로 묶음 단위로 사용하는 것이 일반적이다. 묶음 내부에서는 클래스를 주로 사용한다.-->
+		<h1 id = "prc1">아이디 연습..<span class = "s1">1</span></h1>
+		<h1 id = "prc2">아이디 연습..2</h1>
+		<hr>
+		<table border = "1">
+			<tr>
+				<td class = "jj">짜장</td>
+				<td>짬뽕</td>
+			</tr>
+		</table>
+	</body>
+</html>
