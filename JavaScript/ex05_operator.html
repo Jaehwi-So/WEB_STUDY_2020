@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>대입 연산자</title>
+		<script type="text/javascript">
+			var num1, num2, res;
+			num1 = 10;
+			num2 = 20;
+			
+			num1 += 5;
+			document.write("num1 += 5 : ", num1, '<br>');/* ,로 문자열과 변수를 이을 수 있다. */
+			
+			num1 -= 10;
+			document.write("num1 -= 10 : ", num1, '<br>');
+			
+			num2 /= 5;
+			document.write("num2 /= 5 : " + num2 + "<br>");
+			document.write("<br>");
+			
+			/* 
+			과수원에서 하루에 생산되는 과일의 갯수는 사과 5개 오렌지 10개 배가 3개 
+			과수원에서 하루에 생산되는 과일의 총 갯수를 출력하고 1시간에 몇개의 과일이 생산되는지 출력
+			*/
+			var apple_num, orange_num, pear_num, tot_num;
+			apple_num = 5;
+			orange_num = 10;
+			pear_num = 3;
+			tot_num = apple_num + orange_num + pear_num;
+			avg_num = tot_num / 24;
+			document.write("하루 생산량 : " + tot_num + "<br>");
+			document.write("시간당 생산수 : " + avg_num.toFixed(2) + '<br>');
+			
+		</script>
+	</head>
+	<body>
+		Hello world <!-- 스크립트 영역 -> Body 영역 순 출력 -->
+	</body>
+</html>
