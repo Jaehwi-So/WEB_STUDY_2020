@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>자바스크립트의 형변환</title>
+		<script type="text/javascript">
+			var num1 = 100;
+			document.write(num1 + 100);
+			document.write("<br>");
+			//정수->문자열
+			document.write("" + num1 + 100);
+			document.write("<br>");
+			document.write(String(num1) + 100);	
+			document.write("<hr>");
+
+			//문자열->정수
+			var num2 = "100";
+			document.write(num1 + num2 + "<br>");
+			num2 = parseInt(num2);
+			document.write(num1 + num2 + "<br>");
+
+		</script>
+	</head>
+	<body>
+	
+	</body>
+</html>
