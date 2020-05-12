@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>객체(Object)</title>
+    <script>
+        /*
+        # 자바스크립트에서의 객체
+        자바스크립트 또한 객체지향 언어이다. 객체는 속성(멤버변수)과 함수(메서드)를 지닌다.
+
+        #객체의 종류
+        1. 내장 객체 : 자바스크립트 엔진에 내장되어 있는 객체.
+        String, Date, Array, Math 등이 있다.
+        2. 브라우저 객체 모델 : 브라우저에 계층 구조로 내장되어 있는 객체.
+        window(브라우저), screen, location(주소 창), history, navigator 등
+        3. 문서 객체 모델 : HTML 문서 구조. HTML의 모든 요소들을 문서 객체로 선택하여 자유롭게 속성을 바꿀 수 있고 CSS를 적용 가능하다.
+        */
+
+        //다음은 내장 객체를 사용하는 기본형이다.
+        document.write("<h1> 내장 객체의 기본형 </h1>")
+        var lion = new Object();    
+        lion.name = "사자";
+        lion.age = 10;
+        lion.move = function(){
+            document.write(lion.name + "가 걷습니다.<br>");
+        }
+
+        var dog = new Object();
+        dog.name = "개";
+        dog.age = 4;
+        dog.move = function(){
+            document.write(dog.name + "가 걷습니다.<br>");
+        }
+
+        lion.move();
+        dog.move();
+        document.write("<hr>");
+        document.write("<hr>");
+    </script>
+    <script src = "ex16-1_date.js"></script>
+    <script src = "ex16-2_math.js"></script>
+    <script src = "ex16-3_array.js"></script>
+    <script src = "ex16-4_multi_array.js"></script>
+    <script src = "ex16-5_array_method.js"></script>
+    <script src = "ex16-6_string.js"></script>
+</head>
+<body>
+    
+</body>
+</html>
