@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>브라우저 객체 모델</title>
+    <script>
+        /*
+        # 브라우저 객체
+        브라우저에 내장된 객체. 최상위 객체는 window.
+        window객체에는 하위 객체 document, screen, location, history, navigator가 포함되어 있다.
+        다음과 같은 계층적 구조를 브라우저 객체 모델이라고 함.
+        */
+       var url1 = "ex17h_browser1.html";
+       var url2 = "ex17h_browser2.html";
+    </script>
+    <style>
+        .content{
+            width : 600px; height : 300px;
+            background-color : skyblue;
+            border : 4px solid black;
+        }
+        .box{
+            margin : 30px; padding : 20px;
+            width : 100px; height : 100px;
+            font-size : 15px;
+            background : gray;
+            color : blue;
+            border : 2px solid black;
+        }
+    </style>
+    <!--Window 객체의 메서드 종류-->
+    <script src = "ex17j-1_open.js"></script>   <!-- open() : URL 페이지를 새 창으로 나타낸다. -->
+    <script src = "ex17j-2_alert.js"></script>
+    <script src = "ex17j-3_prompt,submit.js"></script>
+    <script src = "ex17j-4_interval.js"></script>
+</head>
+<body>
+    <div class = "content">
+        <div class = "box" align = "center">
+            노래 가사 보기<br>
+            <button onclick = "popup_open(url1);">열기</button>
+        </div>
+        <div class = "box" align = "center">
+            초시계<br>
+            <button onclick = "popup_open(url2);">열기</button>
+        </div>
+    </div>
+</body>
+</html>

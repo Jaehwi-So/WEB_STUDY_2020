@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <title>가사 보기</title>
+    <style>
+        *{margin : 0; padding : 0; font-family : "돋움", "바탕"}
+        .box{
+			margin : 10px auto; width : 700px;
+			padding : 10px; 
+			border : 5px solid black;
+            background : rgb(245, 245, 164);
+        }
+		h1, h3{
+            text-align : center;
+        }
+		.content{
+            font-size : 12px;
+            color : black;
+			margin : 10px auto; width : 600px;
+			padding : 10px; 
+			border : 3px solid gray;
+            background : rgb(206, 241, 152);
+		}
+        .h_part{
+            overflow : hidden;
+            width : 500px;
+            margin : 30px auto;
+            border : 3px solid black;
+        }
+		.part1{
+			width:220px; height : 150px; padding:15px;
+			background : pink;
+			float : left;	/* float으로 부모로부터 독립하여 left, right에 위치하게 한다. */
+		}
+		.part2{
+			width:220px; height : 150px; padding:15px;
+			background : rgb(26, 202, 158);
+			float : right;
+		}
+    </style>
+    <script src = "ex17j-1_open.js"></script>
+    <script src = "ex17j-2_alert.js"></script>
+    <script src = "ex17j-3_prompt,submit.js"></script>
+    <script src = "ex17j-4_interval.js"></script>
+</head>
+<body>
+    <div class = "box">
+        <h1>흔들리는 꽃들 속에서 네 샴푸향이 느껴진 거야</h1>
+        <h3>장범준</h3>
+        <div class = "content">
+            <div class = "h_part">
+                <p class = "part1">
+                    흔들리는 꽃들 속에서 네 샴푸향이 느껴진거야<br>
+                    스쳐지나간건가 뒤돌아보지만 그냥 사람들만 보이는거야<br>
+                    다와가는 집근처에서 괜히 핸드폰만 만지는거야<br>
+                    한번 연락해 볼까 용기내 보지만 그냥 내 마음만 아쉬운 거야<br>
+                </p>   
+                <p class = "part2">
+                    걷다가 보면 항상 이렇게 너를 바라만 보던 너를 기다린다고 말할까<br>
+                    지금 집앞에 계속 이렇게 너를 아쉬워 하다 너를 연락했다 할까<br>
+                </p> 
+            </div>
+            <div class = "h_part">
+                <p class = "part1">
+                    지나치는 꽃들 속에서 네 샴푸향만 보이는거야<br>
+                    스쳐지나간건가 뒤 돌아보지만 그냥 내 마음만 바빠진거야<br>
+                </p>   
+                <p class = "part2">
+                    걷다가 보면 항상 이렇게 너를 바라만 보던 너를 기다린다고 말할까<br>
+                    지금 집앞에 계속 이렇게 너를 아쉬워 하다 너를 연락했다 할까<br>
+                </p> 
+            </div>  
+            <div class = "h_part">
+                <p class = "part1">
+                    어떤 계절이 너를 우연히라도 너를 마주치게 할까<br>
+                    난 이대로 아쉬워하다 너를 바라만 보던 너를<br>
+                    기다리면서 아무말 못하고 그리워만 할까<br>
+                </p>   
+                <p class = "part2">
+                    걷다가 보면 항상 이렇게 너를 바라만 보던 너를 생각한다고 말할까<br>
+                    지금 집앞에 기다리고 때론 지나치고 다시 기다리는<br>
+                    꽃이 피는 거리에 보고파라 이밤에<br>
+                    걷다가 보면 항상 이렇게 너를 아쉬워 하다 너를 기다린다고 말할까<br>
+                    지금 집앞에 계속 이렇게 너를 아쉬워 하다 너를 연락했다 할까<br>
+                </p>   
+            </div>
+        </div>
+        <p align = "center">
+        <button onclick= "prompt_survey();">설문조사</button>
+        <button onclick= "popup_close();">나가기</button>
+        </p>
+    </div>
+
+</body>
+</html>
