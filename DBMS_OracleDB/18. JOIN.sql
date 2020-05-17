@@ -1,0 +1,52 @@
+-- # JOIN : 다른 테이블과 현재 테이블의 조건이 정확히 일치하는 경우를 판단. 테이블끼리의 상호작용
+
+-- 예) 각 부서가 위치한 도시명을 출력
+-- 테이블 DEPARTSMENTS : 부서들이 위치한 곳의 집합. 장소번호가 존재
+-- 테이블 LOCATIONS : 장소들의 세부사항의 집합
+
+
+-- # innerJoin의 사용법
+
+SELECT *
+FROM DEPARTMENTS;
+--위의 코드는 도시번호인 LOCATION_ID는 있지만 숫자로 되어 있으므로 어떤 도시인지 세부 정보를 알 수 없다.
+--LOCATION_ID를 LOCATIONS테이블과 JOIN해보자.
+
+SELECT DP.DEPARTMENT_ID, DP.DEPARTMENT_NAME, LOC.CITY, DP.LOCATION_ID, LOC.LOCATION_ID	-- 별칭을 통하여 속성 구분
+FROM DEPARTMENTS DP, LOCATIONS LOC	-- 두개의 테이블 참조. 별칭 지정 필수
+WHERE DP.LOCATION_ID = LOC.LOCATION_ID;
+
+-- 예제) 사원 테이블, 부서 테이블로부터 이름, 부서번호, 부서명을 출력하되 사원테이블과 부서테이블의 부서번호가 같은 경우만 검색.
+SELECT EP.FIRST_NAME, EMP.DEPARTMENT_ID, DP.DEPARTMENT_ID, DP.DEPARTMENT_NAME
+FROM EMPLOYEES EMP, DEPARTMENTS DP
+WHERE EMP.DEPARTMENT_ID = DP.DEPARTMENT_ID;
+
+-- 예제) 부서, 지역 테이블로부터 부서명과 도시명을 출력하되
+-- 두 테이블의 도시번호(LOCATION_ID)가 같은 경우만 출력
+SELECT DP.DEPARTMENT_NAME, LOC.CITY
+FROM DEPARTMENTS DP, LOCATIONS LOC
+WHERE DP.LOCATION_ID = LOC.LOCATION_ID;
+
+-- 예제) LOCATIONS 테이블과 CONTRIES 테이블로부터 도시명과 해당 도시가 위치하고 있는 국가의 이름을 조회.
+SELECT LOC.CITY, CNT.COUNTRY_NAME
+FROM LOCATIONS LOC, COUNTRIES CNT
+WHERE LOC.COUNTRY_ID = CNT.COUNTRY_ID;
+
+-- # innerJoin을 활용하는 다른 방법
+
+-- 예제) 사원테이블의 부서번호와 부서테이블의 부서번호가 정확히 일치하는 경우를 검색
+SELECT EMP.FIRST_NAME, EMP.JOB_ID, DP.DEPARTMENT_NAME
+FROM EMPLOYEES EMP
+INNER JOIN DEPARTMENTS DP
+ON EMP.DEPARTMENT_ID = DP.DEPARTMENT_ID
+
+-- 예제) 사원(EMPLOYEES), 부서(DEPARTSMENTS), 지역(LOCATIONS) 테이블로부터
+-- 이름, DEPARTSMENT_ID, DEPARTMENT_NAME, LOCATION_ID, CITY 정보를 출력하되
+-- DEPARTMENT_ID, LOCATION_ID가 정확이 일치하여 CITY가 'Seattle'인 경우의 결과를 출력하시오.
+
+SELECT EMP.FIRST_NAME, EMP.DEPARTMENT_ID, DP.DEPARTMENT_NAME, LOC.LOCATION_ID, LOC.CITY
+FROM EMPLOYEES EMP, DEPARTSMENTS DP, LOCATIONS LOC
+WHERE EMP.DEPARTMENT_ID = DP.DEPARTMENT_ID AND
+      DP.LOCATION_ID = LOC.LOCATION_ID AND
+      LOC.CITY = 'Seattle';
+
