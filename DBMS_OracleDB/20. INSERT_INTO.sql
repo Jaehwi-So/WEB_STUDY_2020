@@ -9,7 +9,7 @@ CREATE TABLE MEMO_T(
 );
 
 -- # INSERT : 테이블에 튜플 추가 
-(Autocommit : 자동커밋. 테이블의 갱신이 필요할 때 COMMIT을 하는데 이것을 끄고 한다. 한번 run한 후 commit부분을 추가하여 한번 더 run)
+--(Autocommit : 자동커밋. 테이블의 갱신이 필요할 때 COMMIT을 하는데 이것을 끄고 한다. 한번 run한 후 commit부분을 추가하여 한번 더 run)
 INSERT INTO MEMO_T
 VALUES('1111', 'TITLE1', 'CONTENT1', '1234', '255.255.254.0', SYSDATE);
 COMMIT;	-- 테이블에 물리적으로 자원을 기록하는 키워드. SELECT를 제외하고 COMMIT을 해주어야 한다.
