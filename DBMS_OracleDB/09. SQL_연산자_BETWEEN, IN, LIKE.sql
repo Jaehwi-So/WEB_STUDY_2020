@@ -39,37 +39,37 @@ WHERE EMPLOYEE_ID IN ( 100, 102, 104, 106 );
 --1. % : 모든 값 검색
 --2. _ : 하나의 값 검색
 
-예제) 사원테이블에서 사원들의 이름 중 M으로 시작하는 사원의 정보를 사번, 이름, 직종 순으로 검색
+--예제) 사원테이블에서 사원들의 이름 중 M으로 시작하는 사원의 정보를 사번, 이름, 직종 순으로 검색
 SELECT EMPLOYEE_ID, FIRST_NAME, JOB_ID
 FROM EMPLOYEES
 WHERE FIRST_NAME LIKE 'M%';
 
-예제) 사원테이블에서 이름이 'd'로 끝나는 사원의 사번, 이름을 검색
+--예제) 사원테이블에서 이름이 'd'로 끝나는 사원의 사번, 이름을 검색
 SELECT EMPLOYEE_ID, FIRST_NAME
 FROM EMPLOYEES
 WHERE FIRST_NAME LIKE '%d';
 
-예제) 사원테이블에서 M으로 시작하는 이름 중, 7글자의 이름을 가진 사람의 이름을 검색
+--예제) 사원테이블에서 M으로 시작하는 이름 중, 7글자의 이름을 가진 사람의 이름을 검색
 SELECT FIRST_NAME
 FROM EMPLOYEES
 WHERE FIRST_NAME LIKE 'M______';
 
-예제) 사원테이블에서 이름의 세번째 글자에 a가 들어가는 사원의 사번, 이름을 검색
+--예제) 사원테이블에서 이름의 세번째 글자에 a가 들어가는 사원의 사번, 이름을 검색
 SELECT EMPLOYEE_ID, FIRST_NAME
 FROM EMPLOYEES
 WHERE FIRST_NAME LIKE '__a%';
 
-예제) 사원테이블에서 이름의 어디든 e가 들어가는 사원의 사번, 이름을 검색
+--예제) 사원테이블에서 이름의 어디든 e가 들어가는 사원의 사번, 이름을 검색
 SELECT EMPLOYEE_ID, FIRST_NAME
 FROM EMPLOYEES
 WHERE FIRST_NAME LIKE '%e%';
 
-예제) 사원테이블에서 이름에 소문자 'o'가 들어가면서 'a'로 끝나는 사원의 모든 정보를 검색
+--예제) 사원테이블에서 이름에 소문자 'o'가 들어가면서 'a'로 끝나는 사원의 모든 정보를 검색
 SELECT *
 FROM EMPLOYEES
 WHERE FIRST_NAME LIKE '%o%a';
 
-예제) 사원테이블에서 휴대폰번호가 011로 시작하는 사원의 모든 정보를 검색
+--예제) 사원테이블에서 휴대폰번호가 011로 시작하는 사원의 모든 정보를 검색
 SELECT *
 FROM EMPLOYEES
 WHERE PHONE_NUMBER LIKE '011%';
