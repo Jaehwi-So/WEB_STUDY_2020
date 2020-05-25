@@ -1,0 +1,15 @@
+package service;
+
+public class DBService {
+	// single-ton pattern: 
+	// DB 객체 1개만 생성해서 지속적으로 서비스한다.
+	static DBService single = null;
+
+	public static DBService getInstance() {
+		//생성되지 않았으면 생성
+		if (single == null)
+			single = new DBService();
+		//생성된 객체정보를 반환
+		return single;
+	}
+}

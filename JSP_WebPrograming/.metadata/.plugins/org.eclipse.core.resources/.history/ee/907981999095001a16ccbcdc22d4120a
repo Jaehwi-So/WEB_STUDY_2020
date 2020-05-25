@@ -1,0 +1,21 @@
+<!-- 헤더영역에서 import한다. -->
+<%@page import="java.util.Random"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
+    
+<!-- 선언영역 : 변수 또는 메서드를 정의하는 전역개념의 영역 -->
+<%!
+	int n = 0;
+	Random
+%>
+
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>Insert title here</title>
+	</head>
+	<body>
+	
+	</body>
+</html>

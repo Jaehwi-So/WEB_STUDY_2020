@@ -1,0 +1,12 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>Insert title here</title>
+	</head>
+	<body>
+		<!-- 서버로 데이터를 전송하고자 한다면 form태그가 반드시 필요하다! -->
+		<form action=""> <!-- action : form태그의 name정보를 전송하고자 하는 서버쪽 객체의 url -->
+		</form>
+	</body>
+</html>

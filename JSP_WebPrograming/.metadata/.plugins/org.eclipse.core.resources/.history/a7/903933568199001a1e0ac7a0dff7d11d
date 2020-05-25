@@ -1,0 +1,19 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
+<!DOCTYPE html>
+<%
+	/*?no=3&name2=%EB%B0%95%EB%B3%B4%EC%98%81&kor2=87&eng2=83&mat2=90*/
+	int no = Integer.parseInt(request.getParameter("no"));
+	int kor = Integer.parseInt(request.getParameter("kor2"));
+	int eng = Integer.parseInt(request.getParameter("eng2"));
+	int mat = Integer.parseInt(request.getParameter("mat2"));
+%>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>Insert title here</title>
+	</head>
+	<body>
+	
+	</body>
+</html>

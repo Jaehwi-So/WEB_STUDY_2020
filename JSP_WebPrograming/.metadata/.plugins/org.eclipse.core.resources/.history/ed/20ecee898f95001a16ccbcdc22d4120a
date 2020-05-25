@@ -1,0 +1,31 @@
+<!-- jsp 헤더 -->
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
+ 
+<!-- 스크립트 릿 -->   
+<%
+	/*스크립트 릿(Scriptlet) : jsp에서 자바코드를 사용하고자 할 때 지정하는 영역 */
+	//JSP(Java Server Page) : 내부적인 연산능력을 가지고 있는 HTML
+	
+	//JSP에서도 서블릿의 내장 객체인 request 사용 가능. request는 서블릿의 객체지만, 실행 구조상 jsp가 서블릿으로 변환되어 출력되기 때문이다.
+	String ip = request.getRemoteAddr(); // 접속자의 ip주소
+	String name = "홍길동";
+	
+%>	
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>Insert title here</title>
+	</head>
+	<body>
+		<p>
+			&lt;%@ 내용 %&gt; = jsp 헤더 : 전송시 인코딩, 페이지 인코딩, import문장등을 설정하기 위해 반드시 필요한 영역
+		</p>
+		<p>
+			&lt;% 자바코드 %&gt; = 스크립트 릿 : JSP에서 자바코드를 사용하고자 할 때 지정하는 영역
+		</p>
+		<%= ip %>님 방문을 환영합니다<br>
+		<%= name %>님 반갑습니다.
+	</body>
+</html>

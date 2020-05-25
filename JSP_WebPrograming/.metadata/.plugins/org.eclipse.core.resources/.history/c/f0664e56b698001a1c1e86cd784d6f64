@@ -1,0 +1,21 @@
+<%@page import="vo.DeptVO"%>
+<%@page import="java.util.List"%>
+<%@page import="dao.DeptDAO"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
+<%
+	//부서목록 가져오기
+	DeptDAO dao = DeptDAO.getInstance();	//싱글톤으로 하나만 만들어지게 된다.
+	List<DeptVO> dept_list = dao.selectList();
+	System.out.println(dept_list.size());
+%>
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>Insert title here</title>
+	</head>
+	<body>
+	
+	</body>
+</html>

@@ -1,0 +1,29 @@
+package action;
+
+import java.io.IOException;
+import javax.servlet.ServletException;
+import javax.servlet.annotation.WebServlet;
+import javax.servlet.http.HttpServlet;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+
+/**
+ * Servlet implementation class HelloServlet
+ */
+
+//URL Mapping : 서블릿을 실행시킬 때의 참조주소. url을 통해 매핑을 호출한다. 모든 서블릿은 url을 중복해서 생성하면 안 된다.
+@WebServlet(asyncSupported = true, urlPatterns = { "/hello.do" })	
+public class HelloServlet extends HttpServlet {
+	private static final long serialVersionUID = 1L;
+
+	/**
+	 * @see HttpServlet#service(HttpServletRequest request, HttpServletResponse response)
+	 */
+	protected void service(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		System.out.println("---서블릿 첫 실행---");
+	}
+	//request : 요청 처리 객체 , 클라이언트의 요청정보를 받아주는 객체
+	//response : 응답 처리 객체, 요청받은 정보를 HTML형태로 응답하는 객체.
+	
+
+}

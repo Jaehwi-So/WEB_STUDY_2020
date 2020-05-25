@@ -1,0 +1,8 @@
+package vo;
+
+//변수명과 컬럼명을 똑같이 만드는 것이 좋다.
+public class DeptVO {
+	private int deptNO;
+	private String dName;
+	private String loc;
+}

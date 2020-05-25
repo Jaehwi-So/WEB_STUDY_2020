@@ -1,0 +1,30 @@
+<%@page import="java.sql.Connection"%>
+<%@page import="javax.sql.DataSource"%>
+<%@page import="javax.naming.Context"%>
+<%@page import="javax.naming.InitialContext"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
+<% 
+	//톰캣이 참조할 리소스 검색
+	InitialContext ic = new InitialContext();	
+	//리소스파일(context)의 위치 검색
+	Context ctx = (Context)ic.lookup("java:comp/env"); //javax.naming패키지에서 import, context 검색
+	//리소스의 name을 통해 사용하고자 하는 자원을 검색
+	DataSource dataSource = (DataSource)ctx.lookup("jdbc/oracle_test");	//javax.sql로 import
+	//DB 연결하기
+	Connection conn = dataSource.getConnection(); //java.sql로 import
+	System.out.println("---DB 연결 성공---");
+	
+	//DB의 사용이 끝나면 연결해제
+	conn.close();
+%> 
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>Insert title here</title>
+	</head>
+	<body>
+	
+	</body>
+</html>

@@ -1,0 +1,34 @@
+<!-- 헤더영역  -->
+<%@page import="java.util.Random"%> <!-- 헤더영역에서 import한다. -->
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
+    
+<!-- 선언영역 : 변수 또는 메서드를 정의하는 전역개념의 영역 -->
+<%!
+	int n = 0;
+	Random rnd = new Random();
+	public int plus(int a, int b){
+		return a + b;
+	}
+%>
+
+<!-- 스크립트 릿 : 지역개념의 스크립트 릿 -->
+<%
+	int random = rnd.nextInt(10) + 1;
+	System.out.println(random);
+	
+	int n2 = 0;
+%>
+
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>Insert title here</title>
+	</head>
+	<body>
+		<p><%= "n++ : " + n++ %></p> <!-- 페이지 새로고침 시 선언영역의 변수는 초기화가 되지 않고 증가, 지역선언한 변수는 0으로 초기화된다. -->
+		<p><%= "n2++ : " + n2++ %></p>
+		<p><%= plus(random, random) %></p>
+	</body>
+</html>

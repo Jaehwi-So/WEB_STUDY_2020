@@ -1,0 +1,20 @@
+<%@page import="javax.naming.Context"%>
+<%@page import="javax.naming.InitialContext"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
+<% 
+	//톰캣이 참조할 리소스 검색
+	InitialContext ic = new InitialContext();	
+	//리소스파일(context)의 위치 검색
+	Context ctx = (Context)ic.lookup("java:comp/env"); //javax.naming패키지에서 import, context 검색
+%> 
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>Insert title here</title>
+	</head>
+	<body>
+	
+	</body>
+</html>

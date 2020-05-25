@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8"?><project-modules id="moduleCoreId" project-version="1.5.0">
+    <wb-module deploy-name="08_JDBC_DBLink">
+        <property name="context-root" value="08_JDBC_DBLink"/>
+        <property name="java-output-path" value="/08_JDBC_DBLink/build/classes"/>
+    </wb-module>
+</project-modules>
