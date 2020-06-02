@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+<!--  
+# JSON(JavaScript Object Notation) : 
+서로 다른 프로그램에서 데이터를 교환하기 위한 표기방법.
+C언어, 파이썬 등 다양한 os및 프로그램에서 서버와 데이터를 주고받을 때 사용되는 약속된 표기법.
+1. 기본 JSON 표기 : {'변수명1' : '값1', '변수명2' : '값2'}		
+2. JSON 배열 : 
+['값1', '값2', '값3', '값4'];
+[{'변수명1' : '값1', '변수명2' : '값2'}, {'변수명1' : '값3', '변수명2' : '값4'}..]	
+-->
+	<head>
+		<meta charset="UTF-8">
+		<title>Insert title here</title>
+		<script type="text/javascript">
+
+			/* 기본 JSON 표기법 */
+			var p = { 'name' : 'kim', 'age' : '30', 'tel' : '010-1111-1234' }; 
+			document.write("이름 : " + p.name + " / 나이 : " + p.age + " / 전화번호 : " + p.tel + "<br>");
+			
+			document.write("<hr>");
+			
+			/* JSON 배열 */
+			var arr = ['10', '20', '30', '40'];
+			for(var i = 0; i < arr.length; i++){
+				document.write( arr[i] + "<br>");
+			}
+			
+			document.write("<hr>");
+			
+			var p_arr = [{'name' : 'lee', 'age' : '32', 'tel' : '010-1212-3333'},
+						 {'name' : 'park', 'age' : '23', 'tel' : '010-2212-4321'},
+						 {'name' : 'jung', 'age' : '54', 'tel' : '010-9876-5432'}];
+			for(var i = 0; i < p_arr.length; i++){
+				document.write("이름 : " + p_arr[i].name + " /나이 : " + p_arr[i].age + " /전화번호 : " + p_arr[i].tel + "<br>");
+			}
+			
+			document.write("<hr>");
+			
+			/* 일반JSON과 배열JSON의 혼합 */
+			var course = {'name' : '상명대학교 휴먼지능정보공학과',
+						  'start' : '2020-03-02',
+						  'end' : '2020-06-23',
+						  'sub' : ['디지털신호처리', '머신러닝프로그래밍', '빅데이터분석', '오픈API'],
+						  'student' : [{'name' : 'kim', 'age' : '23'},
+							  		   {'name' : 'lee', 'age' : '27'},
+							  		   {'name' : 'park', 'age' : '28'}]
+						  };
+			
+			document.write("과목명 : " + course.name + "<br>");
+			document.write("개강일 : " + course.start + "<br>");
+			document.write("종강일 : " + course.end + "<br>");
+			document.write("개설 강좌 : ")
+			for(var i = 0; i < course.sub.length; i++){
+				document.write(course.sub[i] + " ");
+			}
+			document.write("<br>")
+			document.write("==학생 목록==<br>")
+			for(var i = 0; i < course.student.length; i++){
+				document.write(course.student[i].name + " / ");
+				document.write(course.student[i].age);
+				document.write("<br>");
+			}
+
+		</script>
+	</head>
+	<body>
+	
+	</body>
+</html>
