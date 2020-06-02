@@ -1,6 +1,0 @@
-1589773608928	Delete element
-1589773722645	Rename type 'DeptDAO'
-1589773733514	Rename type 'GradeTBVO'
-1589850209368	Encapsulate field 'no'
-1589850213063	Encapsulate field 'rank'
-1589858922728	Move 'grade_update.jsp' to 'WebContent'

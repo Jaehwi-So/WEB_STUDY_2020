@@ -1,6 +1,0 @@
-<?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<servers>
-  <server auto-publish-setting="2" auto-publish-time="1" configuration-id="/Servers/Tomcat v8.5 Server at localhost-config" deployDir="wtpwebapps" hostname="localhost" id="Tomcat v8.5 Server at localhost" name="Tomcat v8.5 Server at localhost" runtime-id="Apache Tomcat v8.5" server-type="org.eclipse.jst.server.tomcat.85" server-type-id="org.eclipse.jst.server.tomcat.85" start-timeout="45" stop-timeout="15" testEnvironment="true" timestamp="13">
-    <list key="modules" value0="Ex_0518_Grade::org.eclipse.jst.jee.server:Ex_0518_Grade::jst.web::3.1" value1="Ex_0519_Grade::org.eclipse.jst.jee.server:Ex_0519_Grade::jst.web::3.1" value2="Ex_0520_Member::org.eclipse.jst.jee.server:Ex_0520_Member::jst.web::3.1" value3="01_JSP_Start::org.eclipse.jst.jee.server:01_JSP_Start::jst.web::3.1" value4="04_Servlet::org.eclipse.jst.jee.server:04_Servlet::jst.web::3.1" value5="Ex_0522_Movie::org.eclipse.jst.jee.server:Ex_0522_Movie::jst.web::3.1" value6="05_ResponseAndRequest::org.eclipse.jst.jee.server:05_ResponseAndRequest::jst.web::3.1"/>
-  </server>
-</servers>
