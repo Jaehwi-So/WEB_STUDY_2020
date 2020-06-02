@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>Ajax</title>
+		<!-- Ajax(Asynchronus JavaScript & XML)
+			비동기 통신, 하나의 페이지 안에서 변경사항이 필요한 특정 일부를 갱신이 가능하도록 하는 기술
+		 -->
+		
+		<!-- Ajax사용을 위한 httpRequest.js를 참조하기. js파일이 있어야 한다. -->
+		<script src="../js/httpRequest.js"></script>
+		
+		<script>
+			function send(){
+				var dan = document.getElementById("dan").value;
+				if(dan < 2 || dan > 9){
+					alert("2에서 9 사이의 값을 입력하세요");
+					return;
+				}
+				//document.getElementById("disp").innerHTML = dan;
+				
+				//Ajax로 구구단을 요청하기
+				var url = "gugudan_ajax.jsp";
+				var param = "dan=" + dan;
+				/*sendRequest(전송할 url, 전송할 파라미터, 콜백 메서드, 전송타입)  */
+				sendRequest(url, param, resultFn, "GET");	
+			}
+			
+			/* 콜백메서드 생성 */
+			function resultFn(){	
+				
+				alert(xhr.readyState + "/" + xhr.status);
+				// xhr : js파일에 있는 요청결과를 감지하는 변수.
+				/* xhr.readyState == 0 : 초기화 오류/ 1, 2, 3 : 로딩중/ 4 : 로드 완료 */
+				/* xhr.status == 200 : 이상없음./ 404 : 웹페이지 경로없음./ 500 : 서버에러*/
+				if(xhr.readyState == 4 && xhr.status == 200){
+					//alert("콜백메서드 호출 성공");
+					var data = xhr.responseText;	//xhr.responseText : html 문서 형태로 값이 반환된다.
+					
+					/* 수신된 정보를 div에 추가. */
+					document.getElementById("disp").innerHTML = data; 
+				}
+			}
+		</script>
+	</head>
+	<body>
+		단 : <input id = "dan">
+		<input type = "button" value = "결과보기" onclick = "send();">
+		<hr>
+		<div id="disp">
+		
+		</div>
+	</body>
+</html>
