@@ -1,0 +1,18 @@
+ORACLE -> START DATABASE
+DB시작 : 
+sqlplus 계정명/비밀번호
+->sql문장입력
+
+--부서테이블
+CREATE TABLE DEPT(
+	DEPTNO NUMBER(3) PRIMARY KEY,	 --부서번호
+	DNAME VARCHAR2(10),	--부서이름
+	LOC VARCHAR2(10) 	--부서위치
+);
+
+INSERT INTO DEPT VALUES(10, '총무부', '101호');
+INSERT INTO DEPT VALUES(20, '영업부', '202호');
+INSERT INTO DEPT VALUES(30, '전산실', '303호');
+INSERT INTO DEPT VALUES(40, '관리부', '404호');
+INSERT INTO DEPT VALUES(50, '경리부', '505호');
+COMMIT;

@@ -1,0 +1,14 @@
+--이미지 갤러리
+
+--시퀀스
+create sequence seq_photo_idx;
+
+--테이블
+CREATE TABLE PHOTO(
+	IDX NUMBER(3) PRIMARY KEY, --일련번호
+	TITLE VARCHAR2(100), --제목
+	FILENAME VARCHAR2(100), --업로드할 파일명
+	PWD VARCHAR2(100), --비밀번호
+	IP VARCHAR2(100), --아이피
+	REGIDATE DATE	--등록일
+);

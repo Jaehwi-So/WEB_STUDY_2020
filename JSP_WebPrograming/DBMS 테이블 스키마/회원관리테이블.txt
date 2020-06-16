@@ -1,0 +1,31 @@
+--회원관리 테이블
+
+--시퀀스
+create sequence seq_member_idx;
+
+create table member(
+	idx NUMBER(3) primary key, 
+	name VARCHAR2(50) not null, 
+	id VARCHAR2(50) not null unique, --중복방지:unique
+	pwd VARCHAR2(50) not null, 
+	email VARCHAR2(50), 
+	addr VARCHAR2(200)
+);
+
+--샘플데이터
+insert into member values(
+	seq_member_idx.nextVal, 
+	'일길동', 
+	'one', 
+	'1111', 
+	'one@naver.com', 
+	'서울특별시 관악구'
+);
+commit;
+
+
+
+
+
+
+

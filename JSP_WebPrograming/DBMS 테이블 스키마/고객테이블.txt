@@ -1,0 +1,22 @@
+--고객관리 테이블
+CREATE TABLE GOGEK(
+	GOBUN NUMBER(3) PRIMARY KEY,	--고객번호
+	GONAME VARCHAR2(50),	--이름
+	GOADDR VARCHAR2(50),	--주소
+	GOJUMIN VARCHAR2(14),	--주민번호
+	GODARN NUMBER(3)	--담당자번호
+);
+
+
+--샘플데이터
+insert into gogek values(1, '류민', '서울 강남구', '660215-1234567', 3);
+insert into gogek values(2, '강청', '대정 유성구', '760815-1234567', 4);
+insert into gogek values(3, '영희', '부산 강서구', '791015-2345678', 10);
+insert into gogek values(4, '순이', '인천 계양구', '911105-2234567', 10);
+insert into gogek values(5, '마징가', '서울 동작구', '860212-1111111', 1);
+insert into gogek values(6, '짱가', '서울 강북구', '801215-1223345', 10);
+insert into gogek values(7, '아톰', '경기 안양시', '770225-1234567', 9);
+insert into gogek values(8, '스머프', '서울 강남구', '850205-1234567', 8);
+insert into gogek values(9, '투덜이', '서울 강서구', '880215-1567899', 7);
+insert into gogek values(10, '슛돌이', '서울 강북구', '911115-2234567', 6);
+COMMIT;
