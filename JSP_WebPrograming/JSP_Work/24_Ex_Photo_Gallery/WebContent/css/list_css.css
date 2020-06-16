@@ -1,0 +1,40 @@
+@charset "UTF-8";
+*{margin:0; padding:0;}
+			#main_box h1{
+				text-align : center;
+				text-shadow : 3px 3px 5px black;
+				color : white;
+			}
+			#main_box{
+				width : 800px;
+				margin : auto;
+			}
+			#photo_box{
+				width : 710px;
+				height : 665px;
+				border : 1px solid white;
+				box-shadow : 5px 5px 10px black;
+				padding : 10px;
+				margin : auto;
+				margin-bottom: 20px;
+				overflow : auto;
+			}
+			.photo_type{
+				width : 150px;
+				height : 200px;
+				border : 1px solid #e6e8ff;
+				box-shadow : 1px 1px 2px black;
+				float : left;
+				margin : 10px;
+			}
+			.photo_type img{
+				display : block;
+				margin : auto;
+				width : 99%;
+				height : 150px;
+			}
+			.title{
+				white-space : nowrap;
+				overflow : hidden;
+				text-overflow : ellipsis;
+			}
