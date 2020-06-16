@@ -1,0 +1,7 @@
+D:\jsp_0514_sjh\work\.metadata\.plugins\org.eclipse.wst.server.core\tmp0\wtpwebapps\23_File_Upload\upload\
+acid2Test1.jpg
+
+D:\jsp_0514_sjh\work\.metadata\.plugins\org.eclipse.wst.server.core
+
+D:\jsp_0514_sjh\work\.metadata\.plugins\org.eclipse.wst.server.core\tmp0\wtpwebapps\23_File_Upload\upload\
+background.png
