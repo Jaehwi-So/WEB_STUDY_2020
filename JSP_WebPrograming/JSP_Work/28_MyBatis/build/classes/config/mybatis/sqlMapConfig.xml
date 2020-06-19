@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE configuration
+PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-config.dtd">
+<configuration>
+	<environments default="">
+		<environment id="">
+			<transactionManager type="JDBC" />
+			<dataSource type="JNDI">
+				<property name="data_source" 
+				value="java:comp/env/jdbc/oracle_test" /> <!-- context의 name인 oracle_test로 설정 -->
+			</dataSource>
+		</environment>
+	</environments>
+	<!-- Mapper -->
+	<mappers>	
+		<mapper resource="config/mybatis/mapper/sawon.xml" />	<!-- sawon.xml파일을 객체화시켜 사용 가능하게 만듬. -->
+		<mapper resource="config/mybatis/mapper/gogek.xml" />
+	</mappers>
+</configuration>

@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="sawon">	<!-- namesapce : 별칭 지정 -->
+
+	<!-- 데이터베이스 접근을 위한 쿼리문, mapper에서의 쿼리문에서는 ;(세미콜론)을 추가하지 않는다. -->
+	<select id = "sawon_list" resultType = "vo.SawonVO">	<!-- resultType : 반환형 지정. -->
+		SELECT * FROM SAWON
+	</select>
+	
+</mapper>
+
+
+
+
+
+
+
+
+
+
+
+
