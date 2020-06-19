@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="c">
+	
+	<!-- 회원 idx별 장바구니 목록 조회 -->
+	<select id="cart_list" parameterType="int" resultType="cart">
+		
+		select * from cart_view where m_idx = #{m_idx}
+		
+	</select>
+	
+	<!-- 회원별 장바구니 상품의 총계 -->
+	<select id="cart_total_amount" parameterType="int" resultType="int">
+	
+	<!-- 상품이 존재하지 않아 amount가 0인 경우엔 결과가 null로 넘어오는데, 
+	     현재 resultType이 int이므로 null로 반환하면 오류가 난다.
+	     따라서 nvl(null value)를 사용하여 결과가 null인 경우 0으로 바꿔서 처리한다-->
+		select nvl( sum(amount), 0 ) from cart_view where m_idx=#{m_idx}
+	
+	</select>
+	
+	<!-- 회원별 장바구니 상품의 세일가 총계 -->
+	<select id="cart_sale_amount" parameterType="int" resultType="int">
+	
+	<!-- 상품이 존재하지 않아 amount가 0인 경우엔 결과가 null로 넘어오는데, 
+	     현재 resultType이 int이므로 null로 반환하면 오류가 난다.
+	     따라서 nvl(null value)를 사용하여 결과가 null인 경우 0으로 바꿔서 처리한다-->
+		select nvl( sum(saleamount), 0 ) from cart_view where m_idx=#{m_idx}
+	
+	</select>
+	
+	<!-- 장바구니 수량 업데이트 -->
+	<update id="cart_cnt_update" parameterType="java.util.HashMap">
+		update cart set c_cnt=#{c_cnt} where c_idx=#{c_idx} and m_idx=#{m_idx}
+	</update>
+	
+	<!-- 회원별 장바구니 목록삭제 -->
+	<delete id="cart_delete" parameterType="java.util.HashMap">
+		delete from cart where c_idx=#{c_idx} and m_idx=#{m_idx}
+	</delete>
+	
+	<!-- 장바구니에 이미 등록된 상품인지 검색 -->
+	<select id="cart_one" resultType="cart" parameterType="cart">
+		select * from cart where m_idx=#{m_idx} and p_idx=#{p_idx}
+	</select>
+	
+	<!-- 장바구니에 상품 추가 -->
+	<insert id="cart_insert" parameterType="cart">
+		insert into cart values( seq_cart_idx.nextVal, 1, #{p_idx}, #{m_idx} )
+	</insert>
+	
+</mapper>
+
+
+
+
+
+
+
+
+
+
+
+

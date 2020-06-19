@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="p">
+	
+	<!-- 상품 카테고리별 목록조회 -->
+	<select id="product_list" resultType="pro"
+	        parameterType="java.lang.String">
+		
+		select * from product where category=#{category}
+		
+	</select>
+	
+	<!-- 상품추가 -->
+	<insert id="product_insert"
+	        parameterType="pro">
+	
+		insert into product values(
+			seq_pro_idx.nextVal, 
+			#{category}, --vo.getCategory()
+			#{p_num}, 
+			#{p_name}, 
+			#{p_company}, 
+			#{p_price}, 
+			#{p_saleprice}, 
+			#{p_image_s}, 
+			#{p_image_l}, 
+			#{p_content}, 
+			sysdate
+		)
+	
+	</insert>
+	
+	<!-- idx에 해당하는 상품정보 한 건 얻기 -->
+	<select id="product_one" resultType="pro" parameterType="int">
+		select * from product where idx=#{idx}
+	</select>
+	
+</mapper>
+
+
+
+
+
+
+
+
+
+
+
+
