@@ -1,0 +1,54 @@
+--시퀀스
+create sequence seq_pro_idx;	--품번 시퀀스
+
+--테이블
+CREATE TABLE PRODUCT(
+	IDX NUMBER(3) PRIMARY KEY,	--품번
+	CATEGORY VARCHAR2(50) NOT NULL,		--카테고리
+	P_NUM VARCHAR2(100) UNIQUE NOT NULL,	--모델명
+	P_NAME VARCHAR2(250) NOT NULL,		--상품명
+	P_COMPANY VARCHAR2(100) NOT NULL,	--제조사
+	P_PRICE NUMBER(10) NOT NULL,	--가격
+	P_SALEPRICE NUMBER(10) NOT NULL,	--할인가
+	P_IMAGE_S VARCHAR2(255) NOT NULL,	--상품 이미지(소)
+	P_IMAGE_L VARCHAR2(255) NOT NULL,	--상품 이미지(대)
+	P_CONTENT CLOB NOT NULL,	--상품설명
+	P_DATE DATE NOT NULL	--등록일자
+);
+
+--CLOB : 텍스트로 1GB이상 저장 가능한 긴 글을 저장할 때 사용
+
+--샘플데이터
+INSERT INTO PRODUCT 
+VALUES(
+	SEQ_PRO_IDX.NEXTVAL, 
+	'sp003',
+	'RS-113',
+	'로체스 인라인13',
+	'로체스',
+	50000,
+	32000,
+	'pds1.jpg',
+	'pds1_z.jpg',
+	'바이오맥스 통풍, 특수 신소재 나일론 사용, 편안한 착용감',
+	SYSDATE
+);
+COMMIT;
+
+
+--샘플데이터
+INSERT INTO PRODUCT 
+VALUES(
+	SEQ_PRO_IDX.NEXTVAL, 
+	'ele002',
+	'SM-011',
+	'삼성 50인치 브라운관 TV',
+	'삼성',
+	1200000,
+	1000000,
+	'pds4.jpg',
+	'pds4_z.jpg',
+	'레트로 감성 물씬, 브라운관 TV의 혁신',
+	SYSDATE
+);
+COMMIT;

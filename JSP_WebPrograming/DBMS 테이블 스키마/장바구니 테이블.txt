@@ -1,0 +1,73 @@
+--장바구니의 일련번호
+create sequence seq_cart_idx2;
+
+--장바구니 테이블
+create table cart(
+	c_idx NUMBER(3) primary key, 
+	c_cnt NUMBER(3) not null, --수량
+	p_idx NUMBER(3), --상품번호	외래키 설정.
+	m_idx NUMBER(3) not null --회원번호
+);
+
+--p_idx(cart)와 idx(product)를 외래키로 지정
+alter table cart
+add constraint fk_cart_p_idx foreign key( p_idx )	--fk : 외래키 지정
+references product( idx );
+
+--임시데이터( 회원번호는 임시로1을 넣도록 한다 )
+--insert into cart values( 시퀀스, 수량,  product에 존재하는 상품번호, 1 );
+insert into cart values( seq_cart_idx2.nextVal, 1, 41, 1 );
+commit;
+insert into cart values( seq_cart_idx2.nextVal, 1, 42, 1 );
+commit;
+
+--join을 통한 조회정보 추출
+create or replace view cart_view AS
+select 	c.p_idx, 
+	c.c_idx,
+         	p.p_price,  
+	p.p_saleprice,
+	c.c_cnt * p.p_price amount,	--장바구니 상품총합
+	c.c_cnt * p.p_saleprice saleamount,	--세일가 총합
+         	c.m_idx, 
+	c.c_cnt,
+	p.p_num,
+	p.p_name
+from product p 
+INNER JOIN cart c 
+ON p.idx = c.p_idx;
+
+
+
+	private int p_idx; //일련번호
+	private int c_idx;//카트일련번호
+	private int p_price;//가격
+	private int p_saleprice;//할인가
+	private int amount;//장바구니 상품 총합
+	private int m_idx;//회원번호
+	private int c_cnt;//상품 수량
+	private String p_num;//모델명
+	private String p_name;//상품명
+
+
+CREATE TABLE PRODUCT(
+	IDX NUMBER(3) PRIMARY KEY,	--품번
+	CATEGORY VARCHAR2(50) NOT NULL,		--카테고리
+	P_NUM VARCHAR2(100) UNIQUE NOT NULL,	--모델명
+	P_NAME VARCHAR2(250) NOT NULL,		--상품명
+	P_COMPANY VARCHAR2(100) NOT NULL,	--제조사
+	P_PRICE NUMBER(10) NOT NULL,	--가격
+	P_SALEPRICE NUMBER(10) NOT NULL,	--할인가
+	P_IMAGE_S VARCHAR2(255) NOT NULL,	--상품 이미지(소)
+	P_IMAGE_L VARCHAR2(255) NOT NULL,	--상품 이미지(대)
+	P_CONTENT CLOB NOT NULL,	--상품설명
+	P_DATE DATE NOT NULL	--등록일자
+);
+
+
+
+
+
+
+
+

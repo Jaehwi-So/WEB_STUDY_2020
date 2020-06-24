@@ -1,0 +1,102 @@
+--시퀀스
+CREATE SEQUENCE SEQ_BOARD_IDX;
+
+--게시판 DB
+	private int idx; //일련번호
+	private int readhit; //조회수
+	private int ref; //참조글 번호
+	private int step; //댓글순서(수직)
+	private int depth; //댓글깊이(수평)
+	private int del_info;
+	
+	private String name; //작성자명
+	private String subject; //게시글 제목
+	private String content; //내용
+	private String pwd; //비밀번호
+	private String ip;
+	private String regdate;//등록일
+
+CREATE TABLE BOARD(
+	IDX NUMBER(4)  PRIMARY KEY,
+	READHIT NUMBER(4),
+	REF NUMBER(4),
+	STEP NUMBER(3),
+	DEPTH NUMBER(3),
+	NAME VARCHAR(100),
+	SUBJECT VARCHAR(200),
+	CONTENT CLOB,
+	PWD VARCHAR(100),
+	IP VARCHAR(200),
+	REGDATE DATE,
+	DEL_INFO NUMBER(2)
+);
+
+
+--1. 새 글(REF=1 STEP=0 DEPTH=0)
+--	ㄴ3. 1의 댓글(1-1)(REF=1 STEP=1 DEPTH=1)
+--		ㄴ9. 1-1의 댓글(1-1-1)(REF=1 STEP=2 DEPTH=2)	--4,6,8의 STEP을 증가시켜야한다.
+--	ㄴ4. 1의 댓글(1-2)(REF=1 STEP=2 DEPTH=1)
+--		ㄴ6. 1-2의 댓글(1-1-2)(REF=1 STEP=3 DEPTH=2)
+--			ㄴ8. 1-1-2의 댓글(1-1-2-1)(REF=1 STEP=4 DEPTH=3)
+
+--1번 댓글에서 9번댓글 추가시
+--	ㄴ3. 1의 댓글(1-1)(REF=1 STEP=1 DEPTH=1)
+--		ㄴ9. 1-1의 댓글(1-1-1)(REF=1 STEP=2 DEPTH=2)	
+--	ㄴ4. 1의 댓글(1-2)(REF=1 STEP=3 DEPTH=1)
+--		ㄴ6. 1-2의 댓글(1-1-2)(REF=1 STEP=4 DEPTH=2)
+--			ㄴ8. 1-1-2의 댓글(1-1-2-1)(REF=1 STEP=5 DEPTH=3)
+
+
+--2. 새 글(REF=2 STEP=0 DEPTH=0)
+--	ㄴ5. 2의 댓글(2-1)(REF=2 STEP=1 DEPTH=1)
+--		ㄴ7. 2-1의 댓글(2-1-1)(REF=2 STEP=2 DEPTH=2)
+--			ㄴㄴ11. 2-1-1의 댓글(2-1-1-1)(REF=2 STEP=3 DEPTH=3)
+--		ㄴ10. 2-1의 댓글(2-1-2)(REF=2 STEP=4 DEPTH=2)
+
+
+--새 글 샘플
+INSERT INTO BOARD VALUES(
+	SEQ_BOARD_IDX.NEXTVAL,
+	'김철수',
+	'나는 제목이다',
+	'나는 내용입니다',
+	'1111',
+	'192.255.255.255',
+	SYSDATE,
+	0,
+	SEQ_BOARD_IDX.CURRVAL,	--REF(현재 시퀀스의 값)
+	0,	--STEP
+	0	--DEPTH
+)
+
+--댓글 샘플
+INSERT INTO BOARD VALUES(
+	SEQ_BOARD_IDX.NEXTVAL,
+	'김댓글',
+	'댓글1',
+	'나는 댓글이다',
+	'1111',
+	'192.255.255.254',
+	SYSDATE,
+	0,
+	1,	--REF
+	1,	--STEP
+	1	--DEPTH
+);
+--대댓글 샘플
+INSERT INTO BOARD VALUES(
+	SEQ_BOARD_IDX.NEXTVAL,
+	'김대댓글',
+	'대댓글1',
+	'나는 대댓글이다',
+	'1111',
+	'192.255.255.254',
+	SYSDATE,
+	0,
+	1,	--REF
+	2,	--STEP
+	2	--DEPTH
+);
+
+--계층형 게시판의 정렬구조
+SELECT * FROM BOARD ORDER BY REF DESC, STEP;

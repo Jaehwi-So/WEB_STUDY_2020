@@ -1,22 +1,22 @@
---ê³ ê°ê´€ë¦¬ í…Œì´ë¸”
+--°í°´°ü¸® Å×ÀÌºí
 CREATE TABLE GOGEK(
-	GOBUN NUMBER(3) PRIMARY KEY,	--ê³ ê°ë²ˆí˜¸
-	GONAME VARCHAR2(50),	--ì´ë¦„
-	GOADDR VARCHAR2(50),	--ì£¼ì†Œ
-	GOJUMIN VARCHAR2(14),	--ì£¼ë¯¼ë²ˆí˜¸
-	GODARN NUMBER(3)	--ë‹´ë‹¹ìë²ˆí˜¸
+	GOBUN NUMBER(3) PRIMARY KEY,	--°í°´¹øÈ£
+	GONAME VARCHAR2(50),	--ÀÌ¸§
+	GOADDR VARCHAR2(50),	--ÁÖ¼Ò
+	GOJUMIN VARCHAR2(14),	--ÁÖ¹Î¹øÈ£
+	GODARN NUMBER(3)	--´ã´çÀÚ¹øÈ£
 );
 
 
---ìƒ˜í”Œë°ì´í„°
-insert into gogek values(1, 'ë¥˜ë¯¼', 'ì„œìš¸ ê°•ë‚¨êµ¬', '660215-1234567', 3);
-insert into gogek values(2, 'ê°•ì²­', 'ëŒ€ì • ìœ ì„±êµ¬', '760815-1234567', 4);
-insert into gogek values(3, 'ì˜í¬', 'ë¶€ì‚° ê°•ì„œêµ¬', '791015-2345678', 10);
-insert into gogek values(4, 'ìˆœì´', 'ì¸ì²œ ê³„ì–‘êµ¬', '911105-2234567', 10);
-insert into gogek values(5, 'ë§ˆì§•ê°€', 'ì„œìš¸ ë™ì‘êµ¬', '860212-1111111', 1);
-insert into gogek values(6, 'ì§±ê°€', 'ì„œìš¸ ê°•ë¶êµ¬', '801215-1223345', 10);
-insert into gogek values(7, 'ì•„í†°', 'ê²½ê¸° ì•ˆì–‘ì‹œ', '770225-1234567', 9);
-insert into gogek values(8, 'ìŠ¤ë¨¸í”„', 'ì„œìš¸ ê°•ë‚¨êµ¬', '850205-1234567', 8);
-insert into gogek values(9, 'íˆ¬ëœì´', 'ì„œìš¸ ê°•ì„œêµ¬', '880215-1567899', 7);
-insert into gogek values(10, 'ìŠ›ëŒì´', 'ì„œìš¸ ê°•ë¶êµ¬', '911115-2234567', 6);
+--»ùÇÃµ¥ÀÌÅÍ
+insert into gogek values(1, '·ù¹Î', '¼­¿ï °­³²±¸', '660215-1234567', 3);
+insert into gogek values(2, '°­Ã»', '´ëÁ¤ À¯¼º±¸', '760815-1234567', 4);
+insert into gogek values(3, '¿µÈñ', 'ºÎ»ê °­¼­±¸', '791015-2345678', 10);
+insert into gogek values(4, '¼øÀÌ', 'ÀÎÃµ °è¾ç±¸', '911105-2234567', 10);
+insert into gogek values(5, '¸¶Â¡°¡', '¼­¿ï µ¿ÀÛ±¸', '860212-1111111', 1);
+insert into gogek values(6, 'Â¯°¡', '¼­¿ï °­ºÏ±¸', '801215-1223345', 10);
+insert into gogek values(7, '¾ÆÅè', '°æ±â ¾È¾ç½Ã', '770225-1234567', 9);
+insert into gogek values(8, '½º¸ÓÇÁ', '¼­¿ï °­³²±¸', '850205-1234567', 8);
+insert into gogek values(9, 'Åõ´úÀÌ', '¼­¿ï °­¼­±¸', '880215-1567899', 7);
+insert into gogek values(10, '½¸µ¹ÀÌ', '¼­¿ï °­ºÏ±¸', '911115-2234567', 6);
 COMMIT;
