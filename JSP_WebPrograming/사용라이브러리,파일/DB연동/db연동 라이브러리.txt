@@ -1,0 +1,18 @@
+오라클db설치시 c드라이브에 oraclexe가 있다
+-> app -> oracle -> product -> 11.2.0 -> server -> jdbc -> lib의 jar파일 3개 + 1개를
+
+프로젝트의 WEB-INF의 lib에 라이브러리 4개 넣기
+
+context.xml를
+META-INF에 넣기
+
+프로젝트 안에서 context.xml에 source
+username, password에 계정입력
+
+DB 새 계정
+오라클 들어가서
+처음에 system, 1111로 로그인
+
+Create new -> TEST2 / 1111
+
+context.xml을 통해 db관리.
