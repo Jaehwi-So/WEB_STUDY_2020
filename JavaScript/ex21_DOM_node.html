@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<!--
+# 노드 리스트 : getElementsByTagName() 혹은 childNodes 프로퍼티의 값으로 반환되는 객체이다.
+문서 내의 모든 노드를 리스트 형태로 저장하고 있으며 인덱스를 통하여 접근 가능하다.
+-->
+<body>
+    <h1>노드 리스트</h1>
+    <button onclick="changeCSS()">CSS 변경</button>
+	<ul id="list">
+		<li>1번째 li</li>
+		<li>2번째 li</li>
+		<li>3번째 li</li>
+	</ul>
+	<p id="res"></p>
+
+	<script>
+		var list_var = document.getElementsByTagName("li");	// 모든 <li> 요소들을 선택함.
+		document.getElementById("res").innerHTML = "노드 리스트의 길이 " + list_var.length;	// 모든 자식 노드들의 개수를 반환함.
+        
+        var list_var2 = document.getElementById("list").childNodes;    //list의 모든 자식요소 선택
+		function changeCSS() {
+			for (var i = 0; i < list_var2.length; i++) {
+                if(list_var2[i].nodeName == "LI"){
+                    list_var2[i].style.color = "blue";	// 모든 자식 노드들의 글자색을 변경함.
+                }
+			}
+		}
+	</script>
+	
+</body>
+</html>
