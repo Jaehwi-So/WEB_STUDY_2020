@@ -29,25 +29,29 @@
 
     </style>
     <script>
+        var time_ck = 0;
+        var set_time = setInterval(function(){
+        time_ck++;}
+        ,3000);
         function put_str(){
-            prompt("hello");
-            var time_ck = "hello";
-            var disp = document.getElementsByID("time_part");
-            disp.innerHTML = time_ck;
+            alert(time_ck);
+            document.getElementById("time_part").innerHTML = time_ck;
         }
     </script>
     <script src = "ex17j-1_open.js"></script>
     <script src = "ex17j-2_alert.js"></script>
     <script src = "ex17j-3_prompt,submit.js"></script>
+    <script src = "ex17j-4_interval.js"></script>
 </head>
 <body>
     <div class = "box">
-        <h1>흔들리는 꽃들 속에서 네 샴푸향이 느껴진 거야</h1>
-        <h3>장범준</h3>
+        <h1>interval을 통한 시간 체크</h1>
         <div class = "content">
-            <button onclick = "put_str();">갱신</button>
-            <div id = "time_part">
-            </div>   
+            <button onclick = "put_str();">현재 시간 갱신</button>
+            <button onclick = "stop_interval();">현재 시간 증가 정지</button>
+            <p id = "time_part">
+                
+            </p>   
         </div>
     </div>
 
