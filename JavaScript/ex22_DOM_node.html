@@ -1,0 +1,93 @@
+<!-- # 노드의 생성, 추가, 삭제-->
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        //# createElement, appendChild
+        function option_add(){
+            var value = prompt("옵션명을 입력하세요");
+            var option = document.createElement("option");  
+            //createElement()를 통해 새로운 요소를 생성할 수 있다.
+            option.value = value;
+            option.innerHTML = value;
+
+            var parent = document.getElementById("select");  
+
+            parent.appendChild(option);               
+            //appendChild()를 통해 노드에 새로운 자식 노드를 추가할 수 있다.    
+        }
+
+        //# removeChild
+        function option_del(){
+            var value = prompt("제거할 옵션명을 입력하세요");
+            var parent = document.getElementById("select");
+            for(var i = 0; i < parent.childNodes.length; i++){
+                if(parent.item(i).value == value){
+                    parent.removeChild(parent.item(i));  
+                    //removeChild()를 통해 노드의 자식 노드 제거
+                }
+            }                 
+        }
+        //# insertBefore
+        function option_add2(){
+            var value = prompt("옵션명을 입력하세요");
+            var option = document.createElement("option");  
+            option.value = value;
+            option.innerHTML = value;
+            var standard = document.getElementById("select_standard");  
+            //새로운 노드를 삽입할 때 기준이 되는 노드.
+            parent.insertBefore(option, standard);  
+            //insertBefore()을 통해 기준 노드 앞에 노드를 추가한다.              
+        }
+        //# insertData
+        function text_add(){
+            var text = document.getElementById("text_zone").firstChild;	
+			text.insertData(6, "hello ");	// insertData() : 텍스트 노드의 6번째 문자 뒤에 텍스트를 추가
+        }
+        //# createAttribute, setAttributeNode
+        function style_add(){
+            var parent = document.getElementById("text_zone");  
+            var attribute = document.createAttribute("style");
+            //createAttribute() : 새로운 속성 생성  
+            attribute.value = "color:red";
+            parent.setAttributeNode(attribute);
+            //setAttribute() : 해당 요소 노드의 속성 노드로 추가
+        }
+
+        //# removeAttribute
+        function remove_event(){
+            var parent = document.getElementById("select");
+            parent.removeAttribute("onchange");
+            //removeAttribute() : 해당 요소 노드의 속성 노드를 제거
+        }
+
+        // #nodeValue
+        function change_text() {
+            var parent = document.getElementById("text_zone");  
+            parent.firstChild.nodeValue = "Hello javascript";
+            //nodeValue를 통한 노드의 값 변경
+        }
+    </script>
+</head>
+<body>
+    <input type="button" value="옵션 추가하기" onclick="option_add();">
+    <input type="button" value="특정 위치에 옵션 추가하기" onclick="option_add2();">
+    <input type="button" value="옵션 삭제하기" onclick="option_del();">
+    <input type="button" value="텍스트 추가하기" onclick="text_add();">
+    <input type="button" value="텍스트 스타일 추가" onclick="style_add();">
+    <input type="button" value="옵션 이벤트 제거" onclick="remove_event();">
+    <input type="button" value="텍스트 내용 변경" onclick="change_text();">
+    <hr>
+    <select id="select" onchange="alert('선택');">
+        옵션 선택 : 
+        <option value="선택하기">선택하기</option>
+        <option value="기준" id="select_standard">기준</option>
+    </select>
+    <p id="text_zone">
+        Hello world
+    </p>
+</body>
+</html>
