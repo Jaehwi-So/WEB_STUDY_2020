@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>브라우저 객체 모델</title>
+    <script>
+        //# location 객체
+        //브라우저와 관련된 속성을 제공한다. URL에 대한 정보와 새로고침 메서드를 제공.
+        var href = location.href; //현재 브라우저의 URL
+        var hash = location.hash;   //URL의 해시값
+        var hostname = location.host;   //URL의 호스트명
+        var protc = location.protocol;   //URL의 프로토콜
+        var search = location.search;   //URL의 쿼리(파라미터)
+        document.write(href);
+        document.write("<br>");
+        document.write(hash);
+        document.write("<br>");
+        document.write(hostname);
+        document.write("<br>");
+        document.write(protc);
+        document.write("<br>");
+        document.write(search);
+        document.write("<hr>");
+
+        //# navigator 객체 : 현재 방문자가 사용하는 브라우저 정보와 운영체제 정보를 제공
+        var appname = navigator.appName;    //브라우저 이름
+        var appver = navigator.appVersion;  //브라우저 버전정보
+        var lang = navigator.language;  //브라우저 언어
+        var os = navigator.platform;    //운영체제 정보
+        document.write(appname);
+        document.write("<br>");
+        document.write(appver);
+        document.write("<br>");
+        document.write(lang);
+        document.write("<br>");
+        document.write(os);
+        document.write("<br>");
+
+        function go_url(){
+            //location.href = url : 현재 브라우저의 URL을 지정한 URL로 변경한다.
+            location.href = "ex17_browser_object.html";
+        }
+
+        //history 객체 : 방문한 사이트의 기록과 관련된 객체.
+        function back(){
+            history.back(); //이전 방문 사이트로 이동
+        }
+        function forward(){
+            alert(history.length);  //방문 기록에 저장된 목록의 개수
+            history.forward();  //다음 방문 사이트로 이동
+        }
+    </script>
+</head>
+<body>
+    <input type="button" value="url 이동" onclick="go_url();">
+    <input type="button" value="이전 페이지" onclick="back();">
+    <input type="button" value="다음 페이지" onclick="forward();">
+</body>
+</html>
