@@ -1,6 +1,6 @@
-[TOC]
-## Spring Bean
-
+[[TOC]]
+# Spring Bean
+[2. 빈의 SI(Setter Injection)과 CI(Consturctor Injection)](#2-빈의-sisetter-injection과-ciconstructor-injection)
 ### 1. 스프링 컨테이너와 스프링 빈
 
 #### 1-1. 스프링 컨테이너
