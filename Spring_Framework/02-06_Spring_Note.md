@@ -5,7 +5,7 @@
 - [2. 빈의 SI(Setter Injection)과 CI(Constructor Injection)](#2-빈의-sisetter-injection과-ciconstructor-injection)
 - [3. 빈의 의존성 주입(DI : Dependency Injection)](#3-빈의-의존성-주입DI--Dependency-Injection)
 - [4. 의존 관계 인터페이스 사용](#4-의존-관계-인터페이스-사용)
-- [5. 팩토리를 이용한 빈의 생성](#5-팩토리를-이용한-빈의-생성)
+- [5. 팩토리 메서드를 이용한 빈의 생성](#5-팩토리-메서드를-이용한-빈의-생성)
 - [6. 빈 스코프(Bean Scope)](#6-빈-스코프Bean-Scope)
 ----------------------
 ### 1. 스프링 컨테이너와 스프링 빈
@@ -163,7 +163,7 @@ public class PersonDaoFactory {
 	}
 }
 ```
-
+----------------
 ### 6. 빈 스코프(Bean Scope)
 빈을 공유하기 위한 인스턴스를 단 한번만 생성(Single-ton), 혹은 요청될 때 마다 새로운 인스턴스를 생성(Prototype) 등  
 빈 인스턴스의 수명을 결정하기 위해 스코프 속성을 사용한다. 기본적으로 싱글톤으로 생성된다.
