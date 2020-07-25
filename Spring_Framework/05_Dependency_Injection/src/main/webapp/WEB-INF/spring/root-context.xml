@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans https://www.springframework.org/schema/beans/spring-beans.xsd">
+	
+	<!-- Root Context: defines shared resources visible to all other web components -->
+	<!-- String nameBean = new String("hong"); -->
+	<bean id = "nameBean" class = "java.lang.String">
+		<constructor-arg value = "hong"></constructor-arg>
+	</bean>
+	
+	<!-- Integer ageBean = new Integer(25); -->
+	<bean id = "ageBean" class = "java.lang.Integer">
+		<constructor-arg value = "25"></constructor-arg>
+	</bean>
+	
+	<!-- String telBean = new String("010-5444-4555"); -->
+	<bean id = "telBean" class = "java.lang.String">
+		<constructor-arg value = "010-5444-4555"></constructor-arg>
+	</bean>
+	
+	<!-- # 외부에서 만든 객체를 ref를 통하여 참조하여 사용 가능하다. 
+		이러한 구조를 DI(Dependency Injection, 의존성 주입)이라고 한다.-->
+	<bean id = "p3" class = "vo.PersonVO">
+		<property name="name" ref="nameBean"></property>
+		<property name="age" ref="ageBean"></property>
+		<property name="tel" ref="telBean"></property>
+	</bean>
+	
+	<!-- # 빈 스코프(Bean Scope)
+	빈을 공유하기 위한 인스턴스를 단 한번만 생성(Single-ton), 혹은 요청될 때 마다 새로운 인스턴스를 생성(Prototype) 등 빈 인스턴스의 수명을 
+	결정하기 위해 스코프 속성을 사용한다.
+	 -->
+	<!-- scope는 기본적으로 single-ton이지만 prototype으로 하면 새로고침시마다 객체가 생성된다.  -->
+	<bean id = "p4" class = "vo.PersonVO" scope = "prototype">
+		<constructor-arg ref="nameBean"></constructor-arg>
+		<constructor-arg ref="ageBean"></constructor-arg>
+		<constructor-arg ref="telBean"></constructor-arg>
+	</bean>	
+</beans>
