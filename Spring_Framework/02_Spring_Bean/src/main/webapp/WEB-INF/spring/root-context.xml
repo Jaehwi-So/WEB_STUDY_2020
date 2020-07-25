@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans https://www.springframework.org/schema/beans/spring-beans.xsd">
+	
+	<!-- Root Context: defines shared resources visible to all other web components -->
+	<!-- # 정적 팩토리 메서드로 Bean 생성하기-->
+	<!-- service에 dao인스턴스를 주입한다.-->
+	<bean id="service" class="service.PersonService">
+		<property name="personDAO" ref="dao"></property>
+	</bean>
+	
+	<bean id="dao" class="dao.PersonDaoFactory" factory-method="getPersonDao">
+		<constructor-arg index="0" value="type1"></constructor-arg> 
+	</bean>  
+
+	<!-- facoty-method : PersonDao를 얻기 위해 호출되는 정적 팩토리 메서드의 이름을 지정
+	constructor-arg의 index가 0이라면 메서드의 첫 번 째 인수를 정의한다. value는 인수값을 지정한다. -->	
+</beans>
