@@ -1,6 +1,6 @@
 [[TOC]]
 # Spring Bean
-[2. 빈의 SI(Setter Injection)과 CI(Consturctor Injection)](#2-빈의-sisetter-injection과-ciconstructor-injection)
+[2. 빈의 SI(Setter Injection)과 CI(Constructor Injection)](#2-빈의-sisetter-injection과-ciconstructor-injection)
 ### 1. 스프링 컨테이너와 스프링 빈
 
 #### 1-1. 스프링 컨테이너
@@ -21,7 +21,7 @@ Spring Bean은 xml 파일, 즉 root-context.xml, servlet-context.xml등에서 �
   + property: 인스턴스 생성 시 Setter에 전달할 인수
   + init method와 destroy method
   
-### 2. 빈의 SI(Setter Injection)과 CI(Consturctor Injection)
+### 2. 빈의 SI(Setter Injection)과 CI(Constructor Injection)
 
 
 
