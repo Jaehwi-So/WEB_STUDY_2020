@@ -3,7 +3,7 @@
   + [1-1. 스프링 컨테이너](#1-1-스프링-컨테이너)
   + [1-2. 스프링 빈](#1-2-스프링-빈)
 - [2. 빈의 SI(Setter Injection)과 CI(Constructor Injection)](#2-빈의-sisetter-injection과-ciconstructor-injection)
-- [3. 빈의 의존성 주입(DI : Dependency Injection)](#3-빈의-의존성-주입(DI--Dependency-Injection))
+- [3. 빈의 의존성 주입(DI : Dependency Injection)](#3-빈의-의존성-주입DI--Dependency-Injection)
 ### 1. 스프링 컨테이너와 스프링 빈
 
 #### 1-1. 스프링 컨테이너
