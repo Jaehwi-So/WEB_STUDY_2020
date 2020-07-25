@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans https://www.springframework.org/schema/beans/spring-beans.xsd">
+	
+	<!-- Root Context: defines shared resources visible to all other web components -->
+	<!-- 인스턴스 팩토리 메서드를 호출하여 빈 생성하기 -->
+	<bean id="daoFactory" class="dao.PersonDaoInstanceFactory"></bean>
+	
+	<!-- daoFactory의 getPersonDao를 호출하여 dao 인스턴스를 생성. -->
+	<bean id="dao" factory-bean="daoFactory" factory-method="getPersonDao"> 
+		<constructor-arg index="0" value="type2"></constructor-arg> <!-- 메서드의 0번째 파라미터 넘겨주기 -->
+		<property name="member_val" value="membervalue"></property>   <!-- 메서드로 반환된 인스턴스의 멤버변수 프로퍼티에 SI로 멤버변수 주입 -->
+	</bean>
+	<bean id="service" class="service.PersonService">
+		<property name="personDAO" ref="dao"></property>
+	</bean> 	
+</beans>
