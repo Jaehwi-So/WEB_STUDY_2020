@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans https://www.springframework.org/schema/beans/spring-beans.xsd">
+	
+	
+	<bean id="dao" class="dao.BoardDaoImpl"></bean>
+	<bean id="dao2" class="dao.BoardDaoImpl"></bean>
+		
+	
+	<!-- # 인터페이스를 사용하는 프로그래밍 설계 원칙
+	의존 중인 클래스 사이에 인터페이스를 추가하여 느슨한 결합 관계를 형성하는 프로그래밍 방식이다. 이는 데이터베이스와 상호 작용하는 전략을 쉽게 바꿀 수 있다.  -->
+	
+	<!-- BoardController <- BoardService(인터페이스) <-BoardServiceImpl <- BoardDAO(인터페이스)
+																		/		\
+																BoardDaoImpl    BoardDaoImpl2
+													BoardService에 공급할 BoardDAO를 상황에 맞게 변화시켜 유연한 프로그래밍이 가능하다.
+	-->
+	<bean id="serviceBean" class="service.BoardServiceImpl">
+		<!-- 생성자 인젝션을 통해 dao를 파라미터로 받는다 -->
+		<constructor-arg ref="dao"/>
+	</bean>	
+	
+	<!-- 
+	<bean id="serviceBean" class="service.BoardServiceImpl">
+		<constructor-arg ref="dao2"/>
+	</bean>	 
+	-->
+		
+</beans>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
