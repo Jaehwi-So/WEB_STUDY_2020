@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans https://www.springframework.org/schema/beans/spring-beans.xsd">
+	
+	<!-- Root Context: defines shared resources visible to all other web components -->
+	<!-- # root-context는 사용할 객체를 생성하는 영역. web.xml 다음으로 실행된다.
+	Service, DAO, DB등 비즈니스 로직과 관련된 설정을 한다.-->
+	
+</beans>
