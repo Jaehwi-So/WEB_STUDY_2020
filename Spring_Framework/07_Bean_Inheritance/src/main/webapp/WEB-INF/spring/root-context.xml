@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans https://www.springframework.org/schema/beans/spring-beans.xsd">
+	
+	<!-- Root Context: defines shared resources visible to all other web components -->
+	
+	<!-- 1. Bean의 상속 : 추상 Bean을 상속 -->
+	<bean id="dao" class="dao.BoardDaoImpl"></bean>
+	
+	<!-- 
+	# 추상 Bean : abstract속성이 true인 경우. 다른 빈 정의의 부모 역할을 하는 빈 정의를 만들 수 있다. 
+	추상 Bean은 정의할 수 없다. 즉 property나 construct-arg를 통해 주입 불가능.
+	부모 빈 정의는 프로퍼티, 생성자 인수, 메서드 오버라이드, 초기화와 정리 메서드, 팩토리 메서드를 상속할 수 있다.
+	-->	
+	<bean id="serviceTemplate" abstract="true">
+		<property name="dao" ref="dao"/>
+		<property name="serviceType" value="fruit"/>
+	</bean>
+	
+	<!-- serviceTemplate Bean의 정의를 상속받는 자식 Bean -->
+	<bean id="serviceBean" class="service.BoardServiceImpl" parent="serviceTemplate">
+		<property name="message" value="service1"></property> 
+	</bean>		 
+	
+	<!-- serviceTemplate Bean의 정의를 상속받는 자식 Bean -->
+	<bean id="serviceBean2" class="service.BoardServiceImpl2" parent="serviceTemplate">
+		<property name="message" value="service2"></property>
+	</bean>		
+	
+	<!-- 2. Bean의 상속 : 추상 Bean이 아닌 경우 -->
+	<bean id="person_dao" class="dao.PersonDaoImpl"></bean>
+	
+	<!-- 추상 Bean이 아닌 클래스를 상속받을 수 있다. 또한 자식 빈 정의에서 추가 정의를 할 수 있다. -->
+	<bean id="personServiceTemplet" class="service.PersonServiceTemplate">
+		<property name="dao" ref="person_dao"></property>
+		<property name="serviceType" value="person"></property>
+	</bean>
+	
+	<bean id="personService" class="service.PersonServiceImpl" parent="personServiceTemplet">
+		<property name="message" value="person service"></property>
+	</bean>
+</beans>
+
+
