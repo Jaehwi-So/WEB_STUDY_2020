@@ -45,7 +45,8 @@ property를 사용하여 setter로 접근하는 형식을 SI(Setter Injection)�
 </bean>
 ```
 <b>CI(Constructor Injection)</b>  	
-contructor-arg : 생성자 순서대로 값을 넣어야 한다. index를 통해 순서를 변경할 수 있다.   
+contructor-arg : 생성자 순서대로 값을 넣는다. 인수의 타입이 명확하게 다르다면 순서에 상관 없이 스프링 컨테이너가 알아서 인수를 처리해준다.
+둘 이상의 생성자 인수가 같은 타입이라면 index 속성을 사용하여 순서를 지정할 수 있다. name속성을 사용해 생성자 인수를 지정할 수 있지만 디버그 플래그나 파라미터 이름 발견 플래그를 활성화 시켜야 한다   
 생성자를 통해 파라미터를 전달한다. 이를 CI(Constructor Injection)이라고 한다.   
 ```
 <bean id = "p2" class = "vo.PersonVO">
@@ -170,7 +171,7 @@ public class PersonDaoFactory {
 
 다음은 빈을 얻어내는 코드이다. 만약 생성된 bean의 스코프 속성이 싱글톤이었다면 p3_1과 p3_2는 같은 인스턴스이며 프로토타입이라면 다른 인스턴스일 것이다.
 ```
-PersonVO p3_1 = (PersonVO)wc.getBean("p3");
+PersonVO p3_1 = (PersonVO)wc.getBean("p3"); 
 PersonVO p3_2 = wc.getBean("p3", PersonVO.class);
 ```
 
