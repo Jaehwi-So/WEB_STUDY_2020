@@ -171,7 +171,7 @@ public class PersonDaoFactory {
 
 다음은 빈을 얻어내는 코드이다. 만약 생성된 bean의 스코프 속성이 싱글톤이었다면 p3_1과 p3_2는 같은 인스턴스이며 프로토타입이라면 다른 인스턴스일 것이다.
 ```
-PersonVO p3_1 = (PersonVO)wc.getBean("p3");
+PersonVO p3_1 = (PersonVO)wc.getBean("p3"); 
 PersonVO p3_2 = wc.getBean("p3", PersonVO.class);
 ```
 
