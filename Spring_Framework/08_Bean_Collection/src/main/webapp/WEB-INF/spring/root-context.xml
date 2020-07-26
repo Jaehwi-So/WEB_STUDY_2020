@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans https://www.springframework.org/schema/beans/spring-beans.xsd">
+	
+	<!-- Root Context: defines shared resources visible to all other web components -->
+	
+	<!-- Collection의 List, Map, Set타입의 프로퍼티나 생성자 인수를 설정하기 위해서는
+	<list><map><set>의 하위 엘리먼트를 사용해야 한다.
+	list와 set의 하위 엘리먼트로 <value>를 사용하면 리스트에 들어갈 원소를 지정한다.
+	map의 하위 엘리먼트로<entry>를 사용하면 <key>를 통해 key값을 지정하고 키에 해당하는 값을 설정할 수 있다.-->
+	
+	<!-- Set을 setter를 통해 주입시킨 mySetBean -->
+	<bean id="mySetBean" class="ex.MySet">
+		<property name="set">
+			<set>
+				<value>set1-1</value>
+				<value>set1-2</value>
+				<value>set1-3</value>
+			</set>
+		</property>
+	</bean>
+	
+	<!-- Set을 생성자를 통해 주입시킨 mySetBean2 -->
+	<bean id="mySetBean2" class="ex.MySet">
+		<constructor-arg>
+			<set>
+				<value>set2-1</value>
+				<value>set2-2</value>
+				<value>set2-3</value>
+			</set>
+		</constructor-arg>
+	</bean>
+	
+	<!-- Map을 Setter를 통해 주입시킨 myMap -->
+	<bean id="myMapBean" class="ex.MyMap">
+		<property name="map">
+			<map>
+				<entry key="hong" value="1111"></entry>
+				<entry key="kim" value="1112"></entry>
+			</map>
+		</property>
+	</bean>
+
+
+	<!-- 다음과 같이 컬렉션 타입에 빈 참조와 참조하는 빈의 id, null을 넣을 수 있다. -->
+	<bean id="str1" class="java.lang.String"><constructor-arg value = "key1"></constructor-arg></bean>
+	<bean id="str2" class="java.lang.String"><constructor-arg value = "value2"></constructor-arg></bean>
+	<bean id="key3" class="java.lang.String"><constructor-arg value = "value3"></constructor-arg></bean>
+	
+	<bean id="myMapBean2" class="ex.MyMap">
+		<property name="map">
+			<map>
+				<entry>
+					<key><ref bean="str1"/></key>	<!-- 빈을 참조함 -->
+					<value>value1</value>
+				</entry>
+				<entry>
+					<key><value>key2</value></key>
+					<ref bean="str2"/>	<!-- 빈을 참조함 -->
+				</entry>
+				<entry>
+					<key><idref bean="key3"></idref></key>	<!-- <idref>를 통해 빈의 id를 참조함 -->
+					<ref bean="key3"/>	<!-- 빈의 value를 참조함 -->
+				</entry>
+				<entry>
+					<key><value>key3</value></key>
+					<null/>	<!-- null 사용 -->
+				</entry>
+			</map>
+		</property>
+	</bean>
+	
+	<!-- List를 생성자를 통해 주입시킨 myMap -->
+	<bean id="myListBean" class="ex.MyList">
+		<constructor-arg name="list">
+			<list>
+				<value>list1</value>
+				<value>list2</value>
+				<value>list3</value>
+			</list>
+		</constructor-arg>
+	</bean>
+	
+
+</beans>
