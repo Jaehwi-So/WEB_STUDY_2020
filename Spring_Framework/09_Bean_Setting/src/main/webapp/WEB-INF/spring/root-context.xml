@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:p="http://www.springframework.org/schema/p"
+	xmlns:c="http://www.springframework.org/schema/c"
+	xmlns:util="http://www.springframework.org/schema/util"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans https://www.springframework.org/schema/beans/spring-beans.xsd">
+	<!-- xmlns를 통해 이름공간 스키마 p와 c, util을 사용하겠다고 명시한다. -->
+	
+	<import resource="util_schema.xml"/>
+	<!-- 지정된 xml을 import할 수 있다. 경로는 상대경로이며 이를 통해 xml 빈 설정 파일들을 모듈화할 수 있다.-->
+	
+	<bean id="dao_message" class="java.lang.String">
+	  <constructor-arg value = "this is dao value"/>
+	</bean>
+	
+	<!-- c-이름공간을 통해 constructor-arg 사용하기 -->
+	<bean id="board_dao" class="dao.BoardDaoImpl"
+		c:dao_message-ref="dao_message"/>
+		
+	<!-- p-이름공간을 통해 property 사용하기 -->
+	<bean id="board_service" class="service.BoardServiceImpl"
+		p:message="this is message" p:dao-ref="board_dao"/>
+		
+
+		
+</beans>
