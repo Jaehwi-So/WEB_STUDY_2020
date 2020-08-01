@@ -143,7 +143,7 @@ Consturctor-arg와 Property를 대체하여 Bean 설정을 간결하게 할 수 
 #### 2-2. util 스키마
 
 util 스키마를 이용하면 여러가지 엘리먼트들을 설정하기 용이하다.    
-<list>,<map>,<set>,<constant>,<properties>등의 빈 인스턴스를 생성할 수 있다.
+&lt;list>,&lt;map>,&lt;set>,&lt;constant>,&lt;properties>등의 빈 인스턴스를 생성할 수 있다.
 
 ```
 	<util:list id="list_type" list-class="java.util.ArrayList">
