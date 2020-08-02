@@ -2,6 +2,11 @@
 - [1. 스프링 빈 설정](#1-스프링-빈-설정)
   + [1-1. 스프링 빈 상속](#1-1-스프링-빈-상속)
   + [1-2. 빈에 Collection 타입 지정하기](#1-2-빈에-collection-타입-지정하기)
+- [2. 스프링 빈 스키마 사용](#2-스프링-빈-스키마-사용)
+  + [2-1. c-이름공간과 p-이름공간](#2-1-c이름공간과-p이름공간)
+  + [2-2. util 스키마](#2-2-util-스키마)
+- [3. 빈 설정 모듈화](#3-빈-설정-)
+  
 
 ----------------------
 ### 1. 스프링 빈 설정
@@ -104,3 +109,64 @@ property나 constructor-arg 엘리먼트의 &lt;list>, &lt;map>, &lt;set> 하위
 		</property>
 	</bean>
 ```
+---------------
+
+### 2. 스프링 빈 스키마 
+
+다음과 같이 bean의 xmlns 속성을 통하여 스키마를 사용함을 설정한다. 이를 통해 스키마들을 사용할 수 있다.
+```
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:p="http://www.springframework.org/schema/p"
+	xmlns:c="http://www.springframework.org/schema/c"
+	xmlns:util="http://www.springframework.org/schema/util"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans https://www.springframework.org/schema/beans/spring-beans.xsd">
+```
+#### 2-1. c-이름공간과 p-이름공간
+
+Consturctor-arg와 Property를 대체하여 Bean 설정을 간결하게 할 수 있다.    
+다음과 같이 빈을 참조할 경우에는 <property-name>-ref=<bean-reference>의 형태로 명시한다.
+
+```
+	<bean id="dao_message" class="java.lang.String">
+	  <constructor-arg value = "this is dao value"/>
+	</bean>
+	
+	<!-- c-이름공간을 통해 constructor-arg 사용하기 -->
+	<bean id="board_dao" class="dao.BoardDaoImpl"
+		c:dao_message-ref="dao_message"/>
+		
+	<!-- p-이름공간을 통해 property 사용하기 -->
+	<bean id="board_service" class="service.BoardServiceImpl"
+		p:message="this is message" p:dao-ref="board_dao"/>
+```
+#### 2-2. util 스키마
+
+util 스키마를 이용하면 여러가지 엘리먼트들을 설정하기 용이하다.    
+&lt;list>,&lt;map>,&lt;set>,&lt;constant>,&lt;properties>등의 빈 인스턴스를 생성할 수 있다.
+
+```
+	<util:list id="list_type" list-class="java.util.ArrayList">
+		<value>List value1</value>
+		<value>List value2</value>
+	</util:list>
+	
+	<util:map id="map_type" map-class="java.util.HashMap">
+		<entry key="map key 1" value = "map value 1"/>
+		<entry key="map key 2" value = "map value 2"/>
+	</util:map>
+	
+	<util:set id="set_type" set-class="java.util.HashSet">
+		<value>Set value1</value>
+		<value>Set value2</value>
+	</util:set>
+	
+	<util:constant id="boolTrue" static-field="java.lang.Boolean.TRUE"/> 
+```
+--------
+### 3. 빈 설정 모듈화
+
+```
+<import resource="util_schema.xml"/>
+```
+다음과 같이 xml파일에서 다른 xml파일을 import시킬 수 있다. 이를 통하여 기능별로 빈 설정파일의 모듈화가 가능해지며 의존관계의 설정이 용이해진다.
