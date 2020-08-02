@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans https://www.springframework.org/schema/beans/spring-beans.xsd">
+	<!-- 1. 내부 빈
+	빈 의존관계를 여러 빈이 공유하지 않는다면 의존 관계를 내부 빈으로 만드는 것을 고려할 수 있다. 의존하는 빈이 유일한 경우 내부 빈으로 정의할 수 있다.
+	내부 빈은 "무명"이며 스프링 컨테이너는 내부 빈을 등록하지 않으며 다른 빈이 내부 빈에 접근할 수 없다.(해당 내부 빈 정의를 둘러싼 빈 정의는 제외한다.)
+	 -->
+	<bean id="inner_bean" class="config.InnerBeanTest">
+		<property name="inner">
+			<bean class="config.InnerClass"></bean>
+		</property>
+	</bean>
+	<!--2. 명시적 의존 관계와 암시적 의존 관계
+	기본적으로 Bean들은 xml파일에 빈이 정의된 순서에 따라 초기화되며 인스턴스가 생성된다. 
+	그러나 A Bean 내부의 property나 constructor-arg에 의해 B Bean을 의존함이 명시적으로 되어있다면 스프링 컨테이너는 자동으로 
+	B Bean의 인스턴스를 먼저 생성한 후 A Bean을 생성한다. 이를 명시적 의존 관계라고 한다.
+	
+	그러나 property나 constructor-arg로 명시적으로 선언되어있지 않더라도 의존성이 필요한 경우가 있다.
+	이를 암시적 의존 관계라고 한다. 해당 예제 프로젝트에서는 ex_config.property 파일에 엘리먼트를 쓰는 클래스와 읽는 클래스가 있다.
+	읽는 클래스는 반드시 쓰는 클래스가 실행된 후에 해당 key값을 읽어들일 수 있으므로 readBean은 writeBean에 의존한다고 볼 수 있다.
+	그러나 xml파일에서 순서가 바뀔 경우 오류가 난다.
+	
+	이의 해결방법은 
+	1. 빈 정의의 순서를 바꾼다.
+	2. depends-on 속성을 통해 의존성을 명시한다.
+	
+	다음의 readBean에서 writeBean을 의존함을 명시하였다.
+	여러 암시적 의존 관계가 존재할 경우 depends-on="aBean, bBean"과 같이 모든 의존 관계의 이름이나 id를 지정할 수 있다.
+	또한 부모가 depends-on이 명시되어 있더라도 상속관계에 이는 자식은 이를 상속받지 않는다.
+	  -->
+	<bean id="path" class="java.lang.String">
+		<constructor-arg value ="C:\\spring\\work\\11_Dependency\\src\\main\\webapp\\WEB-INF\\ex_config.properties"></constructor-arg>
+	</bean>
+	<bean id="readBean" class="config.PropertyRead" depends-on="writeBean">
+		<constructor-arg ref="path"></constructor-arg>
+	</bean>
+	<bean id="writeBean" class="config.PropertyWrite">
+		<constructor-arg ref="path"></constructor-arg>
+	</bean>
+
+</beans>
