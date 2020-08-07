@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:context="http://www.springframework.org/schema/context"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+		http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-4.3.xsd">
+	<!-- 객체들을 생성 할 때 객체 안에 Annotation이 있음을 기술해준다. 이로 인해 Annotation을 인지하며 객체를 생성하며
+		Autowired를 발견하면 자동으로 Injection한다.-->
+	<context:annotation-config/>
+	
+	<bean id="studentBean" class="vo.StudentVO">
+		<property name="age" value="23"></property>
+		<property name="name" value="kim"></property>
+		<property name="personalNumber" value="990123-1098281"></property>
+	</bean>
+	
+	<bean id="studentServiceDetailBean" class="service.StudentServiceDetailImpl">
+		<property name="student" ref="studentBean"></property>
+	</bean>
+	<bean id="studentServiceBean" class="service.StudentServiceImpl"></bean> 
+	
+	<!-- 
+	 Autowired 사용 시 의존하는 클래스가 두 개 이상일 경우 인스턴스의 id들이 parameter의 이름과 다르다면 오류가 난다.
+	 이 경우 Qualifier를 사용하여 사용하고자 하는 인스턴스의 이름(id)를 명시해준다.-->
+	<bean id="infoServiceBean" class="service.InfoService">
+		<property name="service" ref="studentServiceDetailBean"></property>
+	</bean>
+	<bean id="infoServiceBean2" class="service.InfoService">
+		<property name="service" ref="studentServiceBean"></property>
+	</bean>
+
+</beans>
