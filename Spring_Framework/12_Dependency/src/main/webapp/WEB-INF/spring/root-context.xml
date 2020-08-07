@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans https://www.springframework.org/schema/beans/spring-beans.xsd">
+	
+	<!-- Root Context: defines shared resources visible to all other web components -->
+	
+	<!-- lookup-method : 빈 검색 메서드를 정의한다.
+	bean속성은 검색할 빈의 이름을 지정, name속성은 스프링이 구현을 제공할 메서드의 이름을 지정 -->
+	<bean id="singleBean" class="test.SingletonClass">
+		<lookup-method bean="protoBean" name="getProto"/>
+	</bean>
+	<bean id="protoBean" class="test.PrototypeClass" scope="prototype">
+		
+	</bean>
+</beans>
