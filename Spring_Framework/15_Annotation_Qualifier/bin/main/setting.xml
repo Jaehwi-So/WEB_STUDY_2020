@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:context="http://www.springframework.org/schema/context"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+		http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-4.3.xsd">
+	<!-- 객체들을 생성 할 때 객체 안에 Annotation이 있음을 기술해준다. 이로 인해 Annotation을 인지하며 객체를 생성하며
+		Autowired를 발견하면 자동으로 Injection한다.-->
+	<context:annotation-config/>
+	<bean id="studentBean" class="vo.StudentVO">
+		<property name="age" value="23"></property>
+		<property name="name" value="kim"></property>
+		<property name="personalNumber" value="990123-1098281"></property>
+	</bean>
+	<bean id="studentServiceBean" class="service.StudentServiceDetailImpl">
+		<property name="student" ref="studentBean"></property>
+	</bean>
+	
+	<!-- 
+	 1. 객체가 Autowired로 바인딩 될 때 기준은 해당 property나 constructor-arg에 부합하는 클래스를 자동으로 찾는다. 
+	 2. id(studentServiceBean)가 service와 달라도 상관 없으나 두 개 이상의 인스턴스가 발견될 경우 id와 parameter의 이름이 같은 인스턴스를 바인딩한다. 
+	 3. 두 개 이상의 인스턴스의 id들이 parameter의 이름과 다르다면 오류가 난다.-->
+	 
+	<bean id="infoServiceBean" class="service.InfoService">
+		<!-- <property name="service" ref="studentServiceBean"></property> -->
+	</bean>
+
+</beans>
