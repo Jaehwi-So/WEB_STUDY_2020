@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+	<bean id="studentBean" class="vo.StudentVO">
+		<property name="age" value="23"></property>
+		<property name="name" value="kim"></property>
+		<property name="personalNumber" value="990123-1098281"></property>
+	</bean>
+	<bean id="studentServiceBean" class="service.StudentServiceImpl">
+		<property name="student" ref="studentBean"></property>
+	</bean>
+	<bean id="infoServiceBean" class="service.InfoService">
+		<property name="service" ref="studentServiceBean"></property>
+	</bean>
+
+</beans>
