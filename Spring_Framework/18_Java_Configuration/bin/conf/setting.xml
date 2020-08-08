@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:context="http://www.springframework.org/schema/context"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+		http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-4.3.xsd">
+	<!-- 
+	component-scan을 명시해 주어야 컨테이너에서 객체들을 탐색하여 @Component를 발견하여 객체를 생성할 수 있다.
+	이는 컨텍스트에 등록된 빈들의 어노테이션들이 적용될 수 있도록 한다. 또한 어노테이션이 설정된 새로운 빈들을 찾는 스캔을 가능하게 한다.
+	@Autowired또한 탐색하여 자동으로 바인딩도 시켜줄 수 있다. -->
+	<context:component-scan base-package="service"/>
+	<context:component-scan base-package="vo"/>
+	
+	<!-- @Component 어노테이션은 용도에 따라서 별칭에 해당하는 자식 어노테이션이 존재한다.
+	@Controller, @Service, @Repository에 해당하며 각각 MVC에서 Controller, Service, DAO에 해당한다. -->
+	
+	<!-- studentBean을 생성하는 대신 StudentVO에서 @Component를 통해 객체를 생성하였다. -->
+	<!-- 
+	<bean id="studentBean" class="vo.StudentVO">
+		<property name="age" value="23"></property>
+		<property name="name" value="kim"></property>
+		<property name="personalNumber" value="990123-1098281"></property>
+	</bean> -->
+	
+	
+	<!-- 클래스에서 @Component를 통해 객체를 생성하였다. -->
+	<!-- 
+	<bean id="studentServiceDetailBean" class="service.StudentServiceDetailImpl">
+		<property name="student" ref="studentBean"></property>
+	</bean>
+	<bean id="studentServiceBean" class="service.StudentServiceImpl">
+		<property name="student" ref="studentBean"></property>
+	</bean>  -->
+	
+	<bean id="infoServiceBean" class="service.InfoService">
+		<property name="service" ref="studentServiceDetailBean"></property>
+	</bean>
+	<bean id="infoServiceBean2" class="service.InfoService">
+		<property name="service" ref="studentServiceBean"></property>
+	</bean>
+
+</beans>
