@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:context="http://www.springframework.org/schema/context"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+		http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-4.3.xsd">
+
+	<bean id="aroundLog" class="advice.AroundLog"></bean>
+	<bean id="beforeLog" class="advice.BeforeLog"></bean>
+	<bean id="afterReturningLog" class="advice.AfterReturningLog"></bean>
+	<bean id="afterThrowingLog" class="advice.AfterThrowingLog"></bean>
+	
+	<!-- Spring은 관점에 따라서 자바코드를 수정하는 것이 아닌 
+	Bean의 id만을 수정하여 관점에 따라서 원하는 처리를 할 수 있도록 가능하게 한다. -->
+	
+	<bean id="serviceBean" class="aop.ServiceImpl"></bean>
+
+	<!-- proxyFactoryBean을 이용하여 객체에 Advice를 적용한 빈을 생성 -->
+	<bean id="serviceAdviceBean" class="org.springframework.aop.framework.ProxyFactoryBean">
+		<property name="target" ref="serviceBean"></property>	<!-- target : Advice를 적용할 대상 객체 -->
+		<property name="interceptorNames">	<!-- interceptorNames : 객체에 적용할 Advice 목록을 전달 -->
+			<list>
+				<value>beforeLog</value>	<!-- 참조열 -->			
+				<value>aroundLog</value>
+				<value>afterReturningLog</value>
+				<value>afterThrowingLog</value>
+			</list>
+		</property>
+	</bean>
+
+
+</beans>
