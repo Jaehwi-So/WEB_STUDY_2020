@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:context="http://www.springframework.org/schema/context"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+		http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-4.3.xsd">
+
+	<bean id="aroundLog" class="advice.AroundLog"></bean>
+	<bean id="beforeLog" class="advice.BeforeLog"></bean>
+	<bean id="afterReturningLog" class="advice.AfterReturningLog"></bean>
+	<bean id="afterThrowingLog" class="advice.AfterThrowingLog"></bean>
+	
+	<!-- Spring은 관점에 따라서 자바코드를 수정하는 것이 아닌 
+	Bean의 id만을 수정하여 관점에 따라서 원하는 처리를 할 수 있도록 가능하게 한다. -->
+	
+	<bean id="serviceBean" class="aop.ServiceImpl"></bean>
+
+	<!-- 포인트 컷 생성 : 프로퍼티로 조인 포인트가 될 대상 메서드를 지정한다. -->
+	<bean id="pointCutBean" class="org.springframework.aop.support.NameMatchMethodPointcut">
+		<property name="mappedName" value="get_min_number"></property>
+	</bean>
+	
+	<!-- 포인트 컷 생성 : 여러개의 조인 포인트 메서드 지정 가능하다. -->
+	<bean id="pointCutBean2" class="org.springframework.aop.support.NameMatchMethodPointcut">
+		<property name="mappedNames">
+			<list>
+				<value>get_min_number</value>
+				<value>get_prime_number</value>
+			</list>
+		</property>
+	</bean>
+	
+	<!-- Advisor 생성 : 포인트 컷과 Advice를 이어주는 역할을 한다. 이를 통해 Advice는 포인트 컷의 조인 포인트에서만 작동한다. -->
+	<bean id="pointCutAroundAdvisor" class="org.springframework.aop.support.DefaultPointcutAdvisor">
+		<property name="advice" ref="aroundLog"></property>
+		<property name="pointcut" ref="pointCutBean"></property>
+	</bean>
+	
+	<bean id="pointCutBeforeAdvisor" class="org.springframework.aop.support.DefaultPointcutAdvisor">
+		<property name="advice" ref="beforeLog"></property>
+		<property name="pointcut" ref="pointCutBean2"></property>
+	</bean>
+	
+	<!-- 포인트 컷을 내부에서 자동 생성하는 간소화된 Advisor -->
+	<bean id="pointCutAfterAdvisor" class="org.springframework.aop.support.NameMatchMethodPointcutAdvisor">
+		<property name="advice" ref="afterReturningLog"></property>
+		<property name="mappedName" value="get_prime_number"></property>
+		<!-- 다음과 같이 여러개의 포인트 컷도 설정 가능하다.
+		<property name="mappedNames">
+			<list>
+				<value>get_prime_number</value>
+				<value>get_min_number</value>
+			</list>
+		</property>
+		-->
+	</bean>
+	
+	<!-- 정규표현식의 포인트컷을 생성하는 Advisor -->
+	<bean id="pointCutBeforeExpAdvisor" class="org.springframework.aop.support.RegexpMethodPointcutAdvisor">
+		<property name="advice" ref="beforeLog"></property>
+		<property name="patterns">
+			<list>
+				<value>.*get.*</value>
+			</list>
+		</property>
+	</bean>
+
+
+	
+	
+	<!-- proxyFactoryBean을 이용하여 객체에 Advice를 적용한 빈을 생성 -->
+	<bean id="serviceAdviceBean" class="org.springframework.aop.framework.ProxyFactoryBean">
+		<property name="target" ref="serviceBean"></property>	<!-- target : Advice를 적용할 대상 객체 -->
+		<property name="interceptorNames">	<!-- interceptorNames : 객체에 적용할 Advice 목록을 전달 -->
+			<list>
+				<value>pointCutAroundAdvisor</value>
+				<value>pointCutBeforeAdvisor</value>
+				<value>pointCutAfterAdvisor</value>
+				<value>pointCutBeforeExpAdvisor</value>
+			</list>
+		</property>
+	</bean>
+
+
+</beans>
