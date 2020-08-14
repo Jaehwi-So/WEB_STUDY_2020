@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:context="http://www.springframework.org/schema/context" 
+	xmlns:aop="http://www.springframework.org/schema/aop"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+		http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-4.3.xsd
+		http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop-3.2.xsd">
+
+	<bean id="aroundLog" class="aop.AroundLog"></bean> 
+
+	
+	<!-- Spring은 관점에 따라서 자바코드를 수정하는 것이 아닌 
+	Bean의 id만을 수정하여 관점에 따라서 원하는 처리를 할 수 있도록 가능하게 한다. -->
+	
+	<aop:config>
+		<aop:aspect id="beforeService" ref="aroundLog">
+			<aop:pointcut id="pointcut_min" expression="within(aop.*)"/>
+			<aop:before pointcut-ref="pointcut_min" method="aroundLogging" />
+		</aop:aspect>
+	</aop:config>
+	
+	<bean id="serviceBean" class="aop.ServiceImpl"></bean>
+
+
+</beans>
