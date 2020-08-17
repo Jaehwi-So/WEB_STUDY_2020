@@ -6,7 +6,7 @@
 	* [1-1-3. servlet-context.xml(DispatcherServlet)](#1-1-3-servletcontextxmldispatcherservlet)
 	* [1-1-4. root-context.xml](#1-1-4-rootcontextxml)
 	* [1-1-5. Model, View, Controller](#1-1-5-model-view-controller)
-  + [1-2. MVC 프로젝트의 동작원리](#1-2-포인트컷과-advice의-연결)
+  + [1-2. MVC 프로젝트의 동작원리](#1-2-mvc-프로젝트의-동작원리)
 - [2. Java Configuration을 이용한 설정](#2-java-configuration을-이용한-설정)
   + [2-1. WebInitiallizer](#2-1-webinitiallizer)
   + [2-2. WebContextConfig](#2-2-webcontextconfig)
