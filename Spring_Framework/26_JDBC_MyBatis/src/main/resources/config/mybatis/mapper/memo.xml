@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="memo_mapper">
+
+	<select id="select_list" resultType="vo.MemoVO">
+		select * from memo
+	</select>
+
+
+	<insert id="insert_one" parameterType="vo.MemoVO">
+		insert into memo values(memo_idx.nextVal, #{name}, #{content})
+	</insert>
+
+</mapper>
+
+
+
+
+
+
+
+
+
+
+
+

@@ -1,0 +1,6 @@
+create sequence memo_idx;
+create table memo(
+  idx number(10) primary key,
+  name varchar2(300) not null,
+  content varchar2(2000) not null
+);
