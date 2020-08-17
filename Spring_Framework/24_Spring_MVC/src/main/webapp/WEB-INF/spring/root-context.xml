@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans https://www.springframework.org/schema/beans/spring-beans.xsd">
+	
+	<!-- Root Context: defines shared resources visible to all other web components -->
+	<!-- 루트 컨텍스트는 Dao, Service 등 웹 어플리케이션의 비즈니스 영역 처리를 위한 객체를 생성하는 곳이다.  -->
+	<bean id="memo_daoBean" class="dao.MemoDAOImpl"></bean>	
+	
+	<bean id="memo_serviceBean" class="service.MemoServiceImpl">
+		<property name="memo_dao" ref="memo_daoBean"></property>
+	</bean>
+</beans>
