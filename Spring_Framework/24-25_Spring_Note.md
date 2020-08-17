@@ -23,7 +23,7 @@
 
 Maven은 "pom.xml"라는 빌드 파일을 사용하여 빌드 정보를 기술한다. 이 파일이 어떤 내용으로 되어 있는지, 그 기본형을 설명한다. 프로젝트의 기본 설정과 dependency, 즉 참조 라이브러리를 모아서 기술한다. 이는 &lt;dependencies>에 모아서 기술한다.
 
-##### 1-1-2. web.xml
+#### 1-1-2. web.xml
 
 웹 프로젝트의 배치 기술서. 프로젝트가 실행되면 맨 처음 web.xml을 읽어들임 클라이언트의 요청 시 클라이언트의 요청을 핸들링한다. web.xml에서 ContextLoader을 통해 root-context.xml과 servlet-context.xml을 참조하게 된다.
 
@@ -80,7 +80,7 @@ web.xml에서는 크게 세가지의 설정을 한다.
 	* HTTP 요청을 가로채 적절한 컨트롤러에 핸들링 해주는 역할을 한다.
 	* 주로 servlet-context.xml의 형태의 xml파일을 참조하게 된다.
 
-##### 1-1-3. servlet-context.xml(DispatcherServlet)
+#### 1-1-3. servlet-context.xml(DispatcherServlet)
 ```
 servlet-context는 웹 어플리케이션의 요청을 받기 위한 Entry Point인 서블릿의 Context 설정이다.   
 요청에 대한 처리를 직접적으로 해줄 Controller의 매핑설정(Handler Mapping), View를 어떻게 처리할 것인지에 대한 설정(View Resolver) 등이 존재하게 된다.    
@@ -90,7 +90,7 @@ servlet-context는 웹 어플리케이션의 요청을 받기 위한 Entry Point
 #### 1-1-4. root-context.xml
 root-context의 경우 웹 어플리케이션의 비즈니스 영역의 객체 인스턴스를 생성하기 위해 명시하는 context 설정 파일이다. 해당 xml 설정파일에서 DAO, Service 등의 빈을 생성한다.
 
-### 1-1-5. Model, View, Controller
+#### 1-1-5. Model, View, Controller
 - Model
 	* 비즈니스 로직을 처리해주는 자바 클래스나 빈에 해당한다. DAO, Service 등..
 - View
