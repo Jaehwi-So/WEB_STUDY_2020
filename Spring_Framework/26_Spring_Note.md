@@ -114,7 +114,7 @@ JDBC는 자바에서 DB 프로그래밍을 하기 위해 사용되는 API이다.
 ```
 
 ### 1-2. JDBC 모듈 설정
-![패키지 구성](/path/to/26_img1_project.jpg)
+![패키지 구성](/note_img/26_img1_project.jpg)
 다음은 JDBC를 위한 프로젝트를 구성한 것이다.
 - db.properties
 	* 드라이버와 같은 DB 접속과 관련된 정보를 기재해 둔 곳. 접속 시 파일의 내용을 읽어온다.
