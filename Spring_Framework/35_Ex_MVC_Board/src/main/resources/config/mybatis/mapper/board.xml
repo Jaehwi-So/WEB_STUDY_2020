@@ -1,0 +1,110 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="b">
+
+	<!-- 전체게시물 조회 -->
+	<select id="board_list" resultType="board">
+		select * from board order by ref desc, step
+	</select>
+	
+	<!-- 새글 추가 -->
+	<insert id="board_insert"
+			parameterType="board">
+		insert into board values(
+			seq_board_idx.nextVal,
+			#{name}, 
+			#{subject},
+			#{content},
+			#{pwd},
+			#{ip},
+			sysdate,
+			0,
+			seq_board_idx.currVal,
+			0, --step
+			0, --depth
+			0 --del_info
+		)		
+			
+			
+	</insert>
+	
+	<!-- 작성한 글 보기 -->
+	<select id="board_one" resultType="board" parameterType="int">
+		select * from board where idx= #{idx}
+	</select>
+	
+	<!-- 조회수 증가 -->
+	<update id="board_update_readhit" parameterType="int">
+		<!-- idx위치에 해당하는 조회수 변수를 1씩 증가 -->
+		update board set readhit = readhit + 1 where idx=#{idx}
+	</update>
+	
+	<!-- 기준글의 step보다 큰 step을 1씩 증가 -->
+	<update id="board_update_step" parameterType="board">
+		<!-- ref가 일치하는 같은 그룹의 step을 1씩 증가 -->
+		update board set step = step + 1
+		where ref=#{ref} and step > #{step}
+	</update>
+	
+	<!-- 댓글쓰기 -->
+	<insert id="board_reply" parameterType="board">
+		insert into board values(
+			seq_board_idx.nextVal,
+			#{name}, 
+			#{subject},
+			#{content},
+			#{pwd},
+			#{ip},
+			sysdate,
+			0,
+			#{ref}, --ref
+			#{step}, --step
+			#{depth}, --depth
+			0 --del_info
+		)
+	</insert>
+	
+	<!-- 삭제를 위한 게시글 정보 얻어오기 -->
+	<select id="board_idx_pwd" parameterType="java.util.HashMap" resultType="board">
+	
+		select * from board where idx=#{idx} and pwd=#{pwd}
+	
+	</select>
+	
+	<!-- 게시글 삭제(된 것 처럼 업데이트) -->
+	<update id="board_del_update" parameterType="board">
+		update board set subject=#{subject},
+				   name=#{name},
+				   del_info = -1
+				   where idx=#{idx}
+	</update>
+	
+	<!-- 페이지에 따른 게시물 조회 -->
+	<select id="board_list_paging" parameterType="java.util.Map" resultType="board">
+		select * from
+			(select rank() over( order by ref desc, step asc) no, b.*
+			from( select * from board ) b)
+			where no between #{start} and #{end}
+	
+	</select>
+	
+	<!-- 전체 게시물 수 조회 -->
+	<select id="board_count" resultType="int">
+		select count(*) from board
+	
+	</select>
+</mapper>
+
+
+
+
+
+
+
+
+
+
+
+
