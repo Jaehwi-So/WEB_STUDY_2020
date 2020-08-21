@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<!-- DB접근 Mapper -->
+<mapper namespace="visit">
+	<select id="visit_list" resultType="visit">
+		select * from visit order by idx desc
+	</select>
+	
+	<insert id="visit_insert" parameterType="visit">	<!-- visit == vo.VisitVO -->
+		insert into visit values(
+			SEQ_VISIT_IDX.NEXTVAL,
+			#{name},
+			#{content},
+			#{pwd},
+			#{ip},
+			SYSDATE,
+			#{filename}
+		)
+	</insert>
+	
+	<delete id="visit_delete" parameterType="int">
+		delete from visit where idx = #{idx}
+	</delete>
+	
+	<select id="visit_one" resultType="visit" parameterType="int">
+		select * from visit where idx = #{idx}
+	</select>
+
+	<update id="visit_update" parameterType="visit">
+		update visit set
+		pwd = #{pwd}, 
+		name = #{name}, 
+		content = #{content}, 
+		ip = #{ip}, 
+		regdate = sysdate
+		where idx = #{idx}
+		
+	</update>
+
+</mapper>
+
+
+
+
+
+
+
+
+
+
+
+
