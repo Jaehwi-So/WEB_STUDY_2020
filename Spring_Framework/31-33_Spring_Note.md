@@ -8,8 +8,8 @@
 	* [1-2-2. 클라이언트 측](#1-2-2-클라이언트-측)
 		+ [1-2-2-1. XMLHttpRequest를 통한 Ajax](#1-2-2-1-xmlhttprequest를-통한-ajax)
 		+ [1-2-2-2. Jquery를 통한 Ajax](#1-2-2-2-jquery를-통한-ajax)
-- [2. 스프링 파일 업로드](#2-스프링-파일-업로드)
-
+- [2. Open API](#2-open-api)
+- [3. 스프링 파일 업로드](#3-스프링-파일-업로드)
 
 ----------------------
 ## 1. Ajax 비동기 통신
@@ -210,8 +210,32 @@ jackson을 사용하기 위해서는 pom.xml에 라이브러리를 추가하자.
 		}
 	</script>
 ```
+----------------
 
-## 2. 스프링 파일 업로드
+## 2. Open API
+
+오픈 API의 경우에도 JSON을 통한 데이터 교환이 주를 이루는 경우가 많다. 이 경우에도 Ajax를 사용하여 데이터를 교환하는 것이 용이하다.
+```
+	//영화목록을 가져오는 메서드
+	function visit_list() {
+		//실제로 openAPI호출시에는 url을 naver.com/vs/list.do
+		var url = 'http://www.kobis.or.kr/kobisopenapi/webservice/rest/movie/searchMovieList.json?key=430156241533f1d058c603178cc3ca0e';
+		var param = '';
+		sendRequest(url, param, resultFn, "GET");
+	}
+	
+	function resultFn() {
+		if( xhr.readyState == 4 && xhr.status == 200){
+			var data = xhr.responseText;
+			var json = eval("["+data+"]");
+			alert(data);
+		}
+	}
+```
+---------------------
+
+## 3. 스프링 파일 업로드
+
 JSP에서도 살펴보았지만 사진과 같은 파일을 웹 상에 업로드하려면 데이터베이스에 파일의 경로를 저장하는 형태로 진행된다. 이 과정에서 파일은 웹 상의 경로에 저장되어야 하므로 고려할 사항이 있다.
 
 우선 파일 업로드를 하기 위해서 다음 라이브러리들을 pom.xml에 추가하자.
