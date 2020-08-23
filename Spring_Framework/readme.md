@@ -1,208 +1,219 @@
-# WEB Study
-## Java 기반 웹 공부를 하며 예제와 노트를 정리해 둔 Repository
+# **Spring Framework**
+
+## 스프링 공부를 하며 실습과 정리 노트를 올려둔 Repository
+### 해당 주제에 맞는 **마크다운 노트 정리**와 **예제 프로젝트**의 링크와 키워드를 나열해두었다.
+
+- Spring Tools : String Tools 3 Standalone Eddition 3 (3.9.13 RELEASE)
+- Spring Version : 3.1.1 / 5.0.1
+- DBMS : Oracle Database 11g
+- Server : Apache Tomcat 8.5
 -----------------------------
-1. [HTML, CSS](클래스-객체-메서드-생성자의-개념)
-2. [JavaScript](클래스-객체-메서드-생성자의-개념)
-3. [DBMS](클래스-객체-메서드-생성자의-개념)
-4. [JSP](클래스-객체-메서드-생성자의-개념)
-5. [Spring Framework](클래스-객체-메서드-생성자의-개념)
+# INDEX
+- ### [1. 스프링 프레임워크의 정의와 환경설정](1-스프링-프레임워크의-정의와-환경설정)
+- ### [2-12. XML 설정파일에 기반한 스프링 컨테이너와 스프링 빈 설정](2-12-xml-설정파일에-기반한-스프링-컨테이너와-스프링-빈-설정)
+- ### [13-18. Annotation 기반의 컨테이너 설정과 Java Configuration](13-18-annotaion-기반의-컨테이너-설정과-java-configuration)
+- ### [19-23. AOP(Aspect_Oriented_Programming)](19-23-aopaspectorientedprogramming)
+- ### [24-35. Spring MVC 프로젝트](24-35-spring-mvc-프로젝트)
+- ### [36-37. RESTful API](36-37-restful-api)
+- ### Spring 시큐리티(추가 학습 예정)
 
-## 객체 지향 프로그래밍
+---------------------------------
 
-### 1. 객체 지향 프로그래밍이란?
-객체 지향 프로그래밍은 프로그래밍에서 필요한 데이터를 추상화시켜 상태와 행위를 가진 객체를 만들고 그 객체들 간의 유기적인 상호작용을 통해 로직을 구성하는 프로그래밍 방법
+# 1. 스프링 프레임워크의 정의와 환경설정
+## [**필기 : 1. Spring 프레임워크의 기능과 환경 설정, 프로젝트 구성**](https://github.com/Jaehwi-So/WEB_STUDY_FullStack/blob/master/Spring_Framework/01_Spring_Note.md)   
+### [실습 : 1. Spring 프레임워크의 기능과 환경 설정, 프로젝트 구성](https://github.com/Jaehwi-So/WEB_STUDY_FullStack/blob/master/Spring_Framework/01e_Spring_Start)
+* 스프링 프레임워크 정의, 환경설정, Tomcat, 모듈, 기능
 
-### 2. 객체 지향 프로그래밍의 장단점
-- 장점
- * 코드 재사용 용이 : 자신이 만든 클래스 뿐 아니라 라이브러리 등을 통해 클래스를 가져와서 이용 가능하며 상속을 통해 코드를 확장할 수 있음
- * 수정과 유지보수 : 절차 지향 프로그래밍에서는 해당 부분을 절차에 맞추어 찾아 수정해야 하는 반면 객체 지향 프로그래밍에서는 수정해야 할 부분이 클래스 내부에 정의되어 있으므로 해당 부분을 수정하면 됨
- * 모듈화 : 클래스 단위로 모듈화시켜서 개발할 수 있으므로 업무분담에 용이하다.
-- 단점
-	* 처리속도가 상대적으로 느림 
-	* 객체가 많으면 용량이 커질 수 있음
+-----------------------------------
 
-### 3. 객체 지향 프로그래밍의 특징
+# 2-12. XML 설정파일에 기반한 스프링 컨테이너와 스프링 빈 설정
+## [**필기 : 2~6. 스프링 컨테이너와 스프링 빈**](https://github.com/Jaehwi-So/WEB_STUDY_FullStack/blob/master/Spring_Framework/02-06_Spring_Note.md)   
+### [실습 : 2. 스프링 컨테이너에서의 Bean 생성(정적 팩토리 메서드 이용)](https://github.com/Jaehwi-So/WEB_STUDY_FullStack/blob/master/Spring_Framework/02_Spring_Bean)
+* 스프링 IoC 컨테이너, 스프링 빈, 정적 팩토리
+### [실습 : 3. 인스턴스 팩토리를 통한 Bean의 생성과 의존관계 주입)](https://github.com/Jaehwi-So/WEB_STUDY_FullStack/blob/master/Spring_Framework/03_Spring_Bean)
+* 컨테이너, 스프링 빈, 의존 관계, 인스턴스 팩토리
+### [실습 : 4. Bean의 SI(Setter Injection)과 CI(Constructor Injection)](https://github.com/Jaehwi-So/WEB_STUDY_FullStack/blob/master/Spring_Framework/04_Spring_Bean_Injection)
+* SI(Setter Injection), property
+* CI(Constructor Injection), constructor-arg
+### [실습 : 5. Bean의 의존성 주입(DI)와 빈 스코프](https://github.com/Jaehwi-So/WEB_STUDY_FullStack/blob/master/Spring_Framework/05_Dependency_Injection)
+* DI(의존성 주입), ref
+* IoC(제어 역전)
+* 빈 스코프, Single-ton, Prototype
+### [실습 : 6. 의존 관계 인터페이스를 통한 설계](https://github.com/Jaehwi-So/WEB_STUDY_FullStack/blob/master/Spring_Framework/06_Dependency_Interface)
+* 의존 관계 인터페이스 설계
 
-- 클래스와 객체, 그리고 인스턴스
-	* 클래스 : 어떠한 용도로 사용될 데이터를 추상화를 통해 속성과 행위를 변수와 메서드로 정의한 것
-	* 인스턴스(객체) : 클래스에서 정의한 것이 실제 메모리상에 할당된 것으로 실제 프로그램에서 사용되는 데이터
-- 추상화
-	* 복잡한 자료, 모듈, 시스템 등으로부터 핵심적인 개념 또는 기능을 간추려 내어 클래스로 표현하는 것
-	* 추상 클래스와는 다른 이야기
-- 캡슐화
-	* 코드를 재활용하기 위해 관련 기능과 특성을 한 곳에 모으고 분류하는 것
-	* 객체 지향 프로그래밍에서 역할을 수행하기 위한 목적을 "클래스"라는 "캡슐"에 분류해서 넣는것이 캡슐화다.
-- 상속
-	* 상속은 부모 클래스의 속성과 기능을 그대로 사용할 수 있으며 기능의 일부분을 변경해야 할 경우 자식 클래스에서 메서드의 재정의를 통해 변경이 가능하다.
-	* 라이브러리를 사용할 때 상속을 통해 사용자의 의도에 맞게 수정이 가능하여 불필요한 코드 수정이 필요없다.
-- 다형성
-	* 하나의 변수명, 함수명 등이 상황에 따라 다른 의미로 해석될 수 있는 것이다.
-	* 오버라이딩(Overriding) : 부모 클래스의 메서드와 같은 이름이지만 메서드를 재정의 하는 것
-	* 오버로딩(Overloading) : 같은 이름의 함수를 매개변수의 타입이나 개수를 다르게 하여 다르게 호출 가능하게 하는 것
-- 접근 제어자
-	* public, private, protected 등을 통해 해당 멤버변수나 함수에 접근할 수 있는 클래스를 제한하는 것.
-	* 보안성 향상과 제어를 할 때 용이하다.
+-------------------------
 
---------------------------------
-## INDEX
+## [**필기 : 7~9. 스프링 빈 설정과 모듈화**](https://github.com/Jaehwi-So/WEB_STUDY_FullStack/blob/master/Spring_Framework/07-09_Spring_Note.md)   
+### [실습 : 7. Bean의 상속과 추상 Bean](https://github.com/Jaehwi-So/WEB_STUDY_FullStack/blob/master/Spring_Framework/07_Bean_Inheritance)
+* 스프링 빈 상속(abstract, parent)
+* 스프링 빈 설정, Templete
+### [실습 : 8. Bean에 Collection 타입 지정하기](https://github.com/Jaehwi-So/WEB_STUDY_FullStack/blob/master/Spring_Framework/08_Bean_Collection)
+* Collection 타입 지정(value, entry, key, ref, idref)
+### [실습 : 9. c-이름공간, p-이름공간, util-스키마, 모듈화](https://github.com/Jaehwi-So/WEB_STUDY_FullStack/blob/master/Spring_Framework/09_Bean_Setting)
+*  c-이름공간, p-이름공간
+* util 스키마(list, map, set, constant, properties)
+* 모듈화
+### [실습 : 10. properties 파일의 사용법과 Bean 등록](https://github.com/Jaehwi-So/WEB_STUDY_FullStack/blob/master/Spring_Framework/10_Properties)
+* properties 
+### [실습 : 11. 내부 빈, 명시적/암시적 의존 관계, 빈 초기화 제어](https://github.com/Jaehwi-So/WEB_STUDY_FullStack/blob/master/Spring_Framework/11_Dependency)
+* 내부 빈 설정
+* 명시적, 암시적 의존 관계, depends-on
+* depends-on
+### [실습 : 12. 싱글턴과 프로토타입 빈 간의 의존 관계](https://github.com/Jaehwi-So/WEB_STUDY_FullStack/blob/master/Spring_Framework/12_Dependency)
+- 싱글턴과 프로토타입 빈의 의존 관계 
+- lookup-method
 
-해당 번호에 해당하는 폴더에 해당 주제에 대한 예제 프로젝트와 설명으로 주석이 상세히 달려 있음   
-인덱스의 부가 목록으로는 키워드를 달아 둠
+--------------------------------------
 
-- [클래스, 객체, 메서드, 생성자의 개념](클래스-객체-메서드-생성자의-개념)
-- [연산자, 자료형, 제어문, 반복문, 배열, 람다식](연산자-자료형-제어문-반복문-배열-람다식)
-- [상속과 다형성, 추상 클래스, 인터페이스](-상속과-다형성-추상-클래스-인터페이스)
-- [여러가지 자바 클래스](여러가지-자바-클래스)
-- [스레드](스레드)
-- [컬렉션 프레임워크와 제네릭 타입](컬렉션-프레임워크와-제네릭-타입)
-- [예외 처리](예외-처리)
-- [IO (입출력)](io-입출력)
-- [자바 AWT](자바-awt)
-- [라이브러리 사용](라이브러리-사용)
+# 13-18. Annotation 기반의 컨테이너 설정과 Java Configuration
+## [**필기 : 13~16. Annotation 기반 컨테이너 설정**](https://github.com/Jaehwi-So/WEB_STUDY_FullStack/blob/master/Spring_Framework/13-16_Spring_Note.md)   
+### [실습 : 13. Maven 프로젝트와 IoC 컨테이너](https://github.com/Jaehwi-So/WEB_STUDY_FullStack/blob/master/Spring_Framework/13_Maven_IoC_Container)
+* Maven의 정의, 구성요소, 설정
+### [실습 : 14. Annotation과 @Autowired](https://github.com/Jaehwi-So/WEB_STUDY_FullStack/blob/master/Spring_Framework/14_Annotation_Autowired)
+* Annotation이란? 
+* annotation-config
+* @Autowired
+### [실습 : 15. @Autowired의 위치와 @Quealifier를 통한 빈의 구분](https://github.com/Jaehwi-So/WEB_STUDY_FullStack/blob/master/Spring_Framework/15_Annotation_Qualifier)
+* @Autowired 어노테이션의 위치
+* @Qualifier
+### [실습 : 16. @Autowired의 required 속성](https://github.com/Jaehwi-So/WEB_STUDY_FullStack/blob/master/Spring_Framework/16_Annotation_Required)
+* @Autowired의 required 속성
 
 ----------------------------
 
-* ## 클래스, 객체, 메서드, 생성자의 개념
-	+ ### (1) 클래스, 객체, 메서드, 생성자
-		- 클래스 정의
-		- 멤버변수와 메서드
-		- 메서드 오버로딩
-		- 생성자
-		- static
+## [**필기 : 17~18. Annotation 기반 인스턴스의 생성과 Java Configuration을 통한 컨테이너 설정**](https://github.com/Jaehwi-So/WEB_STUDY_FullStack/blob/master/Spring_Framework/17-18_Spring_Note.md)   
+### [실습 : 17. @Component, @Value 어노테이션을 통한 인스턴스의 생성](https://github.com/Jaehwi-So/WEB_STUDY_FullStack/blob/master/Spring_Framework/17_Annotation_Component)
+* @Component, component-scan
+* @Controller, @Service, @Repository
+### [실습 : 18. xml 설정파일을 Java Class로 구현하여 설정하기](https://github.com/Jaehwi-So/WEB_STUDY_FullStack/blob/master/Spring_Framework/18_Java_Configuration)
+* @Configuration
+* @Bean
 
-* ## 연산자, 자료형, 제어문, 반복문, 배열, 람다식
-	+ ### (2) 연산자, 자료형
-		- 형변환
-		- 업캐스팅, 다운캐스팅
-	+ ### (3) 제어문, 반복문
-		- if, else, else-if
-		- switch-case 
-		- for, 중첩for, 
-		- while, do-while 
-		- break, continue, label break, label continue
-	+ ### (8) 배열
-		- 배열, 다차원 배열
-	+ ### (22) 람다식과 함수형 프로그래밍
-		- 익명 함수의 구현과 호출
-		- ->
+-----------------------
 
-* ## 상속과 다형성, 추상 클래스, 인터페이스
-	+ ### (4) 상속(Inheritence), 다형성(Polymorphism)
-		- extends
-		- 부모 클래스, 자식 클래스
-		- 메서드 재정의
-		- overriding, @Override
-		- super
-	+ ### (6) 추상 클래스(Abstract Class)
-		- Abstract class
-		- 추상 메서드 조건부 상속
-		- extends
-	+ ### (7) 인터페이스(Interface)
-		- Interface
-		- 추상 메서드와 상수로만 이루어짐
-		- Implements
-		- 구현
+# 19-23. AOP(Aspect_Oriented_Programming)
+## [**필기 : 19~21. 자바와 Spring에서의 AOP와 xml 기반 설정**](https://github.com/Jaehwi-So/WEB_STUDY_FullStack/blob/master/Spring_Framework/19-21_Spring_Note.md)   
+### [실습 : 19. AOP와 Proxy, 자바에서의 AOP](https://github.com/Jaehwi-So/WEB_STUDY_FullStack/blob/master/Spring_Framework/19_AOP_Aspect_Oriented_Programming)
+* AOP의 정의, 자바 코드에서의 AOP
+* 공통 관심사 : primary(core) concern
+* 횡단 관심사 : cross-cutting-concern
+* proxy, 핸들러, InvocationHandler
+### [실습 : 20. Spring에서의 AOP, Advice](https://github.com/Jaehwi-So/WEB_STUDY_FullStack/blob/master/Spring_Framework/20_AOP_Spring)
+* 스프링에서의 AOP
+* 어드바이스 : Advice
+	- Around Advice
+	- Before Advice
+	- After returning Advice
+	- After throwing Adivce
+### [실습 : 21. 포인트 컷 설정과 Advisor를 통한 위빙](https://github.com/Jaehwi-So/WEB_STUDY_FullStack/blob/master/Spring_Framework/21_AOP_Spring)
+* 포인트컷 :Pointcut
+* 조인포인트 : Joinpoint 
+* 위빙 : Weaving
+* 애스팩트 : Aspect
+* invoke, target, interceptorNames
 
-* ## 여러가지 자바 클래스
-	+ ### (9) object 클래스와 메서드
-		- toString(), equals(), hashCode(), clone(), getClass()
-	+ ### (10) string 클래스와 메서드
-		- indexOf(), charAt(), equals(), trim(), substring() 
-	+ ### (11) wrapper 클래스
-		- Integer, String, Double..
-		- Integer.parseInt()
-	+ ### (12) class 클래스
-		- getClass(), forName(), newInstance(), reflection
-	+ ### (21) 내부 클래스
-		- 인스턴스 내부 클래스
-		- 정적 내부 클래스
-		- 지역 내부 클래스
-		- 익명 내부 클래스
-	+ ### (23) Stream 클래스
-		- 배열, collection 등 범위 안 수 처리, IO Stream과 다른 개념
-		- 중간 연산, 최종 연산
-		- stream() .sum(), .max(), average(), 
-		- sorted(), filter(), map(), reduce()
+---------------------------
 
-* ## 스레드
-	+ ### (13) 스레드
-		- 멀티스레드, sleep(), Runnable, join, 데몬스레드
-		- synchronized(동기화), wait-notify(스레드 제어)
+## [**필기 : 22~23. AspectJ를 이용한 AOP와 Annotation 기반 설정**](https://github.com/Jaehwi-So/WEB_STUDY_FullStack/blob/master/Spring_Framework/22-23_Spring_Note.md)   
+### [실습 : 22. AspectJ를 이용한 AOP xml 설정](https://github.com/Jaehwi-So/WEB_STUDY_FullStack/blob/master/Spring_Framework/22_AOP_AspectJ)
+* AspectJ 설정, <aop:config>, <aop:aspect>
+* 포인트컷 표현식 (expression)
+* joinPoint, 바인드 변수, getSignature()
+### [실습 : 23. Annotation을 이용한 AOP](https://github.com/Jaehwi-So/WEB_STUDY_FullStack/blob/master/Spring_Framework/23_AOP_Annotation)
+- autoproxy
+- @Aspect
+- @PointCut
+- @Before, @Around, @AfterReturning, @AfterThrowing
 
-* ## 컬렉션 프레임워크와 제네릭 타입
-	+ ### (14) Generic 타입
-		- &lt;Integer>
-		- Variable Argument
-		+ ### List
-			- (15) ArrayList
-				- 기본 배열은 크기를 변경할 수 없지만 ArrayList는 크기를 동적으로 사용
-				- element의 삽입과 삭제가 유동적이고 자유로움
-				- add(), size(), get(), remove()
-				- Iterator
-			- (16) LinkedList
-				- 연결 리스트 형태
-				- addFirst(), addLast()
-		+ ### Set
-			- (17) HashSet
-				- 집합 자료구조, 순서와 상관없이 중복을 허용하지 않음
-				- 인덱스 사용 불가능. 
-				- add(), size(), remove()
-				- Iterator
-			- (18) TreeSet
-				- 기준에 따라 자료가 정렬되는 Set
-				- Comparable
-		+ ### Map
-			- (19) HashMap
-				- (key,value)의 쌍, key는 중복허용 안됨
-				- get(), put(), containsKey(), containsValue()
-				- entrySet(), keySet(), values()
-				- entry.getValue(), entry.getKey()
-			- (20) TreeMap
-				- 기준에 따라 자료가 정렬되는 Map
-				- Comparable
+----------------------
+# 24-35. Spring MVC 프로젝트
+## [**필기 : 24~25. MVC 프로젝트 컨테이너 설정**](https://github.com/Jaehwi-So/WEB_STUDY_FullStack/blob/master/Spring_Framework/24-25_Spring_Note.md)   
+### [실습 : 24. xml 파일을 통한 MVC 설정](https://github.com/Jaehwi-So/WEB_STUDY_FullStack/blob/master/Spring_Framework/24_Spring_MVC)
+- Model, View, Controller
+- pom.xml, web,xml, ContextLoader
+- servlet-context.xml, DispatcherServlet
+- root-context.xml
+- View resolver, ModelAndView
+- 비즈니스 로직, 서블릿, 필터, Service, DAO
+- MVC 프로젝트의 동작 원리
+- 요청과 매핑
+### [실습 : 25. Java Config와 Annotation를 통한 MVC 설정](https://github.com/Jaehwi-So/WEB_STUDY_FullStack/blob/master/Spring_Framework/25_Spring_MVC)
+- WebInitiallizer
+- @EnableWebMvc
+- WebContextConfig, RootContextConfig, ConfigurerAdapter
+- @ComponentScan, @Configuration
 
-* ## 예외 처리
-	+ ### (24) 예외 처리
-		- try-catch
-		- try-catch-finally
-		- try-with-resource
-		- throws
-		- 사용자 정의 예외처리
+------------------------
 
-* ## IO (입출력)
-	+ ### (5) 콘솔(표준) 입출력
-		- random()
-		- printf, print, println
-		- formatter 
-		- Scanner
-	+ ### (25) 표준 입출력과 파일
-		- readLine(), readPassword() 
-		- reader()  writer()
-		- Scanner
-		- File, directory, exsits(), mkdir()
-	+ ### (26) Byte 단위 스트림
-		- InputStream, OutputStream
-		- BufferedInputStream, BufferedOutputStream
-	+ ### (27) Character 단위 스트림
-		- FileReader, FileWriter
-		- BufferedReader, BufferedWriter
-	+ ### (27) Object 단위 스트림
-		- ObjectInputStream, ObjectOutputStream
-		- Serializable
-	+ ### (28) 보조 스트림 (Wrapper Stream)
-		- DataOutputStream, DataInputStream
-		- InputStreamReader, OutputStreamReader
-		- ByteArrayInputStream, ByteArrayOutputStram
+## [**필기 : 26. 스프링 JDBC와 MyBatis**](https://github.com/Jaehwi-So/WEB_STUDY_FullStack/blob/master/Spring_Framework/26_Spring_Note.md)   
+### [실습 : 26. Spring JDBC와 MyBatis를 통한 DBMS 연동](https://github.com/Jaehwi-So/WEB_STUDY_FullStack/blob/master/Spring_Framework/26_JDBC_MyBatis)
+- JDBC, 트랜잭션, SQL문
+- JDBC 과정과 모듈
+- SqlSession, SqlSessionTemplate, SqlSessionFactory
+- MyBatis
+* mapper
+* db.properties, mybatis.config
+* context-datasource, context-mybatis, DBCP
+
+--------------------------
+
+## [**필기 : 27-30. 컨트롤러의 매핑과 데이터 상호작용**](https://github.com/Jaehwi-So/WEB_STUDY_FullStack/blob/master/Spring_Framework/27-30_Spring_Note.md)   
+### [실습 : 27. RequestMapping : URL을 컨트롤러에 매핑](https://github.com/Jaehwi-So/WEB_STUDY_FullStack/blob/master/Spring_Framework/27_RequestMapping)
+- @RequestMapping
+- 반환형 : ModelAndView, String(View), redirect:, void, Object
+- 메서드 수준, 클래스 수준 매핑, HTTP 요청 메서드 매핑, 파라미터 매핑, 요청 헤더값, MIME 타입에 따른 매핑
+### [실습 : 28. 요청 파라미터를 받는 방법과 RequestParam](https://github.com/Jaehwi-So/WEB_STUDY_FullStack/blob/master/Spring_Framework/28_RequestParam)
+- 컨트롤러 메서드의 시그니처, HttpServletRequest,HttpSession,SessionStatus,Model
+- 컨트롤러의 파라미터
+- Map이나 VO 등 객체 형태의 인수 전달
+- @RequestParam
+### [실습 : 29. 데이터 바인딩과 ModelAttribute](https://github.com/Jaehwi-So/WEB_STUDY_FullStack/blob/master/Spring_Framework/29_ModelAttribute)
+- Model
+- model.addAttribute
+- @ModelAttribute
+### [실습 : 30. 스프링 데이터 검증](https://github.com/Jaehwi-So/WEB_STUDY_FullStack/blob/master/Spring_Framework/30_DataValidate)
+- Validator
+- supports(), validate(), hasErrors()
+- DTO
+- @Valid
+	*  @AssertTrue, @AssertFalse, @NotNull, @NotEmpty, @NotBlank, @Size, @Null, @Positive, @PositiveOrZero, @Negative, @NegativeOrZero, @Min, @Max, @Email, @Pattern
+
+-----------------------------
+
+## [**필기 : 31-33. 다양한 데이터의 통신**](https://github.com/Jaehwi-So/WEB_STUDY_FullStack/blob/master/Spring_Framework/31-33_Spring_Note.md) 
+### [실습 : 31. Ajax와 Jackson을 이용한 JSON 타입 데이터 반환](https://github.com/Jaehwi-So/WEB_STUDY_FullStack/blob/master/Spring_Framework/31_ResponseBody_Jackson_Ajax)  
+- Ajax, JSON
+- Jackson
+### [실습 : 32. 컨트롤러에서의 JSON 타입 처리와 다양한 Ajax 비동기 통신 방법](https://github.com/Jaehwi-So/WEB_STUDY_FullStack/blob/master/Spring_Framework/32_RequestBody_Ajax)  
+- @ResponseBody, @RequestBody
+- Ajax 방법 
+	* XMLHttpRequest
+	* Jquery
+- 클라이언트 측에서 Object, Form, Json을 파라미터로 넘기기
+- serialize
+- Open API에서 JSON 데이터 받기
+### [실습 : 33. 파일 타입의 업로드와 웹 절대경로](https://github.com/Jaehwi-So/WEB_STUDY_FullStack/blob/master/Spring_Framework/33_SpringFileUpload)  
+- 파일 업로드
+- multipartResolver
+- getRealPath()
+
+------------------------------------
+
+### [간이 프로젝트 : 방명록](https://github.com/Jaehwi-So/WEB_STUDY_FullStack/blob/master/Spring_Framework/34_Ex_MVC_Visit)  
+### [간이 프로젝트 : 게시판](https://github.com/Jaehwi-So/WEB_STUDY_FullStack/blob/master/Spring_Framework/35_Ex_MVC_Board)  
 
 
-* ## 자바 AWT
-	+ ### (29) AWT 프레임, 프레임 상속
-	+ ### (30) AWT 이벤트 처리
-	+ ### (31) AWT 컴포넌트
-	+ ### (32) AWT 활용
-
-* ## 라이브러리 사용
-	+ ### (33) 외부 라이브러리 사용
-
-
-
+------------------------------------------
+# 36-37. RESTful API
+## [**필기 : 36~37. RESTful API 정의, 설계, 구현**](https://github.com/Jaehwi-So/WEB_STUDY_FullStack/blob/master/Spring_Framework/36-37_Spring_Note.md)   
+### [실습 : 36. RESTful API 디자인, 구현 그리고 RESTful JSON 데이터 교환](https://github.com/Jaehwi-So/WEB_STUDY_FullStack/blob/master/Spring_Framework/36_RESTful_API)
+- REST의 정의, URL, URI, CURD, JSON
+- REST 설계규칙
+- HttpRequest : GET, POST, PUT, DELETE
+- @GetMapping, @PostMapping, @PutMapping, @DeleteMapping
+- @ResponseBody, @RequestBody
+- @PathVariable
+### [실습 : 37. REST 컨트롤러와 어노테이션](https://github.com/Jaehwi-So/WEB_STUDY_FullStack/blob/master/Spring_Framework/37_RESTful_API)
+- @RestController
+------------------------------------------------
