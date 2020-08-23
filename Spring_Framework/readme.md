@@ -9,13 +9,16 @@
 - Server : Apache Tomcat 8.5
 -----------------------------
 # INDEX
-- ### [1. 스프링 프레임워크의 정의와 환경설정](1-스프링-프레임워크의-정의와-환경설정)
-- ### [2-12. XML 설정파일에 기반한 스프링 컨테이너와 스프링 빈 설정](2-12-xml-설정파일에-기반한-스프링-컨테이너와-스프링-빈-설정)
-- ### [13-18. Annotation 기반의 컨테이너 설정과 Java Configuration](13-18-annotaion-기반의-컨테이너-설정과-java-configuration)
-- ### [19-23. AOP(Aspect_Oriented_Programming)](19-23-aopaspectorientedprogramming)
-- ### [24-35. Spring MVC 프로젝트](24-35-spring-mvc-프로젝트)
-- ### [36-37. RESTful API](36-37-restful-api)
-- ### Spring 시큐리티(추가 학습 예정)
+
+해당 번호에 해당하는 폴더에 해당 주제에 대한 예제 프로젝트와 설명으로 주석이 상세히 달려 있음. 인덱스의 부가 목록으로는 키워드를 달아 둠
+
+- [1. 스프링 프레임워크의 정의와 환경설정](1-스프링-프레임워크의-정의와-환경설정)
+- [2-12. XML 설정파일에 기반한 스프링 컨테이너와 스프링 빈 설정](2-12-xml-설정파일에-기반한-스프링-컨테이너와-스프링-빈-설정)
+- [13-18. Annotation 기반의 컨테이너 설정과 Java Configuration](13-18-annotaion-기반의-컨테이너-설정과-java-configuration)
+- [19-23. AOP(Aspect_Oriented_Programming)](19-23-aopaspectorientedprogramming)
+- [24-35. Spring MVC 프로젝트](24-35-spring-mvc-프로젝트)
+- [36-37. RESTful API](36-37-restful-api)
+- Spring 시큐리티(추가 학습 예정)
 
 ---------------------------------
 
