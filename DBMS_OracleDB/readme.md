@@ -34,13 +34,13 @@
 
 ## SQL문장의 종류
 - 1)DML(Data Manipulation Language) : 데이터 조작문
-  --select, insert, update, delete를 가지고 있는 sql문장
+  - select, insert, update, delete를 가지고 있는 sql문장
 - 2)DDL(Data Definition Language) : 데이터 정의문
-  --create, alter, drop, rename등을 가지고 있는 sql문장
+  - create, alter, drop, rename등을 가지고 있는 sql문장
 - 3)DCL(Data Control Language) : 데이터 제어문
-  --grant, revoke, rollback, commit등을 가지는 sql문장
+  - grant, revoke, rollback, commit등을 가지는 sql문장
 
---DB의 주석 : -- , /* */
+DB의 주석 : -- , /* */
 --------------------------------
 
 ## INDEX
