@@ -39,8 +39,7 @@
   - create, alter, drop, rename등을 가지고 있는 sql문장
 - 3)DCL(Data Control Language) : 데이터 제어문
   - grant, revoke, rollback, commit등을 가지는 sql문장
-
-DB의 주석 : -- , /* */
+- DB의 주석 : -- , /* */
 --------------------------------
 
 ## INDEX
