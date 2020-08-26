@@ -11,12 +11,6 @@
 5. [JSP](#jsp)
 6. [Spring Framework](#spring-framework)
 7. [그 외 학습 내용](#그-외-학습-내용)
-  - Maven
-  - Jquery
-  - React
-  - Ajax
-  - Json
-  - xml, properties
 -----------------------------
 # 1. Java
 ## [Repository 바로가기](https://github.com/Jaehwi-So/JAVA)   
