@@ -4,13 +4,13 @@
 - Java 기반의 웹 제작을 위해 필요한 언어들과 기술, 패턴과 프레임워크를 학습한 Repository
 - 주제에 따른 예제 프로젝트와 Markdown 문서를 통한 정리
 -----------------------------
-1. [Java](#java)
-2. [HTML, CSS](#html-css)
-3. [JavaScript](#javascript)
-4. [DBMS](#dbms)
-5. [JSP](#jsp)
-6. [Spring Framework](#spring-framework)
-7. [그 외 학습 내용](#그-외-학습-내용)
+1. [Java](#1-java)
+2. [HTML, CSS](#2-html-css)
+3. [JavaScript](#3-javascript)
+4. [DBMS](#4-dbms)
+5. [JSP](#5-jsp)
+6. [Spring Framework](#6-spring-framework)
+7. [그 외 학습 내용](#7-그-외-학습-내용)
 -----------------------------
 # 1. Java
 ## [Repository 바로가기](https://github.com/Jaehwi-So/JAVA)   
