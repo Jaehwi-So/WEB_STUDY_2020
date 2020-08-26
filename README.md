@@ -37,13 +37,14 @@
 ## [Repository 바로가기](https://github.com/Jaehwi-So/WEB_STUDY_FullStack/tree/master/JSP_WebPrograming)   
 - 웹사이트를 보다 쉽게 구축할수 있도록 만들어주는 서버 사이드 스크립트 언어인 JSP 학습
 - 데이터베이스의 연동과 Tomcat을 통한 서버 구축
-- MVC 패턴을 이용한 웹 어플리케이션의 구축
+- MVC 패턴을 이용한 웹 어플리케이션의 구축과 간이 프로젝트 구현
 
 # 6. Spring Framework
 ## [Repository 바로가기](https://github.com/Jaehwi-So/WEB_STUDY_FullStack/tree/master/Spring_Framework)   
 - 웹 어플리케이션을 제작하는 데에 도움이 되는 프레임워크 학습
 - 스프링이 제공하는 모듈화, IoC 컨테이너 구축, AOP, MVC, 데이터 검증 등 습득
-- 웹 어플리케이션 디자인 패턴 학습
+- 웹 어플리케이션 디자인 패턴 학습과 간이 프로젝트 구현
+- 실습 프로젝트와 함께 Markdown을 이용하여 개념 정리
 
 # 7. 그 외 학습 내용
 - Maven
