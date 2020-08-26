@@ -4,12 +4,19 @@
 - Java 기반의 웹 제작을 위해 필요한 언어들과 기술, 패턴과 프레임워크를 학습한 Repository
 - 주제에 따른 예제 프로젝트와 Markdown 문서를 통한 정리
 -----------------------------
-1. [HTML, CSS](클래스-객체-메서드-생성자의-개념)
-2. [JavaScript](클래스-객체-메서드-생성자의-개념)
-3. [DBMS](클래스-객체-메서드-생성자의-개념)
-4. [JSP](클래스-객체-메서드-생성자의-개념)
-5. [Spring Framework](클래스-객체-메서드-생성자의-개념)
-
+1. [Java](#java)
+2. [HTML, CSS](#html-css)
+3. [JavaScript](#javascript)
+4. [DBMS](#dbms)
+5. [JSP](#jsp)
+6. [Spring Framework](#spring-framework)
+7. [그 외 학습 내용](#그-외-학습-내용)
+  - Maven
+  - Jquery
+  - React
+  - Ajax
+  - Json
+  - xml, properties
 -----------------------------
 # 1. Java
 ## [Repository 바로가기](https://github.com/Jaehwi-So/JAVA)   
@@ -50,8 +57,8 @@
 - React
 - Ajax
 - Json
-- xml
-- properties
+- xml, properties
+
 
 
 
