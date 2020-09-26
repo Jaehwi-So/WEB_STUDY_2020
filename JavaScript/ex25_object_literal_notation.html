@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>객체</title>
+    <script>
+    //자바스크립트의 기본 타입은 객체(object)
+    //이름(name)과 값(value)으로 구성된 프로퍼티(property)의 집합입니다.
+    //프로퍼티의 값으로 함수가 오는 경우 메서드(method)라고 합니다.
+
+    //객체를 생성하는 방법
+    //1. 리터럴 표기 이용
+    //2. 생성자 함수 이용
+    //3. Object.create() 이용
+
+    //1. 리터럴 표기 이용
+    //각각의 프로퍼티는 이름과 값을 콜론(:)으로 연결하고, 쉼표(,)를 사용해 다른 프로퍼티와 구분
+    var person = {
+        //멤버변수 프로퍼티
+        name: "홍길동", 
+        birthday: "030219",
+        //메서드 프로퍼티
+        getInfo: function() {
+            return this.birthday + this.name;
+        }
+    };
+    console.log(typeof person); //객체의 자료형은 object
+    console.log(person.name); //멤버변수 프로퍼티 참조
+    console.log(person.getInfo()); //함수 프로퍼티 참조
+    </script>
+</head>
+
+<body>
+</body>
+</html>
