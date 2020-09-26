@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<!--
+	객체 상속의 다양한 방법들
+-->
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>객체의 상속</title>
+		
+		<script type="text/javascript">
+			//# 조합 상속 : 생성자 훔치기와 프로토타입 체인 상속을 결합
+			//프로토타입 체인을 써서 프로토타입에 존재하는 프로퍼티와 메서드를 상속 : 함수 재사용 가능
+			//생성자 훔치기 패턴으로 인스턴스 프로퍼티를 상속 : 각 인스턴스가 고유한 프로퍼티를 가짐
+
+			//this : 해당 함수를 소유하고 있는 객체를 뜻한다.
+			function Human(name, age) {
+				this.name = name;
+				this.age = age;
+				this.arr = [1,2,3];
+			}
+			Human.prototype.getInfo = function(){
+				return "이름 : " + this.name + " 나이 : " + this.age;
+			}
+			Human.prototype.say = function(){
+				return "Hello";
+			}
+
+			function Korean(name, age) {
+				Human.call(this, name, age);	//상위 생성자 호출
+			}
+			Korean.prototype = new Human();	 //상위 타입의 프로토타입으로 할당
+			Korean.prototype.say = function(){
+				return "안녕";
+			}
+			var person = new Human("James", 23);
+			var kor = new Korean("Kim", 20);
+			document.write(person.getInfo() + "<br>");
+			document.write(person.say() + "<br>");
+			document.write(kor.getInfo() + "<br>");	//getInfo라는 부모의 함수 재사용
+			document.write(kor.say() + "<br>");
+
+			//각 인스턴스가 고유 프로퍼티를 가진다.
+			person.arr.push(4);
+			document.write(person.arr + "<br>");
+			document.write(kor.arr + "<br>");
+
+
+			//# 프로토타입 상속 : 생성자 훔치기와 프로토타입 체인 상속을 결합
+			//프로토타입을 써서 새 객체를 생성할 때 커스텀 타입을 정의하지 않는 방법.
+			//임시 생성자를 만들어 주어진 객체를 생성자의 프로토타입으로 할당한 다음 임시 생성자의 인스턴스를 반환
+
+			//Object.create() 메서드로 아래의 메서드 지원
+			/*function object(o) {
+				function F() {}
+				F.prototype = o;
+				return new F();
+			}*/
+
+
+			// 문법 : Object.create(프로토타입객체[, 새로운객체의프로퍼티1, 새로운객체의프로퍼티2, ...]);
+			//첫 번째 인수로는 프로토타입으로 사용할 객체를 전달.
+			//두 번째 인수로는 새로운 객체의 추가할 프로퍼티 정보를 전달.
+
+			function Shape(x, y, width, height) {
+				this.x = x;
+				this.y = y;
+				this.width = width;
+				this.height = height;
+			}
+			Shape.prototype.move = function(x, y) {
+			this.x = this.x + x;
+			this.y = this.y + y;
+			};
+
+			function Rectangle(x, y, width, height){
+				Shape.call(this, x, y, width, height);
+			}
+
+			Rectangle.prototype = Object.create(Shape.prototype);
+			Rectangle.prototype.getArea = function(){
+				return this.width * this.height;
+			}
+			var rec = new Rectangle(3, 5, 10, 5);
+
+			rec.move(1, 1); // Outputs, 'Shape moved.'
+			document.write(rec.getArea() + "<br>");
+			document.write(rec.x + "/" + rec.y);
+
+
+			//# 기생 조합 상속
+			function inheritPrototype(subType, superType) {
+				var prototype = Object(superType.prototype); //상위 타입의 프로토타입 할당
+				prototype.constructor = subType;	//상위 타입의 생성자를 호출할 필요성이 없다.
+				subType.prototype = prototype;
+			}
+
+			function Animal(name, age) {
+				this.name = name;
+				this.age = age;
+			}
+
+			Animal.prototype.getName = function() {
+				return this.name;
+			};
+			Animal.prototype.getAge = function() {
+				return this.age;
+			};
+
+
+			function Dog(name, age, breed) {
+				Animal.call(this, name, age);
+				this.breed = breed;
+			}
+			inheritPrototype(Dog, Animal);	//상속
+
+			Dog.prototype.getBreed = function(){
+				return this.breed;
+			}
+			Dog.prototype.say = function(){
+				return "왈왈";
+			}
+
+			let dog = new Dog("콩이", 12, "시츄");
+			document.write("<hr>");
+			document.write(dog.getName() + "<br>");
+			document.write(dog.getAge() + "<br>");
+			document.write(dog.getBreed() + "<br>");
+			document.write(dog.say() + "<br>");
+		</script>
+		
+	</head>
+	
+	<body>
+		
+	</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
