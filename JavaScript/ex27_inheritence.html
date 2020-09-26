@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<!--
+	프로토타입 객체의 상속
+-->
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>객체의 상속</title>
+		
+		<script type="text/javascript">
+			//# 프로토타입 체인 관계를 이용한 상속
+
+			function SuperInstance(){	//부모 객체
+				this.arr = [1,2,3];
+				this.property = 10;
+				this.value = 5;
+			}
+			SuperInstance.prototype.getProperty = function(){	//1)
+				return this.property + " superInstance";
+			}
+			SuperInstance.prototype.getValue = function(){	//2)
+				return this.value + " superInstance";
+			}
+
+			function SubInstance(){	//자식 객체
+				this.value = 15;	//부모의 value 재정의
+				this.number = 23;
+			}
+			SubInstance.prototype = new SuperInstance();	//프로토타입을 SuperInstance 인스턴스로 할당
+			SubInstance.prototype.getValue = function(){	//3) 부모의 getValue 재정의
+				return this.value + " subInstance";
+			}
+			SubInstance.prototype.getNumber = function(){	//4) 자식 프로토타입에 메서드 추가
+				return this.number + " subInstance";
+			}
+			//객체 리터럴을 이용하여 프로토타입 메서드를 생성하게 되면 프로토타입 체이닝이 중복되어 사용 불가능하다.
+			/*SubInstance.prototype = {
+			getValue : function() {}, ...};*/
+
+			var sup = new SuperInstance();
+			document.write("SuperInstance <br>");
+			document.write(sup.value + "<br>");
+			document.write(sup.getProperty() + "<br>");	//1
+			document.write(sup.getValue() + "<br>");	//2
+
+			document.write("<hr>");
+			var sub = new SubInstance();
+			document.write("SubInstance <br>");
+			document.write(sub.value + "<br>");
+			document.write(sub.getProperty() + "<br>");	//1
+			document.write(sub.getValue() + "<br>");	//3
+			document.write(sub.getNumber() + "<br>");	//4
+
+			//참조 값을 포함한 프로토타입에서 상속의 문제가 발생할 수 있다.
+			//프로토타입으로 상속을 구현하면 프로토타입이 다른 타입의 인스턴스가 되므로 처음에 인스턴스 프로퍼티였던 것들이 
+			//프로토타입 프로토타입 프로퍼티로 바뀐다. 
+			document.write("<hr>");
+			document.write(sup.arr + "<br>");
+			sub.arr.push(4);
+			var sub2 = new SubInstance();
+			document.write(sub2.arr + "<br>");
+			document.write("<hr>");
+			//이러한 문제를 해결하기 위해 생성자 훔치기의 패턴을 사용한다.
+
+			//# 생성자 훔치기 : 하위타입 생성자 안에서 상위 타입 생성자를 호출
+			//생성자 훔치기 패턴은 하위 타입의 생성자 안에 상위 타입의 생성자에 매개변수를 전달할 수 있다.
+			function Human(name, age) {
+				this.arr = [1,2,3];
+				this.name = name;
+				this.age = age;
+			}
+
+			function Korean(name, age, region) {
+				//call() 메서드를 사용해서 Human 생성자를 호출
+				//Human() 함수에 들어 있는 객체 초기화 코드 전체를 Korean 객체에서 실행하는 효과
+				//서로 다른 인스턴스가 arr를 공유하는 것이 아닌 자신만의 프로퍼티를 갖게 된다.
+				Human.call(this, name, age);
+				this.region = region;
+			}
+			Korean.prototype.getInfo = function(){
+				return "이름 : " + this.name + " 나이 : " + this.age + "지역 : " + this.region;
+			}
+
+			var kor = new Korean("kim", 20, "Korea");
+			kor.arr.push(4);
+			document.write(kor.getInfo() + "<br>");
+			document.write(kor.arr + "<br>");
+			var kor2 = new Korean("lee", 22, "Korea");
+			document.write(kor2.getInfo() + "<br>");
+			document.write(kor2.arr + "<br>");
+
+			//생성자 훔치기 패턴은 메서드를 생성자 내부에서만 정의해야 하므로 함수 재사용이 불가능하다.
+		</script>
+		
+	</head>
+	
+	<body>
+		
+	</body>
+</html>
+
