@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>자바스크립트의 자료형</title>
+		
+		<script type="text/javascript">
+			//# 변수 선언 : var
+			var a = 100;
+			//자바스크립트의 자료형의 종류에는 문자열(String), 숫자형(Number), 논리형(Boolean), Null(Undefined)가 있다.
+			var first = 100;
+			var second = "2";
+			var res = first + second; 
+			document.write( "결과값 : " + res ); //숫자형과 문자열은 연산이 이루어지지 않고 이어 붙여진다.
+			document.write("<br>");
+			var type_num = 100;
+			var type_str = "string";
+			var type_bool = true;
+			var type_null = 120;
+			type_null = null;
+			document.write(typeof type_num);
+			document.write("<br>");
+			document.write(typeof type_str);
+			document.write("<br>");
+			document.write(typeof type_bool);
+			document.write("<br>");
+			document.write(typeof type_null);
+			document.write("<br>");
+
+			//var 키워드는 변수를 한 번 더 선언했음에도 불구하고, 
+			//에러가 나오지 않고 각기 다른 값이 출력되는 것을 볼 수 있다.
+			//이는 유연한 변수 선언으로 간단한 테스트에는 편리 할 수 있겠으나, 
+			//코드량이 많아 진다면 어디에서 어떻게 사용 될지도 파악하기 힘들뿐더러 
+			//값이 바뀔 우려가 있다. 따라서 변수에는 let, 상수에는 const라는 키워드가 도입되게 된다.
+
+			//# 상수 선언 : const
+			const b = 50;
+			document.write(b + "/");
+			//b = 20;
+			//document.write(b);	//const는 값의 재할당이 불가능하다.
+			document.write("<br>");
+
+			//# 변수 선언 : let
+			let c = 50;
+			document.write(c + "/");
+			c = 20;
+			document.write(c);
+			document.write("<br>");
+
+			//변수의 유효범위 : 블록 단위로 지역변수와 전역변수로 나뉜다.
+			{
+				let scope_number = 10;
+				document.write(scope_number + "<br>");
+			}
+
+			let number2 = 20;
+			{
+				number2 = 30;
+				document.write(number2 + "<br>");
+			}
+			//document.write("test : " + scope_number); : 블록 안의 변수를 인식할 수 없다.
+
+			//# 호이스팅 : var 선언문이나 function 선언문 등을 해당 스코프의 선두로 옮긴 것처럼 동작하는 특성.
+
+			h_var = 30;	//호이스팅이 일어나더라도 선언을 옮길 뿐 초기화는 일어나지 않아 상단에서 초기화
+			document.write(h_var + "<br>");	//하단에서 선언, 상단에서 초기화 ok인 경우 출력
+			document.write(h_var2 + "<br>"); //하단에서 선언, 상단에서 초기화가 되지 않은 경우 출력x
+			document.write(h_let + "<br>"); //let의 경우 호이스팅이 일어나지 않음.
+			var h_var = 20;
+			var h_var2 = 20;
+			let h_let = 30;
+		</script>
+		
+	</head>
+	
+	<body>
+	
+	</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
