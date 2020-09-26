@@ -4,12 +4,13 @@
 - Java 기반의 웹 제작을 위해 필요한 언어들과 기술, 패턴과 프레임워크를 학습한 Repository
 - 주제에 따른 예제 프로젝트와 Markdown 문서를 통한 정리
 -----------------------------
-1. [HTML, CSS](클래스-객체-메서드-생성자의-개념)
-2. [JavaScript](클래스-객체-메서드-생성자의-개념)
-3. [DBMS](클래스-객체-메서드-생성자의-개념)
-4. [JSP](클래스-객체-메서드-생성자의-개념)
-5. [Spring Framework](클래스-객체-메서드-생성자의-개념)
-
+1. [Java](#1-java)
+2. [HTML, CSS](#2-html-css)
+3. [JavaScript](#3-javascript)
+4. [DBMS](#4-dbms)
+5. [JSP](#5-jsp)
+6. [Spring Framework](#6-spring-framework)
+7. [그 외 학습 내용](#7-그-외-학습-내용)
 -----------------------------
 # 1. Java
 ## [Repository 바로가기](https://github.com/Jaehwi-So/JAVA)   
@@ -36,13 +37,14 @@
 ## [Repository 바로가기](https://github.com/Jaehwi-So/WEB_STUDY_FullStack/tree/master/JSP_WebPrograming)   
 - 웹사이트를 보다 쉽게 구축할수 있도록 만들어주는 서버 사이드 스크립트 언어인 JSP 학습
 - 데이터베이스의 연동과 Tomcat을 통한 서버 구축
-- MVC 패턴을 이용한 웹 어플리케이션의 구축
+- MVC 패턴을 이용한 웹 어플리케이션의 구축과 간이 프로젝트 구현
 
 # 6. Spring Framework
 ## [Repository 바로가기](https://github.com/Jaehwi-So/WEB_STUDY_FullStack/tree/master/Spring_Framework)   
 - 웹 어플리케이션을 제작하는 데에 도움이 되는 프레임워크 학습
 - 스프링이 제공하는 모듈화, IoC 컨테이너 구축, AOP, MVC, 데이터 검증 등 습득
-- 웹 어플리케이션 디자인 패턴 학습
+- 웹 어플리케이션 디자인 패턴 학습과 간이 프로젝트 구현
+- 실습 프로젝트와 함께 Markdown을 이용하여 개념 정리
 
 # 7. 그 외 학습 내용
 - Maven
@@ -50,8 +52,8 @@
 - React
 - Ajax
 - Json
-- xml
-- properties
+- xml, properties
+
 
 
 
