@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>클래스 상속</title>
+		
+		<script type="text/javascript">
+			class Parent{
+				name;
+				static region = "korea";
+				constructor(name){
+					this.name = name;
+				}
+				hello(){
+					console.log("hello " + this.name);
+				}
+			}
+
+			class Child extends Parent{}	//상속
+
+			let c = new Child("kim");
+			c.hello();
+
+			class Child2 extends Parent{
+				age;
+				constructor(name, age){
+					//this.name = name;
+					super(name); //상위 클래스의 생성자를 호출한다.
+					this.age = age;
+				}
+
+				//hello 메서드 오버라이딩
+				hello(){
+					console.log("override hello " + this.name + " " + this.age);
+				}
+			}
+
+			let c2 = new Child2("lee", 23);
+			c2.hello();
+
+			console.log(Parent.region);	//static 변수도 상속
+			console.log(Child.region);	//static 변수도 상속
+
+
+		</script>
+		
+	</head>
+	
+	<body>
+		
+	</body>
+</html>
