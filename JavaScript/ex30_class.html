@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>클래스</title>
+		
+		<script type="text/javascript">
+			//접근제어자와 Getter, Setter
+
+			//getter와 setter를 가진 클래스
+			class A{
+				_name;	//_는 private 접근제어자의 역할. 
+				get name(){	//getter
+					console.log("A Getter");
+					return this._name;
+				}
+				set name(value){ //setter
+					console.log("A Setter");
+					this._name = value;
+				}
+			}
+			let a = new A();
+			console.log(a.name);
+			a.name = "kim";	//setter가 호출됨
+			console.log(a.name); //getter가 호출됨
+
+			//setter가 없고 private한 필드를 가진 클래스
+			class B{	
+				_name;
+				get name(){	//getter
+					console.log("A Getter");
+					return this._name;
+				}
+			}
+			let b = new B();
+			b.name = "lee";	//setter가 없어 값의 변경이 이루어지지 않는다.
+			console.log(b.name);
+
+		</script>
+		
+	</head>
+	
+	<body>
+		
+	</body>
+</html>
