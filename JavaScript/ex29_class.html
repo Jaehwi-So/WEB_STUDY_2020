@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>클래스</title>
+		
+		<script type="text/javascript">
+			// 클래스 생성
+			class A{}
+
+			//생성자
+			class B{
+				constructor(name, age){
+					this.name = name;
+					this.age = age;	//생성자에서 this를 통해 자동으로 멤버변수 프로퍼티로 설정됨
+				}
+			}
+			console.log(new A());
+			let b = new B("kim", 23);
+			console.log(b.name, b.age);
+
+			//값이 없는 클래스 필드 설정
+			//class field는 node 12ver 이상부터 사용가능
+			class C{
+				name;
+				age;
+			}
+			console.log(new C());
+
+			//클래스 필드에 생성자로 설정
+			class D{
+				name = "no name";
+				age = 0;
+				constructor(name, age){
+					this.name = name;
+					this.age = age;
+				}
+			}
+			let d = new D("park", 25);
+			console.log(d.name, d.age);
+
+			//클래스 메서드 설정
+			class E{
+				hello(){
+					console.log("hello");
+				}
+				hello2 = () => {
+					console.log("hello2");
+				}
+			}
+			let e = new E();
+			e.hello();
+			e.hello2();
+
+			//클래스 필드와 생성자, 메서드 설정
+			class F{
+				name;
+				constructor(name){
+					this.name = name;
+				}
+				hello(){
+					console.log("hello", this.name);
+				}
+			}
+			let f = new F("Lee");
+			f.hello();
+		</script>
+		
+	</head>
+	
+	<body>
+		
+	</body>
+</html>
