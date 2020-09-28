@@ -1,0 +1,15 @@
+{
+  "name": "npm_test",
+  "version": "1.0.0",
+  "description": "\"node test\"",
+  "main": "test.js",
+  "scripts": {
+    "start": "node test.js" 
+  },
+  "author": "재휘",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.17.1",
+    "uuid4": "^2.0.2"
+  }
+}
