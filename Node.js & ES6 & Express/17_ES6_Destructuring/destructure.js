@@ -7,18 +7,23 @@
 
 const obj = {
   title : 'this is title',
-  value : 'this is value'
+  value : 'this is value',
+  info : {
+    name : 'this is name',
+    age : 'this is age'
+  }
 }
 
 //Origin
 const title2 = obj.title;
 const value2 = obj.value;
-console.log(title2, value2);
+const name2 = obj.info.name;
+console.log(title2, value2, name2);
 
 //ES6 객체 비구조화
 //객체의 멤버변수 이름과 {} 안의 변수명이 일치해야 한다.
-const {title, value} = obj;
-console.log(title, value); 
+const {title, value, info : {name}} = obj;
+console.log(title, value, name); 
 
 //배열의 비구조화
 const arr = [1, 2, 3];
