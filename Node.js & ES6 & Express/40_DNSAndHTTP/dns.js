@@ -18,6 +18,7 @@ dns.resolve4("archive.org", (err, addresses) => {
     const res = JSON.stringify(addresses); //객체를 json string형태로 변경
     console.log(res);
     addresses.forEach(addr => {
+        //도메인 주소 -> IP
         dns.reverse(addr, (err, hostnames) => {
             if(err) throw err;  
             //지정된 IP주소의 도메인명을 찾아낸다

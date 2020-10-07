@@ -1,20 +1,37 @@
-//HTTP 모듈 사용법
-//low level의 관점, http 트랜젝션, 비즈니스 로직 처리 시 소켓 에러 체크
-`use strict`
+const http = require('http');
 
-const http = require('http');   //내장 모듈
+const port = 8081;  //포트 번호
 
-//http 서버 생성
-const server = http.createServer((request, response) => {
-    response.statusCode = 200; //요청 반환 코드
-    response.setHeader('Content-Type', 'text/html');   //HTML, JSON, XML등 데이터타입 명시. html코드를 return함.
-    response.end('<div>hello world</div>')  //HTML 문서에 반환할 데이터
+//노드 서버 생성 
+//req : 요청에 관한 정보, res : 응답에 관한 정보
+const server = http.createServer((req, res) => {
+    //응답 내용 작성..
+    try{
+        //Header 작성 : writeHead(HTTP 상태 코드, 응답에 대한 정보)
+        //HTTP 상태 코드 : 200(성공), 201(작성됨), 3XX(리다이렉션을 알리는 코드), 4XX(요청 오류), 5XX(서버 오류)
+        res.writeHead(200, { 'Content-Type': 'text/html; charset=utf-8' });
+        //Body 작성 : write() : 클라이언트로 보낼 데이터, 문자열, 버퍼 등을 보낼 수 있다. 
+        res.write('<h1>Hello World</h1>');
+        res.write('<h1>Hello Node</h1>');
+        //end() : 응답을 종료하는 메서드. 인수가 있다면 해당 데이터도 클라이언트 측으로 보낸 후 응답을 종료한다.
+        res.end('<p>Hello Server!</p>');
+    }
+    catch(err){ //예기치 못한 에러 발생 시
+        console.log(err);
+        res.writeHead(500, { 'Content-Type': 'text/plain; charset=utf-8' });    //에러 
+        res.end(err.message);
+    }
+});
 
-});  
+//서버 연결
+server.listen(port);
 
-const port = process.env.PORT;  //명시적으로 포트를 외부에서 받아옴
+//연결 완료 시 이벤트 리스너
+server.on('listening', () => {
+  console.log(`${port}번 포트에서 서버 대기 중입니다!`);
+});
 
-//서버의 요청을 받는(listen) 메서드
-server.listen(port => {
-    console.log(`Server running at port ${port}`)   //몇번 포트에서 실행되고 있는가
-}) 
+//연결 에러시 이벤트 리스너
+server.on('error', (error) => {
+  console.error(error);
+});
