@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="ko">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Document</title>   
+        <script src="https://unpkg.com/axios/dist/axios.min.js">    //axios 라이브러리 </script>   
+        <script>
+            (async () => {
+                axios.get('https://www.zerocho.com/api/get')    //axios를 이용하여 GET요청을 하여 Ajax처리
+                    .then((result) => {
+                        document.write('res' + result);
+                        console.log('res.data', result.data);    //{}
+                    })
+                    .catch((error) => {
+                        console.log(error);
+                    });
+            })();
+
+            (async () => {
+                try {
+                    const result = await axios.get('https://www.zerocho.com/api/get');  //async, await을 통한 axios
+                    console.log('res', result);
+                    console.log('res.data', result.data);
+                } 
+                catch (error) {
+                console.error(error);
+                }
+            })();
+
+        </script>
+    </head>
+    <body>
+        
+    </body>
+</html>
