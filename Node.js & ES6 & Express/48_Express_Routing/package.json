@@ -1,0 +1,14 @@
+{
+  "name": "48_express_routing",
+  "version": "1.0.0",
+  "description": "test",
+  "main": "server.js",
+  "scripts": {
+    "test": "start"
+  },
+  "author": "sjh",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.17.1"
+  }
+}
