@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <title>익스프레스</title>
+  <link rel="stylesheet" href="../css/style.css">
+  <script>
+    console.log('this is log');
+  </script>
+  <style>
+    .red{
+      color : red
+    }
+    .blue{
+      color : blue
+    }
+    .orange{
+      color : orange
+    }
+  </style>
+</head>
+<body>
+  <ul>
+    <!-- 반복문 사용-->
+    {% set color_list = ['빨강', '파랑', '초록'] %}
+    {% for color in color_list %}
+    <li>{{color}}</li>
+    {% endfor %}  <!-- 닫아줘야 한다. -->
+  </ul>
+
+  <ul>
+    <!-- 렌더링한 배열을 반복문을 사용하여 출력하기 -->
+    {% for fruit in fruit_list %}
+      <!-- 조건문 사용, loop.index라는 특수한 변수로 인덱스를 사용할 수 있다.-->
+      {% if loop.index % 2 == 0 %}
+      <li class="red">{{fruit}}</li>
+      {% elif fruit == '오렌지' %}
+      <li class="orange">{{fruit}}</li>
+      {% else %}
+      <li class="blue">{{fruit}}</li>
+      {% endif %} <!-- 닫아줘야 한다. -->
+    {% endfor %}
+  </ul>
+
+
+</body>
+</html>

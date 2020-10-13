@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <title>익스프레스</title>
+  <link rel="stylesheet" href="../css/style.css">
+  <script>
+    console.log('this is log');
+  </script>
+  <style>
+    #id_test{
+      color:blue;
+    }
+    #id_test2{
+      color:red;
+    }
+    .class_test{
+      font-size : 25px;
+      font-weight: bold;
+    }
+  </style>
+</head>
+<body>
+  <p>{{render_var}}</p> <!-- {{value}}를 통해 서버로부터 렌더링 받은 변수 사용 -->
+  <p>서버로부터 {{render_var}}를 받아왔습니다.</p>
+  <input type="button" value="{{render_var}}">
+
+  <!-- 내부 변수 선언-->
+  {% set value1 = 10 %}
+  <p>{{value}}</p>
+
+</body>
+</html>
+
