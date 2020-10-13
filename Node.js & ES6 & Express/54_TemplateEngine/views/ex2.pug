@@ -1,0 +1,35 @@
+//값과 변수의 사용과 렌더링 변수의 사용법
+doctype html
+html(lang="ko")
+head
+  title=익스프레스
+  link(rel='stylesheet', href='../css/style.css')
+  //스크립트, 스타일 태그 사용 
+  script(type='text/javascript').
+    console.log('this is log');
+  style.
+    #id_test{
+      color:blue;
+    }
+    #id_test2{
+      color:red;
+    }
+    .class_test{
+      font-size : 25px;
+      font-weight: bold;
+    }
+body
+  // =를 통해 서버로부터 렌더링 받은 변수 사용
+  p=render_var
+  // #{}를 통해 중간에 렌더링 받은 변수 사용
+  p 서버로부터 #{render_var}를 받아왔습니다.
+  input(
+    type="button"
+    value=render_var
+  )
+  // -를 먼저 입력하면 자바스크립트 구문 작성 가능
+  - const value1 = 10
+  // #{}를 통해 해당 내부 변수 사용 가능
+  p #{value1}
+
+

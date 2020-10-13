@@ -1,0 +1,37 @@
+//조건문과 반복문 사용
+doctype html
+html(lang="ko")
+head
+  title=익스프레스
+  link(rel='stylesheet', href='../css/style.css')
+  style.
+    .red{
+      color : red
+    }
+    .blue{
+      color : blue
+    }
+body
+  //반복문
+  ul
+    each color in ['빨강', '파랑', '초록']
+      li= color
+  //index를 가져올 수 있음
+
+  ul  
+    //렌더링한 배열을 반복문을 사용하여 출력하기
+    each fruit, index in fruit_list
+      //조건문
+      if index % 2 == 0
+        li.blue= (index + 1) + '번째' + fruit
+      else
+        li.red= (index + 1) + '번째' + fruit
+    
+  //switch-case 조건문
+  case render_color
+    when 'red'
+      p 빨간색입니다.
+    when 'blue'
+      p 파란색입니다
+    default
+      p 빨간색과 파란색은 아닙니다.

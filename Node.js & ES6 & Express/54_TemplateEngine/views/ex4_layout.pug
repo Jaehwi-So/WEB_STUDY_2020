@@ -1,0 +1,26 @@
+//-
+  block : 공통된 마크업을 넣되 페이지마다 달라지는 부분을 block으로 비워둔다
+  나중에 익스프에스에서 res.render('body')를 사용하여 하나의 HTML로 합쳐 렌더링 할 수 있다
+
+//공통되는 부분을 레이아웃으로 정하여 extends를 통해 확장할 수 있다.
+doctype html
+html(lang='ko')
+  head
+    title= title
+    link(rel='stylesheet', href='/css/style.css')
+    script(type='text/javascript').
+      console.log('this is log');
+    style()
+  body
+    //include를 통해 다른 pug나 html파일을 넣을 수 있다. 공통되는 부분을 따로 관리할 수 있다.
+    include header  
+    main
+      p 이곳은 content1가 들어가는 곳입니다.
+      //block을 통해 페이지마다 달라지는 부분을 비워둔다.
+      block content1 
+      p 이곳은 content2가 들어가는 곳입니다.
+      block content2
+    include footer
+
+
+

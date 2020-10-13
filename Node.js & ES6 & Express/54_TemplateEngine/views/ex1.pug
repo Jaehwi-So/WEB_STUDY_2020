@@ -1,0 +1,54 @@
+//-
+  - HTML과 달리 닫는 태그가 없다. 대신 들여쓰기로 종속성을 구별한다.
+  - 태그를 선언하려면 태그 이름만 쓰면 된다. * div { content }
+  - ID와 Class를 선언하려면 CSS의 기본 선택자를 사용하면 된다. * .container
+  - 태그 없이 ID나 Class만 선언하면 자동으로 div 태그를 사용한다.
+  - 태그에 속성을 주고 싶으면 괄호를 이용한다. * html(lang=’ko’)
+  - 여러 줄을 사용하고 싶으면 |를 사용한다.
+  - Script나 CSS로 태그를 사용할 땐 끝에 .을 입력한다. * script., style.
+  - 템플릿 안에서 Javascript를 사용하려면 앞에 -(Hyphen)을 입력한다.
+doctype html
+html(lang="ko")
+head
+  title=익스프레스
+  link(rel='stylesheet', href='../css/style.css')
+  //스크립트, 스타일 태그 사용 
+  script(type='text/javascript').
+    console.log('this is log');
+  style.
+    #id_test{
+      color:blue;
+    }
+    #id_test2{
+      color:red;
+    }
+    .class_test{
+      font-size : 25px;
+      font-weight: bold;
+    }
+body
+  //태그 사용
+  h1 Tag H1
+  //클래스, ID 사용(태그가 없으면 div)
+  span.class_test Span
+  p#id_test2 p tag
+  #id_test div1
+  .class_test div2
+  //속성 여러 개 사용
+  form(
+  id="login"
+  method="POST" 
+  action="submit.do"
+  )
+    //속성 한 개 사용
+    button(type="submit") 전송
+  //여러 줄 사용
+  p
+    | Hello 
+    | world
+    br
+    | Hello
+    | Express
+
+
+
