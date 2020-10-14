@@ -84,9 +84,9 @@ CREATE TABLE TEST(
 
 -- # UNIQUE : 중복을 허용할 것인지의 여부를 묻는 제약 조건
 CREATE TABLE TEST(
- name VARCHAR(20) NOT NULL
- password VARCHAR(20) NOT NULL UNIQUE  --password를 unique 설정
- password2 VARCHAR(20) NOT NULL 
+ name VARCHAR(20) NOT NULL,
+ password VARCHAR(20) NOT NULL UNIQUE,  --password를 unique 설정
+ password2 VARCHAR(20) NOT NULL,
  UNIQUE (password2) -- password2도 unique 설정
 );
 
