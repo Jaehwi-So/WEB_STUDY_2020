@@ -19,4 +19,4 @@ show_list();
 let x = dequeue();
 show_list();
 x = dequeue();
-show_list();
+show_list(); 
