@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <!--파일 한 개 업로드-->
+  <form id="form" action="/upload" method="post" enctype="multipart/form-data">
+    <input type="file" name="image1" />
+    <input type="text" name="title" />
+    <button type="submit">업로드</button>
+  </form>
+  <!--파일 두 개 업로드-->
+  <form id="form" action="/upload2" method="post" enctype="multipart/form-data">
+    <input type="file" name="image1" />
+    <input type="file" name="image2" />
+    <input type="text" name="title" />
+    <button type="submit">업로드</button>
+  </form>
+  <!--파일 여러 개 동시 업로드-->
+  <form id="form" action="/multi_upload" method="post" enctype="multipart/form-data">
+    <input type="file" name="multi_img" multiple />
+    <input type="text" name="title" />
+    <button type="submit">업로드</button>
+  </form>
+  <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+</body>
+</html>
+
+
+
