@@ -14,7 +14,7 @@
 
 ## INDEX
 본 Repository에서는 JavaScript의 기본만을 다루었다.
-이벤트 처리나 폼 데이터 전송, Ajax, Jquery 라이브러리의 사용은 JSP와 Spring쪽을 공부하며 서버와 연동하여 공부하였다.
+이벤트 처리나 폼 데이터 전송, Ajax, 라이브러리의 사용은 JSP와 Spring, NodeJS를 공부하며 서버와 연동하여 공부하였다.
 * 자바스크립트의 개념과 문서구조
 * 외부 스크립트 사용
 * 자료형
@@ -25,13 +25,21 @@
 * 배열
 	- 배열의 메서드
 * String
-* Object(객체)
-	- Prototype
+* 객체(Object)
+	- 리터럴 표기
+	- 프로토타입, 생성자 함수
+	- 프로토타입 체인
+	- 객체 상속 패턴
 * 내장 객체
 * 브라우저 객체
 * 문서 객체 모델(DOM)
 	- DOM 접근
+* 클래스
+	- static 메서드
+	- 상속과 오버라이딩
 * 노드
 * 함수
+	- 익명 함수
+	- Arrow Function
 	- Variable Argument
 
