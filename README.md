@@ -16,7 +16,7 @@
     - 3-2. [JSP](#3-2-jsp)
     - 3-3. [Spring Framework](#3-3-spring-framework)
         - Maven
-4. [Node-js Back-end](#4-node.js-back-end)
+4. [Node.js Back-end](#4-node-js-back-end)
     - ECMAScript6
     - Node.js
     - Express 
