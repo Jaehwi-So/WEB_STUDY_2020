@@ -80,7 +80,7 @@
 ---------------
 ----------------------------- 
 # 4. Node.js Back-end
-## [Repository 바로가기](https://github.com/Jaehwi-So/Node.js%20%26%20ES6%20%26%20Express)   
+## [Repository 바로가기](https://github.com/Jaehwi-So/WEB_STUDY_FullStack/tree/master/Node.js%20%26%20ES6%20%26%20Express)   
 - JavaScript를 이용하여 서버를 구축하기 위한 Node.js를 학습한 Repository
 - ES6에서 추가되어 많이 사용되는 최신 Javascript 문법 학습
 - JS의 비동기 패턴과 디자인 패턴 학습
