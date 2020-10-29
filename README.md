@@ -16,7 +16,7 @@
     - 3-2. [JSP](#3-2-jsp)
     - 3-3. [Spring Framework](#3-3-spring-framework)
         - Maven
-4. [Node.js Back-end](#4-node-js-back-end)
+4. [NodeJS Back-end](#4-nodejs-back-end)
     - ECMAScript6
     - Node.js
     - Express 
@@ -70,7 +70,7 @@
 - 웹을 보다 쉽게 구축할수 있도록 만들어주는 서버 사이드 스크립트 언어인 JSP 학습
 - 데이터베이스의 연동과 Tomcat을 통한 서버 구축
 - MVC 패턴을 이용한 웹 어플리케이션의 구축과 간이 프로젝트 구현
-# 3-3. Spring Framework
+## 3-3. Spring Framework
 ## [Repository 바로가기](https://github.com/Jaehwi-So/WEB_STUDY_FullStack/tree/master/Spring_Framework)   
 - Java 기반 서버를 구축하는 데에 유용한 프레임워크 학습
 - 스프링이 제공하는 모듈화, IoC 컨테이너 구축, AOP, MVC, 데이터 검증 등 습득
