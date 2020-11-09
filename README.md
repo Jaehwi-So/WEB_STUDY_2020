@@ -83,10 +83,11 @@
 ## [Repository 바로가기](https://github.com/Jaehwi-So/WEB_STUDY_FullStack/tree/master/Node.js%20%26%20ES6%20%26%20Express)   
 - JavaScript를 이용하여 서버를 구축하기 위한 Node.js를 학습한 Repository
 - ES6에서 추가되어 많이 사용되는 최신 Javascript 문법 학습
-- JS의 비동기 패턴과 디자인 패턴 학습
+- Promise, Ajax 등의 비동기 패턴과 디자인 패턴 학습
 - NPM과 NPX를 통한 버전 관리와 모듈 관리
 - 템플릿 엔진 (Jade(Pug), Nunjucks)의 사용법
 - Express가 제공하는 라우팅과 미들웨어, 서버 구축을 학습하여 Back-end 구축
+- Socket.io를 활용한 웹소켓 실시간 통신
 ---------------
 ----------------------------- 
 # 5. ORM, ODM Persistence Framework
@@ -98,4 +99,5 @@
 # 6. Android
 ## [Repository 바로가기](https://github.com/Jaehwi-So/Android_Study) 
 - Java 기반의 안드로이드 App 개발 학습 정리 Repository
+- 안드로이드의 레이아웃과 이벤트 패턴, 
 - 구축한 서버 API를 안드로이드 상에서 사용
