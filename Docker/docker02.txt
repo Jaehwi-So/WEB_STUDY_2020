@@ -1,0 +1,126 @@
+#Docker 설치와 컨테이너 실행
+Docker for windows 다운로드.
+
+- 컨테이너 실행
+- docker run [OPTIONS] IMAGE[:TAG|@DIGEST] [COMMAND] [ARG...]
+
+옵션	설명
+-d	detached mode 흔히 말하는 백그라운드 모드
+-p	호스트와 컨테이너의 포트를 연결 (포워딩)
+-v	호스트와 컨테이너의 디렉토리를 연결 (마운트)
+-e	컨테이너 내에서 사용할 환경변수 설정
+–name	컨테이너 이름 설정
+–rm	프로세스 종료시 컨테이너 자동 제거
+-it	-i와 -t를 동시에 사용한 것으로 터미널 입력을 위한 옵션
+–link	컨테이너 연결 [컨테이너명:별칭]
+-w         컨테이너 안의 프로세스가 실행될 디렉터리 설정
+
+- 이미지가 다운로드되지 않았다면 이미지를 다운로드 한 후 컨테이너가 실행된다.
+
+
+#Ubuntu
+> docker run --rm -it ubuntu:16.04 /bin/bash
+- 컨테이너 내부에 들어가기 위해 bash 셀 실행
+- 키보드 입력을 위해 -it 옵션
+- 우분투 환경에서의 터미널 입력이 가능하다.
+
+#Redis
+> docker run -d -p 1234:6379 redis
+- -d옵션을 추가하여 백그라운드 모드로 실행, 해당 옵션이 없으면 프로세스가 foreground로 실행되어 아무키도 입력할 수 없음.
+- -p옵션을 추가하여 컨테이너의 포트를 호스트의 포트로 연결(호스트 포트 1234, 컨테이너 포트 6379)
+
+#MySQL 서버
+> docker run -d -p 3306:3306 -e MYSQL_ALLOW_EMPTY_PASSWORD=true --name mysql mysql:5.7
+- --name : 자동으로 이름을 지어준다.
+- mysql 이미지에 대한 환경변수 설정. 
+- 패스워드 없이 root계정을 만들기 위해 MYSQL_ALLOW_EMPTY_PASSWORD 환경변수를 설정
+- 컨테이너의 이름은 mysql로 할당
+- 포트는 3306포트를 호스트에서 그대로 사용.
+- mysql -h127.0.0.1 -uroot 터미널 입력 시 MySQL 서버 실행되는 것을 확인할 수 있다.
+- 컨테이너를 실행하면 백그라운드에서 MySQL 서버를 띄우는 시간이 필요하다.
+
+
+#MySQL 서버와 WordPress 컨테이너 실행과 연결
+- mySQL 접속 후 데이터베이스 생성
+$ mysql -h127.0.0.1 -uroot
+create database wp CHARACTER SET utf8;
+grant all privileges on wp.* to wp@'%' identified by 'wp';
+flush privileges;
+quit
+
+- Wordpress 컨테이너 실행
+> docker run -d -p 8080:80 
+  --link mysql:mysql 
+  -e WORDPRESS_DB_HOST=mysql 
+  -e WORDPRESS_DB_NAME=wp 
+  -e WORDPRESS_DB_USER=wp 
+  -e WORDPRESS_DB_PASSWORD=wp 
+  wordpress
+- --link 옵션을 통해 MySQL 컨테이너와 연결
+- --link옵션은 환경변수와 IP정보를 공유하여 링크한 컨테이너의 ip정보를 /etc/hosts에 자동으로 입력하여 워드프레스 컨테이너가 mySQL 데이터베이스의 정보를 알수있게 된다.
+- 호스트의 8080 포트를 80포트로 연결하고 MySQL 컨테이너와 연결 후 데이터베이스 설정 정보를 환경변수로 입력한다.
+- 원래 --link옵션은 deprecated되어 곧 사용할 수 없어 Docker network 기능을 이용해야 한다. 운영 환경에서 사용하려면 추가적인 세팅이 필요하다.
+
+- Docker 기본 명령어
+
+1. 컨테이너 목록 확인
+- docker ps -a
+- docker ps -all
+
+2. 컨테이너 중지
+- docker stop [컨테이너 ID]
+
+3. 중지된 컨테이너 제거
+- docker rm [컨테이너 ID]
+- 중지된 컨테이너 전체 삭제 : docker rm -v  $(docker ps -a -q -f status=exited)
+
+4. 이미지 목록 확인하기
+- docker images : 전체 이미지 목록 확인
+
+5. 이미지 다운로드하기(pull)
+docker pull [OPTIONS] NAME[:TAG|@DIGEST]
+- docker pull ubuntu:14.04 : 우분투 이미지 다운로드.
+- 같은 태그이지만 이미지가 업데이트 된 경우 pull 명령어를 통해 최신 버전으로 다시 다운로드 받을 수 있다.
+
+6. 이미지 삭제하기(rmi)
+docker rmi [OPTIONS] IMAGE [IMAGE...]
+- docker rmi [이미지 ID]
+
+7. 컨테이너 로그 확인하기
+- 컨테이너가 정상적으로 동작하는지 확인하는 방법 중 하나는 로그를 확인하는 것
+- 도커는 로그파일을 표준 스트림(stdout, stderr)를 수집. 컨테이너에서 실행되는 프로그램의 로그 설정을 파일이 아닌 표준출력으로 변경해야 한다.
+- 출력 방식을 바꾸는 것으로 모든 컨테이너는 로그에 대해 같은 방식으로 관리할 수 있다.
+- 컨테이너의 로그파일은 json 방식으로 어딘가에 저장이 된다. 
+- Docker은 다양한 플러그인 지원을 통해 json이 아닌 특정 로그 서비스에 스트림 전달이 가능하다.
+
+- docker logs [컨테이너 ID] : 해당 컨테이너의 전체 로그 확인하기
+- docker logs --tail 10 [컨테이너 ID] : 마지막 로그 10줄 확인하기
+- docker logs -f [컨테이너 ID] : 실시간으로 로그가 생성되는 것 확인하기, 중지 : ctrl + c
+
+8. 컨테이너 명령어 실행
+- 실행중인 컨테이너에 들어가보거나 컨테이너의 파일을 실행시키고 싶을 때 해당 명령어를 생성한다.
+docker exec [OPTIONS] CONTAINER COMMAND [ARG...]
+- 쉘 권한을 얻어 MySQL 컨테이너 접속
+docker exec -it mysql /bin/bash
+$ mysql -uroot
+- 쉘 권한 없이 mysql 명령어를 실행
+docker exec -it mysql mysql -uroot
+
+9. 컨테이너 업데이트
+- 컨테이너를 새로운 버전으로 업데이트하기.
+
+- 새 버전의 이미지를 다운(pull) -> 컨테이너 삭제(stop, rm) -> 새 이미지를 기반으로 새 컨테이너 실행
+- 컨테이너를 삭제한다는 것 : 데이터베이스라면 쌓아놨던 데이터가 모두 사라짐, 웹 어플리케이션이라면 그동안 사용자가 업로드한 이미지가 모두 사라짐
+- 따라서 데이터는 반드시 컨테이너 내부가 아닌 외부 스토리지에 저장해야 한다. -> AWS와 같은 클라우드 서비스 이용 OR 데이터 볼륨(Data volumes)를 컨테이너에 추가해서 사용해야 한다.
+- 데이터 볼륨을 사용하면 해당 디렉토리는 컨테이너와 별도로 저장되고 컨테이너를 삭제해도 데이터가 지워지지 않는다.
+
+10. 데이터 볼륨 사용하기
+- 호스트의 디렉토리를 마운트해서 사용하는 방법.
+- run 명령어의 -v 옵션 사용.
+
+> docker run -d -p 3306:3306 -e MYSQL_ALLOW_EMPTY_PASSWORD=true --name mysql -v /my/own/datadir:/var/lib/mysql mysql:5.7
+- 호스트의 /my/own/datadir 디렉토리를 컨테이너의 /var/lib/mysql 디렉토리로 마운트
+- 데이터베이스 파일은 호스트의 /my/own/datadir 디렉토리에 저장되고 컨테이너를 삭제해도 데이터는 사라지지 않는다.
+
+
+
