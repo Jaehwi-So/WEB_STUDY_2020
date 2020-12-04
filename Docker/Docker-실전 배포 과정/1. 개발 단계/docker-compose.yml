@@ -1,0 +1,39 @@
+version: "3.1"
+
+networks:
+  app-tier:
+    driver: bridge
+services:
+  database:
+    networks:
+      - app-tier
+    image: mariadb
+    container_name: mariadb
+    restart: always
+    ports:
+      - "3306:3306"
+    environment:
+      - MYSQL_ROOT_PASSWORD=1111
+      - MYSQL_USER=root
+      - MYSQL_PASSWORD=1111
+      - MYSQL_DATABASE=msgamble
+      - TZ=Asia/Seoul
+    volumes:
+      - /var/lib/mysql
+  app:
+    networks:
+      - app-tier
+    build:
+      context: .
+      dockerfile: Dockerfile.dev
+    restart: always
+    ports:
+      - "8000:8080"
+    links:
+      - database
+    volumes:
+      - ./server:/app
+    depends_on:
+      - database
+    environment:
+      - TZ=Asia/Seoul

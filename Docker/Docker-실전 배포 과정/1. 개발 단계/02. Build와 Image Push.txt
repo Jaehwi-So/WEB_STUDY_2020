@@ -1,0 +1,28 @@
+# 1. 이미지와 컨테이너 빌드
+
+# 마리아 DB 이미지 빌드
+docker pull mariadb:latest
+
+# 이미지 빌드와 컨테이너 생성
+- 첫 이미지 생성과 컨테이너를 생성할 때
+docker-compose up -d 
+
+# 이미지 리빌드와 컨테이너 변경
+- 이미지가 변경될 시 이미지 리빌드와 컨테이너 재가동
+docker-compose up -d --force-recreate --build
+
+
+# 2. 생성된 이미지 DockerHub에 push
+
+DockerHub에 이미지의 Repository와 동일한 명칭으로 저장소 생성
+
+REPOSITORY                TAG                 IMAGE ID            CREATED             SIZE
+mediasol_gamble_app       latest              8f206ccd13a0        2 hours ago         1.11GB
+sjh/mediasol_gamble_app   latest              8f206ccd13a0        2 hours ago         1.11GB
+mariadb                   latest              3a348a04a815        7 days ago          407MB
+node                      latest              2d840844f8e7        8 days ago          935MB
+
+docker login	#로그인하기
+docker image tag mediasol_gamble_app sjh9708/mediasol_gamble_app:0.0.1	# 태그달기
+docker push sjh9708/mediasol_gamble_app:0.0.1	# 푸시하기
+

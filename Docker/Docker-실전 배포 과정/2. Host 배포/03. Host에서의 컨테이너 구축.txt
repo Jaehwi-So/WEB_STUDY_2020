@@ -1,0 +1,22 @@
+1. 최초 배포 시
+# 필요 시 이미지명과 태그 변경
+docker image tag sjh9708/mediasol_gamble_app:0.0.1:mediasol_gamble_app:0.0.1
+
+# 컨테이너 생성
+docker-compose up -d 
+
+# 실행되는 컨테이너 확인
+docker ps -a
+
+# 컨테이너 로그 확인
+docker logs --tail 10 [컨테이너 ID]  #마지막 로그 10줄 확인하기
+docker logs -f [컨테이너 ID]   #실시간 로그 확인하기
+
+2. 이미지 업데이트 후 컨테이너 변경
+
+DockerHub에서 새로운 이미지 pull,
+docker-compose.yml에서 베이스 이미지를 새로운 이미지의 이름과 태그로 수정
+docker-compose up -d --force-recreate --build
+
+-> 배포 완료
+===========================

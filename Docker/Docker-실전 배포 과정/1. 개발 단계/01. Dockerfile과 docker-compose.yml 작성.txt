@@ -1,0 +1,83 @@
+1. Dockerfile.dev, docker-compose.yml, docker-entrypoint.sh 작성
+==================================
+# Dockerfile.dev
+
+# 베이스 이미지 설정
+FROM node:latest
+
+# 도커라이즈 사용
+ENV DOCKERIZE_VERSION v0.2.0
+RUN wget https://github.com/jwilder/dockerize/releases/download/$DOCKERIZE_VERSION/dockerize-linux-amd64-$DOCKERIZE_VERSION.tar.gz \  
+    && tar -C /usr/local/bin -xzvf dockerize-linux-amd64-$DOCKERIZE_VERSION.tar.gz
+
+# 디렉토리 설정
+RUN mkdir -p /user/src/app
+WORKDIR /user/src/app
+
+# 패키지 설치
+COPY package.json .
+RUN npm install
+
+# 앱 소스코드 복사
+COPY . .
+
+# 명령어와 Entrypoint 설정
+RUN chmod +x docker-entrypoint.sh  
+ENTRYPOINT ./docker-entrypoint.sh
+
+# 8080 포트 사용
+EXPOSE 8080
+==================================
+# docker-compose.yml
+
+# 버전 명시
+version: "3.1"
+# 네트워크 사용
+networks:
+  app-tier:
+    driver: bridge
+services:
+  #데이터베이스
+  database:
+    networks: # 네트워크 연결
+      - app-tier
+    image: mariadb # 베이스 이미지 설정
+    container_name: mariadb # 컨테이너 이름 설정
+    restart: always
+    ports:
+      - "3306:3306" # 포트 설정
+    environment: # 환경변수 설정
+      - MYSQL_ROOT_PASSWORD=1111
+      - MYSQL_USER=root
+      - MYSQL_PASSWORD=1111
+      - MYSQL_DATABASE=msgamble
+      - TZ=Asia/Seoul # 컨테이너 내부 타임존 설정
+    volumes: # 볼륨 설정
+      - /var/lib/mysql
+  #웹 어플리케이션
+  app:
+    networks: #네트워크 연결
+      - app-tier
+    build:
+      context: .  #Dockerfile 기반으로 이미지 빌드
+      dockerfile: Dockerfile.dev
+    restart: always
+    ports:
+      - "8000:8080" # 포트 설정
+    links:
+      - database # 데이터베이스와 링크
+    volumes: # 볼륨 설정
+      - ./server:/app
+    depends_on: # 의존관계 설정
+      - database
+    environment: # 환경변수 설정
+      - TZ=Asia/Seoul
+
+==================================
+# docker-entrypoint.sh
+
+dockerize -wait tcp://mariadb:3306 -timeout 20s # 마리아디비 컨테이너 실행 후 20초 대기
+echo "Start server" 
+npm start # 앱 가동
+
+==================================

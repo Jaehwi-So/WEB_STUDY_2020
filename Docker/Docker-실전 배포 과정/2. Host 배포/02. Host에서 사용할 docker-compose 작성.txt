@@ -1,0 +1,45 @@
+- Dockerhub에서 pull한 이미지를 바탕으로 컨테이너를 생성하기 위한 명령어들을 docker-compose.yml에 작성
+- docker-compose.yml을 작성할 디렉터리는 작업 디렉터리로 설정한다.('/volume1/docker/misoleague' 에 yml 파일 작성)
+
+=================================================
+# docker-compose.yml
+version: "3.1"
+
+networks:
+  app-tier:
+    driver: bridge
+services:
+  database:
+    networks:
+      - app-tier
+    image: mariadb
+    container_name: mariadb
+    restart: always
+    ports:
+      - "3306:3306"
+    environment:
+      - MYSQL_ROOT_PASSWORD=1111
+      - MYSQL_USER=root
+      - MYSQL_PASSWORD=1111
+      - MYSQL_DATABASE=msgamble
+      - TZ=Asia/Seoul
+    volumes:
+      - ./db:/var/lib/mysql	#볼륨 설정은 호스트 디렉토리(/volume1/docker/misoleague/db) : 컨테이너 디렉토리
+  app:
+    networks:
+      - app-tier
+    #이번에는 Dockerhub에 올려둔 이미지를 베이스 이미지로 빌드 후 컨테이너를 생성한다.
+    image: mediasol_gamble_app:0.0.1
+    container_name: mediasol_gamble_app  
+    restart: always
+    ports:
+      - "8000:8080"
+    links:
+      - database
+    volumes:
+      - ./app:/app	#볼륨 설정은 호스트 디렉토리(/volume1/docker/misoleague/app) : 컨테이너 디렉토리
+    depends_on:
+      - database
+    environment:
+      - TZ=Asia/Seoul
+=====================================================
