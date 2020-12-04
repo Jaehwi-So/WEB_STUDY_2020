@@ -5,6 +5,12 @@
 - docker-compose.yml 파일을 만들어 설정 입력 
 - docker-compose up 을 통해 실행 (-d를 추가해 백그라운드 권장)
 
+# 이미지 빌드와 컨테이너 생성
+docker-compose up -d 
+
+# 이미지 리빌드와 컨테이너 변경
+docker-compose up -d --force-recreate --build
+
 
 ** docker-compose.yml 파일 작성방법 **
 
