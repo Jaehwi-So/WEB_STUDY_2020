@@ -1,0 +1,67 @@
+#Docker 설치와 컨테이너 실행
+Docker for windows 다운로드.
+
+- 컨테이너 실행
+- docker run [OPTIONS] IMAGE[:TAG|@DIGEST] [COMMAND] [ARG...]
+
+옵션	설명
+-d	detached mode 흔히 말하는 백그라운드 모드
+-p	호스트와 컨테이너의 포트를 연결 (포워딩)
+-v	호스트와 컨테이너의 디렉토리를 연결 (마운트)
+-e	컨테이너 내에서 사용할 환경변수 설정
+–name	컨테이너 이름 설정
+–rm	프로세스 종료시 컨테이너 자동 제거
+-it	-i와 -t를 동시에 사용한 것으로 터미널 입력을 위한 옵션
+–link	컨테이너 연결 [컨테이너명:별칭]
+-w         컨테이너 안의 프로세스가 실행될 디렉터리 설정
+
+- 이미지가 다운로드되지 않았다면 이미지를 다운로드 한 후 컨테이너가 실행된다.
+
+
+#Ubuntu
+> docker run --rm -it ubuntu:16.04 /bin/bash
+- 컨테이너 내부에 들어가기 위해 bash 셀 실행
+- 키보드 입력을 위해 -it 옵션
+- 우분투 환경에서의 터미널 입력이 가능하다.
+
+#Redis
+> docker run -d -p 1234:6379 redis
+- -d옵션을 추가하여 백그라운드 모드로 실행, 해당 옵션이 없으면 프로세스가 foreground로 실행되어 아무키도 입력할 수 없음.
+- -p옵션을 추가하여 컨테이너의 포트를 호스트의 포트로 연결(호스트 포트 1234, 컨테이너 포트 6379)
+
+#MySQL 서버
+> docker run -d -p 3306:3306 -e MYSQL_ALLOW_EMPTY_PASSWORD=true --name mysql mysql:5.7
+- --name : 자동으로 이름을 지어준다.
+- mysql 이미지에 대한 환경변수 설정. 
+- 패스워드 없이 root계정을 만들기 위해 MYSQL_ALLOW_EMPTY_PASSWORD 환경변수를 설정
+- 컨테이너의 이름은 mysql로 할당
+- 포트는 3306포트를 호스트에서 그대로 사용.
+- mysql -h127.0.0.1 -uroot 터미널 입력 시 MySQL 서버 실행되는 것을 확인할 수 있다.
+- 컨테이너를 실행하면 백그라운드에서 MySQL 서버를 띄우는 시간이 필요하다.
+
+
+#MySQL 서버와 WordPress 컨테이너 실행과 연결
+- mySQL 접속 후 데이터베이스 생성
+$ mysql -h127.0.0.1 -uroot
+create database wp CHARACTER SET utf8;
+grant all privileges on wp.* to wp@'%' identified by 'wp';
+flush privileges;
+quit
+
+- Wordpress 컨테이너 실행
+> docker run -d -p 8080:80 
+  --link mysql:mysql 
+  -e WORDPRESS_DB_HOST=mysql 
+  -e WORDPRESS_DB_NAME=wp 
+  -e WORDPRESS_DB_USER=wp 
+  -e WORDPRESS_DB_PASSWORD=wp 
+  wordpress
+- --link 옵션을 통해 MySQL 컨테이너와 연결
+- --link옵션은 환경변수와 IP정보를 공유하여 링크한 컨테이너의 ip정보를 /etc/hosts에 자동으로 입력하여 워드프레스 컨테이너가 mySQL 데이터베이스의 정보를 알수있게 된다.
+- 호스트의 8080 포트를 80포트로 연결하고 MySQL 컨테이너와 연결 후 데이터베이스 설정 정보를 환경변수로 입력한다.
+- 원래 --link옵션은 deprecated되어 곧 사용할 수 없어 Docker network 기능을 이용해야 한다. 운영 환경에서 사용하려면 추가적인 세팅이 필요하다.
+
+
+
+
+
