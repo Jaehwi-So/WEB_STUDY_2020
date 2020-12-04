@@ -1,0 +1,53 @@
+* Docker Compose
+- 커맨드 라인에서 명령어를 통한 작업이 아닌 설정 파일을 통해 작업하도록 도와주는 .yml 파일
+- 이미지 빌드부터 컨테이너 생성까지 일련의 docker 명령어들을 집합 형태로 표현할 수 있다.
+- 여러개의 컨테이너로 구성된 애플리케이션을 하나의 파일에 정의하고 한 번에 pull하거나 push할 수 있는 장점
+- docker-compose.yml 파일을 만들어 설정 입력 
+- docker-compose up 을 통해 실행 (-d를 추가해 백그라운드 권장)
+
+
+** docker-compose.yml 파일 작성방법 **
+
+version: "3.1"
+# 네트워크 설정 : 여러개의 컨테이너 간의 통신을 위해 사용
+networks:		
+  app-tier:
+    driver: bridge
+services:
+  # 데이터베이스 설정
+  database:
+    networks:
+      - app-tier
+    # 이미지 저장소로부터 내려받아 사용할 베이스 이미지
+    image: mariadb
+    # 컨테이너 이름 설정
+    container_name: mariadb
+    restart: always
+    # 외부로 노출시킬 포트의 매핑을 명시. 바인딩이 필요한 호스트 외부 포트와 컨테이너 내부 포트 연결
+    ports:
+      - "3306:3306"
+    # 환경 변수 설정
+    environment:
+      - MYSQL_ROOT_PASSWORD=1111
+      - MYSQL_USER=root
+      - MYSQL_PASSWORD=1111
+      - MYSQL_DATABASE=msgamble
+  # 웹 애플리케이션 설정
+  app:
+    networks:
+      - app-tier
+    # 서비스의 이미지를 빌드하기 위한 Dockerfile이 위치하는 경로를 지정한다.
+    # docker-compose와 동일한 디렉토리에 위치한 Dockerfile.dev를 사용하여 이미지 빌드
+    build:  
+      context: .
+      dockerfile: Dockerfile.dev
+      args:
+        env: "development"
+    restart: always
+    # 외부로 노출시킬 포트의 매핑을 명시. 바인딩이 필요한 호스트 외부 포트와 컨테이너 내부 포트 연결
+    ports:
+      - "8000:8080"
+    links:
+      - database
+    depends_on:
+      - database
