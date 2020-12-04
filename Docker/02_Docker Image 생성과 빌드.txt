@@ -1,0 +1,141 @@
+** 도커 이미지 만들기 **
+- 컨테이너의 상태를 그대로 이미지로 저장한다.
+- 컨테이너에 애플리케이션을 설치하고 그 상태를 그대로 이미지로 저장한다. 
+
+(Docker를 개발환경으로 사용 시 개발=테스트=운영이 동일한 환경에서 실행된다.)
+> docker run --rm #프로세스 종료시 컨테이너 자동제거
+-p 4567:4567 #호스트 포트 : 컨테이너 포트
+-v $PWD:/usr/src/app -w /usr/src/app #호스트의 디렉토리와 루비가 설치된 컨테이너의 디렉토리를 마운팅
+ruby //Ruby 실행
+bash -c "bundle install && bundle exec ruby app.rb -o 0.0.0.0" #패키지 설치와 서버 실행
+
+** Dockerfile을 통한 이미지 생성 **
+- 도커는 이미지를 만들기 위해 Dockerfile이라는 이미지 빌드용 DSL(Domain Specific Language) 파일 사용
+
+- Ruby 웹 애플리케이션을 ubuntu에 배포하는 과정(쉘 스크립트)
+ # 1. ubuntu 설치 (패키지 업데이트)
+ apt-get update
+ # 2. ruby 설치
+ apt-get install ruby
+ gem install bundler
+ # 3. 소스 복사
+ mkdir -p /usr/src/app
+ scp Gemfile app.rb root@ubuntu:/usr/src/app  # From host
+ # 4. Gem 패키지 설치
+ bundle install
+ # 5. Sinatra 서버 실행
+ bundle exec ruby app.rb
+
+- Ruby 웹 애플리케이션을 ubuntu에 배포하는 과정(Dockerfile)
+ # 1. ubuntu 설치 (패키지 업데이트 + 만든사람 표시)
+ FROM       ubuntu:16.04	#베이스 이미지 우분투로 지정
+ MAINTAINER subicura@subicura.com	#만든사람 표시
+ RUN        apt-get -y update	#패키지 업데이트
+ # 2. ruby 설치
+ RUN apt-get -y install ruby	# 루비 패키지 설치(-y옵션을 통해 (y/n) 물어보는 것 방지)
+ RUN gem install bundler # gem 명령어를 통해 bundler 설치
+ # 3. 소스 복사
+ COPY . /usr/src/app
+ # 4. Gem 패키지 설치 (실행 디렉토리 설정)
+ WORKDIR /usr/src/app	# 디렉토리 설정
+ RUN     bundle install	# bundler에 들어있는 패키지 설치
+ # 5. Sinatra 서버 실행 (Listen 포트 정의)
+ EXPOSE 4567	# 컨테이너 포트 설정
+ CMD    bundle exec ruby app.rb -o 0.0.0.0	# bundle 명령어를 통해 서버 실행
+
+** Dockerfile 명령어 **
+
+1. FROM
+FROM <image>:<tag>
+FROM ubuntu:16.04
+- 베이스 이미지 지정
+
+2. MAINTAINER
+MAINTAINER <name>
+MAINTAINER subicura@subicura.com
+- Dockerfile을 관리하는 사람의 이름 혹은 이메일 정보
+
+3. COPY
+COPY <src>... <dest>
+COPY . .
+COPY . /usr/src/app
+- 파일이나 디렉토리를 이미지로 복사 
+- 일반적으로 소스를 복사하는 데 사용
+- target 디렉토리가 없다면 자동으로 생성
+
+4. ADD
+ADD <src>... <dest>
+ADD . /usr/src/app
+- COPY 명령어와 유사하나 src에 파일 대신 URL 입력이 가능하며 src에 압축 파일을 입력 시 압출을 해제하면서 복사된다.
+
+5. RUN
+RUN <command>
+RUN ["executable", "param1", "param2"]
+RUN bundle install
+- 명령어를 그대로 실행한다. 
+- 내부적으로 /bin/sh -c 뒤에 명령어를 실행하는 방식.
+
+6. CMD
+CMD ["executable","param1","param2"]
+CMD command param1 param2
+CMD bundle exec ruby app.rb
+- 도커 컨테이너가 실행되었을 때 실행할 명령어를 정의한다.
+- 빌드할 때에는 실행되지 않으며 여러개의 CMD가 존재할 경우 마지막 CMD만 실행된다.
+
+7. WORKDIR
+WORKDIR /path/to/workdir
+- RUN, CMD, ADD, COPY등이 이루어질 기본 디렉토리를 설정
+- 각 명령어의 현재 디렉토리는 한 줄마다 초기화되기 때문에 같은 디렉토리에서 계속 작업하기 위해 WORKDIR을 사용
+
+8. VOLUME
+VOLUME ["/data"]
+- 컨테이너 외부에 파일시스템을 마운트 할 때 사용한다.
+
+9. ENV
+ENV <key> <value>
+ENV <key>=<value> ...
+ENV DB_URL mysql
+- 컨테이너에서 사용할 환경변수를 지정
+- 컨테이너를 실행할 때 -e옵션을 사용하면 기존 값을 오버라이딩
+
+10. 최적화
+RUN apt-get -y -qq update
+RUN bundle install --no-rdoc --no-ri
+- -qq옵션 : 로그를 출력하지 않음
+- --no-doc, --no-ri 옵션 : 필요없는 문서를 생성하지 않음.
+* Docker Build의 과정
+임시 컨테이너 생성 > 명령어 수행 > 이미지로 저장 > 임시 컨테이너 삭제 > 
+새로 만든 이미지 기반 임시 컨테이너 생성 > 명령어 수행 > 이미지로 저장 > 임시 컨테이너 삭제 > … 의 과정 반복
+- 명렁어를 실행할 때 마다 이미지 레이어를 저장하고 빌드할 때 Dockerfile이 변경되지 않았다면 기존 이미지를 사용한다.
+
+** 이미지 빌드(Docker build) **
+docker build [OPTIONS] PATH | URL | -
+> docker build -t app .	# -t (태그) 옵션을 통해 생성할 이미지 이름을 지정 후 이미지 빌드
+- 해당 명령어 실행 시 Dockerfile에 정의한 내용이 실행된다.
+
+** 도커 이미지 리팩토링 **
+* Base Image의 사용
+- Ruby, Node.js 등의 환경을 ubuntu 환경을 베이스로 만드는 것 대신 이미 만들어진 이미지를 사용할 수 있다.
+ # before
+ FROM ubuntu:16.04
+ MAINTAINER subicura@subicura.com
+ RUN apt-get -y update
+ RUN apt-get -y install ruby
+ RUN gem install bundler
+ # after
+ FROM ruby:2.3	# 이미 ruby 환경이 구축된 베이스 이미지 사용
+ MAINTAINER subicura@subicura.com
+
+** 이미지 저장소 **
+- 도커는 빌드한 이미지를 서버에 배포하기 위해 직접 파일을 복사하는 방법대신 도커 레지스트리라는 이미지 저장소를 사용한다.
+- 도커 명령어를 이용하여 이미지를 레지스트리에 push하고 다른 서버에서 pull받아 사용하는 구조.(git같은 느낌)
+
+- Docker Hub : 기본 이미지 저장소. 회원가입만 하면 대용량의 이미지를 무료로 저장할 수 있으며 비공개로 사용하려면 유료 서비스를 이용해야 한다.
+
+** 이미지 dockerhub에 push **
+DockerHub에 동일한 명칭의 repository 생성
+
+docker login	#로그인하기
+docker tag mediasol_gamble_app sjh9708/mediasol_gamble_app:0.0.1	# 태그달기
+docker push sjh9708/mediasol_gamble_app:0.0.1	# 푸시하기
+
