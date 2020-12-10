@@ -107,7 +107,7 @@
 ----------------------------- 
 # 7. DevOps
 ## 7-1. Docker
-## [Repository 바로가기](https://github.com/Jaehwi-So/Docker)
+## [Repository 바로가기](https://github.com/Jaehwi-So/WEB_STUDY_FullStack/tree/master/Docker)
 - Docker를 이용한 이미지 빌드와 컨테이너 실행
 - Docker 명령어, docker-compose 사용법, 볼륨 설정을 통한 마운팅
 - 이미지 기반 실제 배포 
