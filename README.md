@@ -26,6 +26,8 @@
     - Sequelize
     - Mongoose
 6. [Android](#6-android)
+7. [DevOps](#7-devops)
+    - 7-1. [Docker](#7-1-docker)
 
 
 -----------------------------   
@@ -47,7 +49,7 @@
 - 데이터베이스의 정의와 관계형 데이터베이스의 사용법
 - RDBMS에 해당하는 Oracls DB의 사용법
 - 데이터베이스 프로그래밍을 위한 SQL Query를 정리하고 실습한 Repository
-## 2-2. MySQL
+## 2-2. MySQL(+MariaDB)
 ## [Repository 바로가기](https://github.com/Jaehwi-So/WEB_STUDY_FullStack/tree/master/DBMS_MySQL)   
 - 데이터베이스의 정의와 관계형 데이터베이스의 사용법
 - RDBMS에 해당하는 MySQL의 사용법
@@ -101,3 +103,11 @@
 - Java 기반의 안드로이드 App 개발 학습 정리 Repository
 - 안드로이드의 레이아웃과 이벤트 패턴, 
 - 구축한 서버 API를 안드로이드 상에서 사용
+---------------
+----------------------------- 
+# 7. DevOps
+## 7-1. Docker
+## [Repository 바로가기](https://github.com/Jaehwi-So/Docker)
+- Docker를 이용한 이미지 빌드와 컨테이너 실행
+- Docker 명령어, docker-compose 사용법, 볼륨 설정을 통한 마운팅
+- 이미지 기반 실제 배포 
