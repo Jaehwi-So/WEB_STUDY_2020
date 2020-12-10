@@ -9,7 +9,7 @@
         - Jquery
 2. [DBMS](#2-dbms)
     - 2-1. [Oracle Database](#2-1-oracle-database)
-    - 2-2. [MySQL(+MariaDB)](#2-2-mysql+mariadb)
+    - 2-2. [MySQL(+MariaDB)](#2-2-mysqlmariadb)
     - 2-3. [MongoDB](#2-3-mongodb)
 3. [Java Back-end](#3-java-back-end)
     - 3-1. [Java](#3-1-java)
