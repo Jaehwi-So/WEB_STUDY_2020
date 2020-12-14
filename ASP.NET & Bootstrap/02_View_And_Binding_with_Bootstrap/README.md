@@ -48,10 +48,10 @@ index.html
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name=viewport content="width=device-width, initial-scale=1">
 	...
-	<link href="assets/vendor/bootstrap/css/bootstrap.min.css"        property='stylesheet' rel="stylesheet" type="text/css" media="screen"/>
+	<link href="assets/vendor/bootstrap/css/bootstrap.min.css" property='stylesheet' rel="stylesheet" type="text/css" media="screen"/>
 	...
-	<script src="assets/vendor/jquery/js/jquery-2.2.0.min.js"            type="text/javascript"></script>
-	<script src="assets/vendor/bootstrap/js/bootstrap.min.js"            type="text/javascript"></script>
+	<script src="assets/vendor/jquery/js/jquery-2.2.0.min.js" type="text/javascript"></script>
+	<script src="assets/vendor/bootstrap/js/bootstrap.min.js" type="text/javascript"></script>
 
 ```
 ### 2. ASP.NET MVC5 부트스트랩 사용 환경 확인
@@ -63,7 +63,7 @@ BundleConfig.cs
             "~/Template/assets/vendor/bootstrap/css/bootstrap.min.css",
 			...
 
-			bundles.Add(new ScriptBundle("~/examhome/js").Include(
+	    bundles.Add(new ScriptBundle("~/examhome/js").Include(
             "~/Template/assets/vendor/jquery/js/jquery-2.2.0.min.js",
             "~/Template/assets/vendor/bootstrap/js/bootstrap.min.js",
 			...
