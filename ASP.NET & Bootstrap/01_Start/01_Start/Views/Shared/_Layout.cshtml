@@ -1,0 +1,50 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>@ViewBag.Title - 내 ASP.NET 응용 프로그램</title>
+    @Styles.Render("~/Content/css") <!-- 공통적으로 사용되는 CSS 파일 중 해당 key명으로 정의된 CSS 파일을 렌더링. key는 ./App_Start/BundleConfig.cs에 정의되어있다.-->
+    @Scripts.Render("~/bundles/modernizr")
+
+</head>
+<body>
+    <div class="navbar navbar-inverse navbar-fixed-top">
+        <div class="container">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                @Html.ActionLink("응용 프로그램 이름", "Index", "Home", new { area = "" }, new { @class = "navbar-brand" })
+            </div>
+            <div class="navbar-collapse collapse">
+                <ul class="nav navbar-nav">
+                    <!-- Html.ActionLink
+                    - HTML 객체는 Razor 엔진을 이용해 각종 HTML 코드를 만들어준다.
+                    - ActionLink("홈", "Index", "Home")는 HomeController의 Index 액션 메서드로 연결한다는 의미. 
+                    - 즉 <a href="/Home/Index">홈</a> 태그를 반환한다.  
+                    -->
+                    <li>@Html.ActionLink("홈", "Index", "Home")</li> 
+                    <li>@Html.ActionLink("정보", "About", "Home")</li>
+                    <li>@Html.ActionLink("연락처", "Contact", "Home")</li>
+                </ul>
+                @Html.Partial("_LoginPartial")
+            </div>
+        </div>
+    </div>
+    <div class="container body-content">
+        @RenderBody()   <!-- 해당 레이아웃 페이지를 사용하는 컨텐츠 페이지 View의 내용이 로딩되는 영역-->
+        <hr />
+        <footer>
+            <p>&copy; @DateTime.Now.Year - 내 ASP.NET 응용 프로그램</p>    <!-- 현재의 해당 연도를 텍스트로 출력 -->
+        </footer>
+    </div>
+
+    @Scripts.Render("~/bundles/jquery") <!-- 해당 키명으로 정의된 자바스크립트 파일을 렌더링한다. key는 ./App_Start/BundleConfig.cs에 정의되어있다 -->
+    @Scripts.Render("~/bundles/bootstrap")
+    @RenderSection("scripts", required: false) <!-- 레이아웃 페이지에 삽입되는 컨텐츠 뷰나 파셜 뷰에 scripts라고 선언된 섹션 영역을 레이아웃 페이지의 해당 위치에 일괄 출력되게 한다. -->
+</body>
+</html>
