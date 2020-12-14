@@ -1,6 +1,0 @@
-c:\users\admin\documents\visual studio 2015\Projects\03_Array_and_String\03_Array_and_String\bin\Debug\03_Array_and_String.exe.config
-c:\users\admin\documents\visual studio 2015\Projects\03_Array_and_String\03_Array_and_String\bin\Debug\03_Array_and_String.exe
-c:\users\admin\documents\visual studio 2015\Projects\03_Array_and_String\03_Array_and_String\bin\Debug\03_Array_and_String.pdb
-c:\users\admin\documents\visual studio 2015\Projects\03_Array_and_String\03_Array_and_String\obj\Debug\03_Array_and_String.exe
-c:\users\admin\documents\visual studio 2015\Projects\03_Array_and_String\03_Array_and_String\obj\Debug\03_Array_and_String.pdb
-c:\users\admin\documents\visual studio 2015\Projects\03_Array_and_String\03_Array_and_String\obj\Debug\03_Array_and_String.csprojResolveAssemblyReference.cache
