@@ -120,9 +120,9 @@ Template/assets/vendor/bootstrap/css 내의 bootstrap.min.css 혹은 bootstrap.c
 	<div class="col-md-4">col3</div>	//행의 4/12 길이의 열
 </div>
 ```
-ㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡ
-| col1 || col2 || col3 |
-ㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡ
+ㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡ     
+| col1 || col2 || col3 |     
+ㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡ     
 <div class="col-md-4">의 의미
 - col : 수평 영역(행)에 하나의 수직 영역(열)을 추가
 - md : 해상도 유형 중 데스크톱 해상도 일때의 컬럼 분할 비율을 정의하겠다.
