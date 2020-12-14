@@ -114,7 +114,7 @@
 - 클래스, 상속, 인터페이스, 추상 클래스, 컬렉션, 예외 처리
 - Delegate(Action, Func, Predicate), 무명 메서드, 람다식, 비동기 처리, Linq
 ## 6-2 ASP.NET
-## [Repository 바로가기](https://github.com/Jaehwi-So/ASP.NET%20%26%20Bootstrap)   
+## [Repository 바로가기](https://github.com/Jaehwi-So/WEB_STUDY_FullStack/tree/master/ASP.NET%20%26%20Bootstrap)   
 - C# 기반 웹 프레임워크인 ASP.NET를 통한 웹 어플리케이션 서버 구축
 - IIS를 통한 서버 구축과 배포 원리
 
