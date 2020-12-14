@@ -1,0 +1,121 @@
+﻿
+@{
+    ViewBag.Title = "Feedback";
+    Layout = "~/Views/Shared/_HomePageLayoutPage.cshtml";
+}
+
+<div id="feedback" class="inner-content">
+    <section id="page-title" class="inner-section">
+        <div class="container-fluid nopadding wow fadeInRight" data-wow-delay="0.4s" data-wow-offset="10">
+            <h2 class="font-accident-two-normal uppercase">Feedback</h2>
+            <h5 class="font-accident-one-bold hovercolor uppercase">Hard-working person on the way to the success...</h5>
+            <p class="small fontcolor-medium">
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam id metus purus. Ut vulputate, est vel tincidunt mattis, orci neque iaculis lectus, et interdum quam felis vel tortor. Fusce ultrices dui quis nunc dignissim faucibus. Ut ac odio quis nibh viverra fringilla ac id nisi. Suspendisse tincidunt augue quis ligula cursus, non efficitur ligula faucibus. Mauris id neque maximus, tincidunt metus et, sodales nulla.
+            </p>
+        </div>
+    </section>
+    <!-- Feedback Block -->
+    <section class="inner-section feedback feedback-light">
+        <div class="container-fluid nopadding">
+            <div class="row">
+                <div class="col-md-2">&nbsp;</div>
+                <div class="col-md-8 e-centered wow fadeInDown" data-wow-delay="0.6s" data-wow-offset="10">
+                    <div class="dividewhite2"></div>
+                    <div id="form-messages"></div>
+                    <!--<form id="ajax-contact" method="post" action="/ExamHome/Feedback" class="wpcf7-form">   -->
+                    <form method="post" action="/ExamHome/Feedback" class="wpcf7-form"> <!-- 해당 URL로 post 전송 -->
+                        <div class="field">
+                            <!--<label for="name">Name:</label>-->
+                            <input type="text" id="name" name="name" placeholder="Name" required>
+                        </div>
+                        <div class="field">
+                            <!--<label for="email">Email:</label>-->
+                            <input type="email" id="email" name="email" placeholder="Email" required>
+                        </div>
+                        <div class="field">
+                            <!--<label for="message">Message:</label>-->
+                            <textarea id="message" name="message" placeholder="Message" rows="7" cols="30" required></textarea>
+                        </div>
+                        <div class="dividewhite2"></div>
+                        <div class="field text-center">
+                            <button type="submit" class="btn btn-lg btn-lgr-str">Send Message</button>
+                        </div>
+                    </form>
+                </div>
+                <div class="col-md-2">&nbsp;</div>
+                <div class="col-md-12 divider-dynamic"></div>
+            </div>
+        </div>
+        <div class="dividewhite6"></div>
+    </section>
+    <!-- /Feedback Block -->
+    <!-- Testmonials Block -->
+    <section id="testmonials" class="inner-section color01">
+        <div class="container-fluid nopadding">
+            <div class="wow fadeInDown" data-wow-delay="0.4s" data-wow-offset="10">
+                <h3 class="font-accident-two-normal uppercase text-center">Testmonials</h3>
+                <h5 class="font-accident-one-bold uppercase hovercolor text-center">Working hard and making the success</h5>
+                <div class="dividewhite1"></div>
+                <p class="small fontcolor-medium text-center">
+                    Customize your website as you want using different colors and 100% free fonts. Build it from pieces and
+                    blocks as simple as Lego. <br>
+                    Electronic Website Template is fully responsive, looks and works perfect on any device.
+                </p>
+            </div>
+            <div class="dividewhite4"></div>
+            <div class="row">
+                <div class="col-md-4 wow fadeInLeft" data-wow-delay="0.5s" data-wow-offset="10">
+                    <div class="row">
+                        <div class="col-xs-3">
+                            <img src="assets/custom/images/userpic04.jpg" alt="Rachel James Johnes" class="img-responsive img-circle author-userpic">
+                        </div>
+                        <div class="col-xs-9">
+                            <h5 class="font-accident-one-bold text-left uppercase">Hans Zimmer</h5>
+                            <p class="small hovercolor">Apple Inc.</p>
+                            <p class="text-left small">
+                                With more devices come varying screen resolutions, definitions and orientations. New devices
+                                with new screen sizes are being developed every day, and each of these devices may be able...
+                            </p>
+                        </div>
+                    </div>
+                    <div class="divider-dynamic"></div>
+                </div>
+                <div class="col-md-4 wow fadeInUp" data-wow-delay="0.5s" data-wow-offset="10">
+                    <div class="row">
+                        <div class="col-xs-3">
+                            <img src="assets/custom/images/userpic02.jpg" alt="Rachel James Johnes" class="img-responsive img-circle author-userpic">
+                        </div>
+                        <div class="col-xs-9">
+                            <h5 class="font-accident-one-bold text-left uppercase">Mario Quinn</h5>
+                            <p class="small hovercolor">Adobe</p>
+                            <p class="text-left small">
+                                With more devices come varying screen resolutions, definitions and orientations. New devices
+                                with new screen sizes are being developed every day, and each of these devices
+                            </p>
+                        </div>
+                    </div>
+                    <div class="divider-dynamic"></div>
+                </div>
+                <div class="col-md-4 wow fadeInRight" data-wow-delay="0.5s" data-wow-offset="10">
+                    <div class="row">
+                        <div class="col-xs-3">
+                            <img src="assets/custom/images/userpic03.jpg" alt="Rachel James Johnes" class="img-responsive img-circle author-userpic">
+                        </div>
+                        <div class="col-xs-9">
+                            <h5 class="font-accident-one-bold text-left uppercase">Karl Romm</h5>
+                            <p class="small hovercolor">BMW</p>
+                            <p class="text-left small">
+                                With more devices come varying screen resolutions, definitions and orientations. New devices
+                                with new screen sizes are being developed every day, and each of these devices
+                            </p>
+                        </div>
+                    </div>
+                    <div class="divider-dynamic"></div>
+                </div>
+            </div>
+            <div class="dividewhite6"></div>
+        </div>
+    </section>
+    <!-- /Testmonials Block -->
+</div>
+

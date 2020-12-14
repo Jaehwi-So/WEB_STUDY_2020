@@ -1,0 +1,67 @@
+/*------------------------------------------------------------------
+[Color Scheme / Colors, textures]
+*/
+
+$skin: #fff;
+$color01: #f2f2f2;
+$color02: #dadada;
+$color03: #c1c1c1;
+$color04: #a7a7a7;
+$color05: #8e8e8e;
+$color06: #737373;
+$color07: #5d5d5d;
+$color08: #4a4a4a;
+$color09: #404040;
+$color10: #303030;
+
+$hovercolor: #e74c3c;
+$accentcolor: #007EA7;
+
+$red: #e74c3c;
+$orange: #e67e22;
+$green: #1abc9c;
+$blue: #3498db;
+$darkblue: #1c4a6c;
+$cyan: #9b59b6;
+$yellow: #d9a81d;
+$l-grey: #f2f2f2;
+$grey: #999;
+
+$bg-texture-01: url('../images/backgrounds/dark_fish_skin.png');
+
+.e-bg-light-texture {background: $bg-texture-01;}
+
+//Background Color Classes
+.color01 {background-color: $color01 !important;}
+.color02 {background-color: $color02 !important;}
+.color03 {background-color: $color03 !important;}
+.color04 {background-color: $color04 !important;}
+.color05 {background-color: $color05 !important;}
+.color06 {background-color: $color06 !important;}
+.color07 {background-color: $color07 !important;}
+.color08 {background-color: $color08 !important;}
+.color09 {background-color: $color09 !important;}
+.color10 {background-color: $color10 !important;}
+
+.red {background-color: $red !important;}
+.orange {background-color: $orange !important;}
+.green {background-color: $green !important;}
+.blue {background-color: $blue !important;}
+.darkblue {background-color: $darkblue !important;}
+.cyan {background-color: $cyan !important;}
+.yellow {background-color: $yellow !important;}
+.l-grey {background-color: $l-grey !important;}
+.grey {background-color: $grey !important;}
+.skin {background-color: $skin !important;}
+
+//Font/link Colors
+.fontcolor-regular, .fontcolor-regular a {color: $color10 !important;;}
+.fontcolor-invert, .fontcolor-invert a {color: $color01 !important;}
+.fontcolor-medium, .fontcolor-medium a {color: $color06 !important;}
+.fontcolor-medium-light, .fontcolor-medium-light a {color: $color05 !important;}
+.hovercolor, .hovercolor a {color: $hovercolor !important;}
+.accent-color, .accent-color a {color: $accentcolor !important;}
+.accent-color a:hover {color: $hovercolor !important;}
+
+
+
