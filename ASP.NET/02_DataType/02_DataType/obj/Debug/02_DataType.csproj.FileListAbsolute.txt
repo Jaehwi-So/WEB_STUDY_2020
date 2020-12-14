@@ -1,0 +1,6 @@
+c:\users\admin\documents\visual studio 2015\Projects\02_DataType\02_DataType\bin\Debug\02_DataType.exe.config
+c:\users\admin\documents\visual studio 2015\Projects\02_DataType\02_DataType\bin\Debug\02_DataType.exe
+c:\users\admin\documents\visual studio 2015\Projects\02_DataType\02_DataType\bin\Debug\02_DataType.pdb
+c:\users\admin\documents\visual studio 2015\Projects\02_DataType\02_DataType\obj\Debug\02_DataType.csprojResolveAssemblyReference.cache
+c:\users\admin\documents\visual studio 2015\Projects\02_DataType\02_DataType\obj\Debug\02_DataType.exe
+c:\users\admin\documents\visual studio 2015\Projects\02_DataType\02_DataType\obj\Debug\02_DataType.pdb
