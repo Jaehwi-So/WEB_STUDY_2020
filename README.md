@@ -8,8 +8,10 @@
     - 1-2. [JavaScript](#1-2-javascript)
 2. [DBMS](#2-dbms)
     - 2-1. [Oracle Database](#2-1-oracle-database)
-    - 2-2. [MySQL(+MariaDB)](#2-2-mysqlmariadb)
-    - 2-3. [MongoDB](#2-3-mongodb)
+    - 2-2. [MySQL](#2-2-mysql)
+    - 2-3. [MS-SQL](#2-3-ms-sql)
+    - 2-4. [MariaDB](#2-4-maroadb)
+    - 2-5. [MongoDB](#2-5-mongodb)
 3. [Front-end](#3-front-end)
     - 3-1. [Bootstrap](#3-1-bootstrap)
     - 3-2. [Typescript](#3-2-typescript)
@@ -55,12 +57,18 @@
 - 데이터베이스의 정의와 관계형 데이터베이스의 사용법
 - RDBMS에 해당하는 Oracls DB의 사용법
 - 데이터베이스 프로그래밍을 위한 SQL Query를 정리하고 실습한 Repository
-## 2-2. MySQL(+MariaDB)
+## 2-2. MySQL
 ## [Repository 바로가기](https://github.com/Jaehwi-So/WEB_STUDY_FullStack/tree/master/DBMS_MySQL)   
 - 데이터베이스의 정의와 관계형 데이터베이스의 사용법
 - RDBMS에 해당하는 MySQL의 사용법
 - SQL Query 정리 및 실습
-## 2-3. MongoDB
+## 2-3. MS-SQL
+## [Repository 바로가기](https://github.com/Jaehwi-So/WEB_STUDY_FullStack/tree/master/DBMS_MS_SQL)   
+- Microsoft SQL Server Database : 관계형 데이터베이스의 사용법
+- 환경 설정 및 기본 쿼리문 수행 방법
+## 2-4. MariaDB
+- Maria DB의 기본 환경 설정 및 쿼리 수행
+## 2-5. MongoDB
 ## [Repository 바로가기](https://github.com/Jaehwi-So/WEB_STUDY_FullStack/tree/master/DBMS_MongoDB)   
 - NoSQL 데이터베이스의 정의
 - NoSQL에 해당하는 MongoDB의 사용법
