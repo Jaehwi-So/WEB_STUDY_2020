@@ -12,6 +12,7 @@
     - 2-3. [MongoDB](#2-3-mongodb)
 3. [Front-end](#3-front-end)
     - 3-1. [Bootstrap](#3-1-bootstrap)
+    - 3-2. [Typescript](#3-2-typescript)
 4. [Java Back-end](#4-java-back-end)
     - 4-1. [Java](#4-1-java)
     - 4-2. [JSP](#4-2-jsp)
@@ -73,6 +74,8 @@
 - Bootstrap Template 이용
 - Grid를 통한 레이아웃
 - 테마와 반응형 웹
+## 3-2. Typescript
+- TSOA 기반 애플리케이션을 만들기 위한 타입스크립트.
 
 ---------------
 ----------------------------- 
