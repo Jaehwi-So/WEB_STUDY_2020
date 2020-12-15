@@ -7,7 +7,7 @@
 ## App_Data
 - 파일 형태의 데이터 파일이 존재하는 폴더
 - SQL Server Express, Access, SQList File DB. 
-- 분산 DB가 아닌 로컬 DB 파일이다.
+- 분산 DB가 아닌 로컬 DB 파일이다
 
 ## App_Start
 - WAS가 실행되는 시점에서 코드를 통해 애플리케이션의 환경설정을 하는 디렉터리
