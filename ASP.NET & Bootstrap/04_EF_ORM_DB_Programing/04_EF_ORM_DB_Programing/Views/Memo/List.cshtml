@@ -1,0 +1,41 @@
+﻿@using _04_EF_ORM_DB_Programing.Models;
+@model IEnumerable<Memos>
+
+
+@{
+    ViewBag.Title = "Entry";
+    Layout = "~/Views/Shared/_PageLayout.cshtml";
+}
+
+<p>컨텐츠 페이지</p>
+
+<table border="1">
+    <tr>
+        <th width="50">번호</th>
+        <th width="150">이름</th>
+        <th width="600">내용</th>
+        <th width="100">비고</th>
+    </tr>
+    @{ 
+        int idx = 1;
+    }
+    @foreach(var memo in Model)
+    {
+        <tr>
+            <td>@idx</td>
+            <td>@memo.Name</td>
+            <td>@memo.MemoContent</td>
+            <td>
+                <button onclick="location.href='/Memo/Edit?idx=@memo.MemoIDX'" >수정</button>
+                <button onclick="location.href='/Memo/Delete?idx=@memo.MemoIDX'" >삭제</button>
+            </td>
+        </tr>
+        idx++;
+    }
+</table>
+<a href="/Memo/Entry">Register</a>
+<p>@ViewData["mykey"]</p>
+<p>@ViewBag.Message</p>
+
+
+

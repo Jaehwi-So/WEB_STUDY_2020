@@ -1,0 +1,28 @@
+﻿@using _04_EF_ORM_DB_Programing.Models;
+@model Memos
+@{
+    ViewBag.Title = "Entry";
+    Layout = "~/Views/Shared/_PageLayout.cshtml";
+}
+
+<p>입력</p>
+<form method="post" action="@Url.Action("Entry", "Memo")">
+    이름 입력 : @Html.TextBoxFor(m => m.Name, new { placeholder = "이름을 입력하세요" })
+    내용 입력 : @Html.TextBoxFor(m => m.MemoContent, new { placeholder = "내용을 입력하세요" })
+    <button type="submit">전송</button>
+</form>
+
+
+@section scripts {
+    <script>
+        var result = '@ViewBag.Result';
+        if (result == 'OK') {
+            alert("정상적으로 등록되었습니다.");
+            location.href = "/memo/list";
+        }
+        else if (result == 'FAIL') {
+            alert("등록을 실패하였습니다.");
+            location.href = "/memo/list";
+        }
+    </script>
+}

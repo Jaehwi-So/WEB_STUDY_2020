@@ -1,0 +1,20 @@
+﻿<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>@ViewBag.Title</title>
+</head>
+<body>
+    <header>
+        <h1>CRUD 메모장</h1>
+    </header>
+    <div>
+        @RenderBody()
+    </div>
+    <footer>
+        <p>ASP.NET 연습</p>
+    </footer>
+</body>
+@RenderSection("scripts", required: false)
+</html>
