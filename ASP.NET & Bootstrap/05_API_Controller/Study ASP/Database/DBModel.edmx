@@ -1,0 +1,103 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="MSIntranetModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="MS_User">
+          <Key>
+            <PropertyRef Name="USR_Index" />
+          </Key>
+          <Property Name="USR_Index" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="POS_Index" Type="int" Nullable="false" />
+          <Property Name="LEV_Index" Type="int" Nullable="false" />
+          <Property Name="USR_Code" Type="nvarchar" MaxLength="20" />
+          <Property Name="USR_Name" Type="nvarchar" MaxLength="20" Nullable="false" />
+          <Property Name="USR_Email" Type="nvarchar" MaxLength="255" Nullable="false" />
+          <Property Name="USR_Password" Type="nvarchar" MaxLength="200" Nullable="false" />
+          <Property Name="USR_IsAdmin" Type="int" Nullable="false" />
+          <Property Name="USR_IsDeveloper" Type="int" Nullable="false" />
+          <Property Name="USR_IsChief" Type="int" Nullable="false" />
+          <Property Name="USR_IsTeamAdmin" Type="int" Nullable="false" />
+          <Property Name="USR_IsMilitary" Type="int" Nullable="false" />
+          <Property Name="USR_birthdayMonth" Type="int" />
+        </EntityType>
+        <EntityContainer Name="MSIntranetModelStoreContainer">
+          <EntitySet Name="MS_User" EntityType="Self.MS_User" Schema="dbo" store:Type="Tables" />
+        </EntityContainer>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="MSIntranetModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="MS_User">
+          <Key>
+            <PropertyRef Name="USR_Index" />
+          </Key>
+          <Property Name="USR_Index" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="POS_Index" Type="Int32" Nullable="false" />
+          <Property Name="LEV_Index" Type="Int32" Nullable="false" />
+          <Property Name="USR_Code" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+          <Property Name="USR_Name" Type="String" MaxLength="20" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="USR_Email" Type="String" MaxLength="255" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="USR_Password" Type="String" MaxLength="200" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="USR_IsAdmin" Type="Int32" Nullable="false" />
+          <Property Name="USR_IsDeveloper" Type="Int32" Nullable="false" />
+          <Property Name="USR_IsChief" Type="Int32" Nullable="false" />
+          <Property Name="USR_IsTeamAdmin" Type="Int32" Nullable="false" />
+          <Property Name="USR_IsMilitary" Type="Int32" Nullable="false" />
+          <Property Name="USR_birthdayMonth" Type="Int32" />
+        </EntityType>
+        <EntityContainer Name="MSIntranetEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="MS_User" EntityType="Self.MS_User" />
+        </EntityContainer>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="MSIntranetModelStoreContainer" CdmEntityContainer="MSIntranetEntities">
+          <EntitySetMapping Name="MS_User">
+            <EntityTypeMapping TypeName="MSIntranetModel.MS_User">
+              <MappingFragment StoreEntitySet="MS_User">
+                <ScalarProperty Name="USR_Index" ColumnName="USR_Index" />
+                <ScalarProperty Name="POS_Index" ColumnName="POS_Index" />
+                <ScalarProperty Name="LEV_Index" ColumnName="LEV_Index" />
+                <ScalarProperty Name="USR_Code" ColumnName="USR_Code" />
+                <ScalarProperty Name="USR_Name" ColumnName="USR_Name" />
+                <ScalarProperty Name="USR_Email" ColumnName="USR_Email" />
+                <ScalarProperty Name="USR_Password" ColumnName="USR_Password" />
+                <ScalarProperty Name="USR_IsAdmin" ColumnName="USR_IsAdmin" />
+                <ScalarProperty Name="USR_IsDeveloper" ColumnName="USR_IsDeveloper" />
+                <ScalarProperty Name="USR_IsChief" ColumnName="USR_IsChief" />
+                <ScalarProperty Name="USR_IsTeamAdmin" ColumnName="USR_IsTeamAdmin" />
+                <ScalarProperty Name="USR_IsMilitary" ColumnName="USR_IsMilitary" />
+                <ScalarProperty Name="USR_birthdayMonth" ColumnName="USR_birthdayMonth" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="false" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="없음" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>
