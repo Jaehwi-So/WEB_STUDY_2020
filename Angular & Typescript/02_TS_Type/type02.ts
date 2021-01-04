@@ -50,10 +50,42 @@ func4(10);
 func4("20");
 
 /* Generic type */
+// Generic + Type Alies
 type FuncParam<T> = string | T;
 const func5 = (param : FuncParam<boolean>) : void => {
     console.log(typeof param);
 }
 func5(true);
 func5("hello");
+
+//Generic 함수
+const func6 = <T>(param : T) : void => {
+    console.log(typeof param);
+}
+func6(true);
+func6("hello");
+
+class Person{
+    name : string;
+}
+
+// Generic class
+class Korean<T> extends Person{
+    private _data : T
+    constructor(data : T){
+        super();
+        this._data = data;
+    }
+    get data(){
+        return this._data;
+    }
+}
+console.log(new Korean<boolean>(true));
+
+//제네릭 타입 제약
+function func7<T extends Person>(param : T){
+    console.log(typeof param);
+}
+func7(new Korean<string>("person"));
+
 //func5(10);
