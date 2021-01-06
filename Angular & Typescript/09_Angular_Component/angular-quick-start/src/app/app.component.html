@@ -1,0 +1,21 @@
+<!-- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * -->
+<!-- * * * * * * * * * * * The content below * * * * * * * * * * * -->
+<!-- * * * * * * * * * * is only a placeholder * * * * * * * * * * -->
+<!-- * * * * * * * * * * and can be replaced. * * * * * * * * * * * -->
+<!-- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * -->
+<!-- * * * * * * * * * Delete the template below * * * * * * * * * * -->
+<!-- * * * * * * * to get started with your project! * * * * * * * * -->
+<!-- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * -->
+<h1>{{ title }}</h1>
+<p>app.component는 sample.component의 상위 컴포넌트</p>
+<h2>컴포넌트의 @Input인 test에 데이터를 바인딩시켜 주입시킨다.</h2>
+<app-sample test="hello"></app-sample>  
+<app-sample [test]="'hello' + ' world'"></app-sample> 
+<h2>컴포넌트의 @Input인 test에 변수를 바인딩시켜 주입시킨다.</h2>
+<app-sample [test]="title"></app-sample> 
+<app-sample [test]="'hello ' + title"></app-sample> 
+<h2>배열의 데이터 길이만큼 커스텀 태그를 생성하여 데이터 변수를 주입시킨다.</h2>
+<app-sample *ngFor="let name of names" [test] = "name"></app-sample>
+<h2>자식 컴포넌트에서 ()의 데이터를 받아 자식의 이벤트 발생 시 custom()을 실행시킨다.</h2>
+<app-sample2 (custom)="custom()"></app-sample2>
+<p>content</p>
