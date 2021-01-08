@@ -86,8 +86,7 @@
 ## 3-2. Typescript
 - 앵귤러와 TSOA 기반 애플리케이션을 만들기 위한 타입스크립트.
 ## 3-3. Angular
-## [Repository 바로가기](https://github.com/Jaehwi-So/WEB_STUDY_FullStack/tree/master/ASP.NET_With_Cs)   
-https://github.com/Jaehwi-So/WEB_STUDY_FullStack/tree/master/Angular%20%26%20Typescript
+## [Repository 바로가기](https://github.com/Jaehwi-So/WEB_STUDY_FullStack/tree/master/Angular%20%26%20Typescript)   
 ---------------
 ----------------------------- 
 # 4. JAVA Back-end
