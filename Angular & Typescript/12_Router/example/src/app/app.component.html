@@ -1,0 +1,16 @@
+<h1>app.component start</h1>
+
+<nav>
+  <!--<a href="/"></a> -->
+  <a routerLink="/" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}">Home</a><br>
+  <a routerLink="/about" routerLinkActive="active">About</a><br>
+  <a routerLink="/developer" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}">Developer</a><br>
+  <a routerLink="/developer/mark" routerLinkActive="active">Developer : Mark</a><br>
+  <a routerLink="/developer/kevin" routerLinkActive="active">Developer : Kevin</a><br>
+  <!-- 경로를 재설정하는것과 라우터를 타고 들어가는 것은 성능에서 차이가 있다. 라우터가 더조음-->
+  <!-- routerLink를 통해 라우터를 설정하고 routerLinkActive를 통해 해당 라우팅 요청 페이지일 경우의 클래스 지정, 
+    [routerLinkActiveOptions]="{exac:true}"는 정확히 해당 경로일 경우에만 active 활성화 여부이다.(false일 시 /about 에서도 작동한다.)-->
+</nav>
+<router-outlet></router-outlet>
+
+<h1>app.component end</h1>
