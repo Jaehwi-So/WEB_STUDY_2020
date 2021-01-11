@@ -15,7 +15,7 @@
 3. [Front-end](#3-front-end)
     - 3-1. [Bootstrap](#3-1-bootstrap)
     - 3-2. [Typescript](#3-2-typescript)
-    - 3-3. [Angular](#3-2-typescript)
+    - 3-3. [Angular](#3-3-angular)
 4. [Java Back-end](#4-java-back-end)
     - 4-1. [Java](#4-1-java)
     - 4-2. [JSP](#4-2-jsp)
@@ -84,8 +84,9 @@
 - Grid를 통한 레이아웃
 - 테마와 반응형 웹
 ## 3-2. Typescript
-- TSOA 기반 애플리케이션을 만들기 위한 타입스크립트.
-
+- 앵귤러와 TSOA 기반 애플리케이션을 만들기 위한 타입스크립트.
+## 3-3. Angular
+## [Repository 바로가기](https://github.com/Jaehwi-So/WEB_STUDY_FullStack/tree/master/Angular%20%26%20Typescript)   
 ---------------
 ----------------------------- 
 # 4. JAVA Back-end
