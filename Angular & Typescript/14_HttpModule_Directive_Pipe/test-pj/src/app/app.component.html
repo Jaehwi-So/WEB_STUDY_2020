@@ -1,0 +1,17 @@
+<h2 *ngIf="isVisible">디렉티브 사용</h2>
+<button (click)="toggle()">Toggle</button>
+
+<h2>파이프 사용</h2>
+<p>{{ {'name' : 'mark'} }}</p>  <!-- Object -->
+<p>{{ {'name' : 'mark'} | json }}</p> <!-- {'name' : 'mark'} -->
+<p>{{ 'helloworld' | slice:0:4 }}</p> <!-- hell -->
+<p>{{ ['mark', 'anna'] | slice:0:1 }}</p> <!-- mark -->
+<p>{{ 'Mark' | lowercase }}</p> <!-- mark -->
+<p>{{ 'Mark' | lowercase | uppercase }}</p> <!-- MARK -->
+<p>{{ 1610386789012 | date: 'yyyy-MM-dd' }}</p>
+
+<h2>HttpClient 사용</h2>
+<div *ngFor="let user of users">
+  <h2>{{user.login}}</h2>
+  <img [src]="user.avatar_url" width="200">
+</div>
