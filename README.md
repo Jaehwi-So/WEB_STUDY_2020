@@ -79,7 +79,7 @@
 ----------------------------- 
 # 3. Front-end
 ## 3-1. Bootstrap
-## [Repository 바로가기](https://github.com/Jaehwi-So/WEB_STUDY_FullStack/tree/master/ASP.NET_With_Cs)   
+## [예제1](https://github.com/Jaehwi-So/WEB_STUDY_FullStack/tree/master/ASP.NET%20%26%20Bootstrap/02_View_And_Binding_with_Bootstrap) [예제2](https://github.com/Jaehwi-So/WEB_STUDY_FullStack/tree/master/Angular%20%26%20Typescript/15_Bootstrap)   
 - Bootstrap Template 이용
 - Grid를 통한 레이아웃
 - 테마와 반응형 웹
