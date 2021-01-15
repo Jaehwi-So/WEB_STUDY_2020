@@ -4,13 +4,19 @@ import { NgModule } from '@angular/core';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { HttpClientModule } from '@angular/common/http'
-import { ApiService } from './api.service';
+import { ApiService } from './services/api.service'; 
 import { UsersComponent } from './users/users.component';
+import { FooterComponent } from './footer/footer.component';
+import { MainComponent } from './main/main.component';
+import { HeaderComponent } from './header/header.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    UsersComponent
+    UsersComponent,
+    FooterComponent,
+    MainComponent,
+    HeaderComponent
   ],
   imports: [
     BrowserModule,

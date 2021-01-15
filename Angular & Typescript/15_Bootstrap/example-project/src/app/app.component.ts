@@ -1,6 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Component, Inject } from '@angular/core';
-import { ApiService } from './api.service';
+import { ApiService } from './services/api.service';
 
 @Component({
   selector: 'app-root',
